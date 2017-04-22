@@ -1,0 +1,17 @@
+/* pages/require-icon-state/require-icon-state.wxss */
+
+.icons{
+    width: 30px;
+    height: 30px;
+    padding-bottom: 20px;
+}
+.frame{
+    padding: 10px 10px;
+    position: relative;
+}
+.text{
+    position:absolute;
+    left:55px;
+    top:18px;
+    font-size: 13px;
+}

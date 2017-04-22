@@ -1,0 +1,178 @@
+/* pages/talentactivitys-edit/talentactivitys-edit.wxss */
+.main-img{
+    width: 50px;
+    max-height: 50px;
+}
+.main-img-frame{
+    position:relative;
+    width:100%;
+    height:240px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-img-label-frame{
+    width:100%;
+    position:absolute;
+    bottom:4px;    
+    background-color:rgba(0, 0, 0, 0.34);
+    left: 0;
+}
+.main-img-label{
+    padding:13px 8px;
+    color:#fff;
+
+}
+.container-frame{
+    padding-bottom: 70px;
+    position: relative;
+}
+.details-frame-details-1{
+    padding: 0px 10px;
+    border-bottom:1px solid #ccc;
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+}
+.details-frame-details-1-l1{
+    color:#ff6537;
+}
+.details-frame-details-1-l2{
+    font-size: 30px;
+}
+.details-frame-details-1-l3{
+    font-size: 15px;
+    color: #ccc;
+}
+.details-frame-details-1-l4{
+    color: #fff;
+    background-color: #ff6537;
+    padding: 5px 15px;
+    float: right;
+    border-radius: 3px;
+    margin-top: 2px;
+}
+.flex-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.details-frame-details-1-l5{
+    color: #8959a8;
+    font-size: 13px;
+    flex-grow: 1;
+    width: 100%;
+    padding-top: 25px;
+    position: relative;
+}
+.details-frame-details-1-l6{
+    color: #718c00;
+    font-size: 13px;
+    flex-grow: 1;
+    width: 50%;
+    padding: 5px 0px;
+}
+.details-frame-smallicon{
+    width: 13px;
+    height: 13px;
+    padding-right: 8px;
+}
+
+
+/*---------------------基本信息样式-----------------------------*/
+.base-details-item{
+    padding: 15px 8px;
+    border-bottom: 1px solid #ccc;
+}
+.base-details-item-clear{
+    clear: both;
+}
+.base-details-item-label{
+    float: left;
+    width: 50%;
+}
+.base-details-item-input{
+    float:left;
+    width:100%;
+    text-align:right;
+}
+.base-details-item-input-frame{
+    float:left;
+    width:50%; 
+}
+.limit-details-frame{
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+}
+textarea{
+    overflow: hidden;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 5px;
+    padding: 5px 0px;
+    padding-left: 5px;
+}
+.mytimepicker{
+    text-align:right;
+    
+}
+.icon-checkedbox{
+    position:absolute;
+    right:5px;
+    width:20px;
+    height:20px;
+    top:19px;
+}
+
+.textarea-enabled{
+    display: block;
+}
+.textareashowtrue{
+    display: block;
+}
+.textareashowfalse{
+    display: none;
+}
+
+.footer{
+    position:absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+}
+.footer label{
+    flex-grow: 1;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    background: #ff6537;
+}
+.preview{
+    background-color: #8959a8!important;
+}
+.swiper-label{
+    margin:10px 0px;    
+}
+.padding-b{
+    padding-bottom: 15px;
+}
+.details-frame-details-6{
+    padding: 0 10px;
+    position: relative;
+}
+.details-frame-details-6-right{
+    position: absolute;
+    right: 10px;
+    color:#ff6537;
+}
+.details-frame-details-1-l5-addr{
+    padding: 5px 0px;
+    color:#ff6537;
+}
+.main-img-frame-bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top: 0;
+}

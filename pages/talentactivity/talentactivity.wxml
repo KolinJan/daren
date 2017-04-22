@@ -1,0 +1,71 @@
+<view class="container-frame">
+    <view class="main-img-frame">
+        <image class="main-img" src="http://img1.imgtn.bdimg.com/it/u=49485849,1406147812&fm=23&gp=0.jpg"></image>
+        <view class="main-img-label-frame">
+           <view class="main-img-label">幸福西饼-新季一磅黑森林蛋糕(布心店)</view>     
+        </view>
+    </view>
+    <view class="details-frame">
+         <view class="details-frame-details-1">
+            <label class="details-frame-details-1-l1">￥
+                <label class="details-frame-details-1-l2">免费 </label>
+            </label>
+            <label class="details-frame-details-1-l3"> 门市价:￥90</label>
+            <label class="details-frame-details-1-l4" bindtap="ntQualificationAquired">领取</label>
+         </view>      
+         <view class="details-frame-details-1 flex-row">
+            <label class="details-frame-details-1-l6">截止时间 : 4月15日</label>
+            <label class="details-frame-details-1-l6">名额 : 5/12</label>
+            <label class="details-frame-details-1-l6">达人等级 : 15↑</label>
+            <label class="details-frame-details-1-l6">评分 : 80↑</label>
+         </view>
+         <view class="details-frame-details-1 flex-row" bindtap="ntRequireIconState">
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/九图.png"></image>
+                    <label>九图</label>                
+                </view>
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/二维码.png"></image>
+                    <label>二维码</label>                
+                </view>     
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/位置.png"></image>
+                    <label>位置</label>                
+                </view>
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/其他.png"></image>
+                    <label>其他</label>                
+                </view>  
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/群发.png"></image>
+                    <label>群发</label>                
+                </view>
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/朋友圈.png"></image>
+                    <label>指定内容</label>                
+                </view>                                                              
+         </view>
+         <view>
+            <view class="shouldKnow-frame">
+                <view class="shouldKnow-frame-title">不可用日期</view>
+                <view class="shouldKnow-frame-itemContent">周末以及法定节假日</view>
+            </view>
+            <view class="shouldKnow-frame">
+                <view class="shouldKnow-frame-title">使用时间</view>
+                <view class="shouldKnow-frame-itemContent">6：30~23：00</view>
+            </view>
+            <view class="shouldKnow-frame">
+                <view class="shouldKnow-frame-title">使用规则</view>
+                <view class="shouldKnow-frame-itemContent">1.需提前预约</view>
+                <view class="shouldKnow-frame-itemContent">2.朋友圈转发时需按要求，内容不能出现广告等含义</view>
+            </view>                        
+            <!--<view>使用时间</view>
+            <view>使用规则</view>-->
+         </view>
+        <view class="adv-img-frame">
+            <image class="adv-img" src="http://img1.imgtn.bdimg.com/it/u=49485849,1406147812&fm=23&gp=0.jpg"></image>
+            <image class="adv-img" src="http://img1.imgtn.bdimg.com/it/u=49485849,1406147812&fm=23&gp=0.jpg"></image>
+            <image class="adv-img" src="http://img1.imgtn.bdimg.com/it/u=49485849,1406147812&fm=23&gp=0.jpg"></image>
+        </view>   
+    </view>
+</view>

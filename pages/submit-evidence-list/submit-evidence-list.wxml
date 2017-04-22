@@ -1,0 +1,28 @@
+<dl class="menu">
+    <dt data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
+    <dd class="{{subMenuDisplay[0]}}">
+        <ul>
+            <li class="" data-index="0" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
+        </ul>
+    </dd>       
+</dl>
+    <!---------------------------------------------未提交-------------------------------------------------->
+    <view class="list-frame">
+        <view class="list-frame-item" bindtap="lookForDetails">
+            <image class="list-adimage" src="http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg"></image>
+            <view class="list-frame-item-panel">
+                <label class="list-frame-label-alone list-frame-titleLable">四海一家(南山益田假日店)</label>
+                <label class="list-frame-label-alone list-frame-label-price">2.5折 50元 (市价200元)</label>
+                <label class="list-frame-detailsLable">等级:2↑     评分:85↑</label>
+                <label class="list-frame-label-alone list-frame-statusLable">名额 10/15</label>
+            </view>
+            <view class="mark">
+                <label class="mark-l1" bindtap="ntSubEvidence">请上传截图</label>
+                <label class="mark-l2"></label>
+            </view>            
+            <view class="list-require-frame">
+                <label class="list-frame-requireLabel">商家要求：</label>
+                <label class="list-frame-requireLabel-details">九图 位置  其他</label>
+            </view>
+        </view>                    
+    </view>    

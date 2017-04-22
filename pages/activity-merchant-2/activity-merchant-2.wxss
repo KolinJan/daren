@@ -1,0 +1,41 @@
+/* pages/activity-merchant-2/activity-merchant-2.wxss */
+/*--------------------------------------------footer样式开始-----------------------------------------*/
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    background: #f1f1f1;
+    border-top: 1px solid #CECECE;
+}
+.footer label{
+    font-size: 13px;
+}
+/*.footer view{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 0px;
+}*/
+.footer-btn1{
+    color: #fff;
+}
+.tabIcon{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+.tab-item-frame{
+    /*flex-grow: 1;*/
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tabActLabel{
+    color: #f5871f;
+}
+.tabDullLabel{
+    color: #666;
+}

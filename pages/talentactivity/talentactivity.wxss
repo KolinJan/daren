@@ -1,0 +1,88 @@
+/* pages/talentactivitys.wxss */
+
+.main-img{
+    width: 100%;
+    max-height: 240px;
+}
+.main-img-frame{
+    position: relative;
+}
+.main-img-label-frame{
+    width:100%;
+    position:absolute;
+    bottom:3px;    
+    background-color:rgba(0, 0, 0, 0.34);
+}
+.main-img-label{
+    padding:13px 8px;
+    color:#fff;
+
+}
+
+.details-frame-details-1{
+    padding: 8px;
+    border-bottom:1px solid lightgrey;
+}
+.details-frame-details-1-l1{
+    color:#ff6537;
+}
+.details-frame-details-1-l2{
+    font-size: 30px;
+}
+.details-frame-details-1-l3{
+    font-size: 15px;
+    color: lightgrey;
+}
+.details-frame-details-1-l4{
+    color: #fff;
+    background-color: #ff6537;
+    padding: 5px 15px;
+    float: right;
+    border-radius: 3px;
+    margin-top: 2px;
+}
+.flex-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.details-frame-details-1-l5{
+    color: #8959a8;
+    font-size: 13px;
+    flex-grow: 1;
+    width: 50%;
+    padding: 3px 0px;
+}
+.details-frame-details-1-l6{
+    color: #718c00;
+    font-size: 13px;
+    flex-grow: 1;
+    width: 50%;
+    padding: 5px 0px;
+}
+.details-frame-smallicon{
+    width: 13px;
+    height: 13px;
+    padding-right: 8px;
+}
+.shouldKnow-frame{
+    padding: 5px;
+}
+.shouldKnow-frame-title{
+    color: #ff6537;
+    font-size: 16px;
+}
+.shouldKnow-frame-itemContent{
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #666;
+}
+.adv-img-frame{
+    display: flex;
+    flex-direction: column;
+}
+.adv-img{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}

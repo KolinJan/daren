@@ -1,0 +1,16 @@
+/* pages/qualification-aquired/qualification-aquired.wxss */
+.frame{
+text-align: center;
+}
+
+.frame view{
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.congratulation{
+    color: #ff6753;
+}
+.ntCardBag{
+    background-color: #2ecc71;
+    color: #fff;
+}

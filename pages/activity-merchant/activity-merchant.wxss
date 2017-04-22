@@ -1,0 +1,105 @@
+/* pages/activity-merchant/activity-merchant.wxss */
+/*--------------------------------------------list列表样式-----------------------------------------*/
+.list-frame{
+    padding-top: 5px;
+}
+.list-frame label{
+    font-size: 12px;
+    padding: 2px 0;
+}
+.list-frame-titleLable{
+    font-size: 16px!important;
+    font-weight: bold;
+}
+.list-frame-detailsLable{
+    color: #718c00;
+}
+.list-frame-statusLable{
+    color: #8959a8;
+}
+.list-frame-item{
+    position: relative;
+    margin-bottom: 5px;
+}
+.list-adimage{
+    width:80px;
+    height:80px;
+    padding:8px 5px;
+
+}
+.list-frame-item-panel{
+    position:absolute;
+    left:95px;
+    top:0;
+    /*width:100%;
+    border-bottom:1px solid #ccc;*/
+    padding:5px 0;
+
+}
+.list-frame-label-alone{
+    display: block;
+}
+.list-frame-label-price{
+    color: #f5871f;
+}
+.list-frame-requireLabel{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    display:block;
+    width:80px;
+    text-align: right;
+}
+.list-frame-requireLabel-details{
+    position:absolute;
+    bottom:0px;
+    left:80px;
+    display:block;
+    margin-left: 10px;
+}
+.list-require-frame{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;    
+    height: 20px;
+    color: #ccc;
+}
+/*--------------------------------------------footer样式开始-----------------------------------------*/
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    background: #f1f1f1;
+    border-top: 1px solid #CECECE;
+}
+.footer label{
+    font-size: 13px;
+}
+/*.footer view{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 0px;
+}*/
+.footer-btn1{
+    color: #fff;
+}
+.tabIcon{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+.tab-item-frame{
+    /*flex-grow: 1;*/
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tabActLabel{
+    color: #f5871f;
+}
+.tabDullLabel{
+    color: #666;
+}

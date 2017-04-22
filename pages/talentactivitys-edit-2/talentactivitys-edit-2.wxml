@@ -1,0 +1,98 @@
+<!--pages/talentactivitys-edit-2/talentactivitys-edit-2.wxml-->
+<view class="container-frame">
+    <view class="main-img-frame">
+    <image class="main-img-frame-bg" src="{{imgUrl}}" bindtap="getImgFromPhone"></image>
+    <image class="main-img" src="../../imgs/添加.png" bindtap="getImgFromPhone"></image>
+    <view class="main-img-label-frame">
+        <view class="main-img-label">{{inputValue}}</view>     
+    </view>  
+    </view>
+
+    <view class="details-frame">
+        <view class="base-details-frame">
+            <view class="base-details-item">
+                <label  class="base-details-item-label">编辑标题</label>
+                <view class="base-details-item-input-frame"><input class="base-details-item-input" placeholder="*标题" bindinput="bindKeyInput"/></view>
+                <view class="base-details-item-clear"></view>
+            </view>
+            <view class="base-details-item">
+                <label  class="base-details-item-label">打赏积分</label>
+                <view class="base-details-item-input-frame"><input class="base-details-item-input" type="number" placeholder="*打赏积分"/></view>
+                <view class="base-details-item-clear"></view>
+            </view>                                    
+        </view>
+
+        <view class="limit-details-frame">
+            <view class="base-details-item">
+                <view class="section">
+                <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <label  class="base-details-item-label">截止时间</label>
+                    <view class="picker mytimepicker">
+                    {{date}}
+                    </view>
+                </picker>
+                </view>            
+            </view>
+            <view class="base-details-item">
+                <label  class="base-details-item-label">活动名额</label>
+                <view class="base-details-item-input-frame"><input class="base-details-item-input" type="number" placeholder="*活动名额"/></view>
+                <view class="base-details-item-clear"></view>
+            </view>
+            <view class="base-details-item">
+                <label  class="base-details-item-label swiper-label">达人最低等级</label>
+                <slider bindchange="slider3change" show-value  min="5" max="50"/>
+                <view class="base-details-item-clear"></view>
+            </view>
+            <view class="base-details-item">
+                <label  class="base-details-item-label swiper-label">达人最低评分</label>
+                <slider bindchange="slider3change" show-value  min="60" max="100"/>
+                <view class="base-details-item-clear"></view>
+            </view>                           
+        </view>
+
+
+         <view class="details-frame-details-1 flex-row">
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/九图.png"></image>
+                    <label>九图</label>
+                    <checkbox id="0" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                    <textarea class="textareashow{{checkBoxShow[0]}}" placeholder="要求九图发放"/>                
+                </view>
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/二维码.png"></image>
+                    <label>二维码</label>
+                    <checkbox id="1" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>                       
+                    <textarea class="textareashow{{checkBoxShow[1]}}" placeholder="九图中包含商家提供的二维码"/>                                    
+                </view>     
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/位置.png"></image>
+                    <label>位置</label>
+                    <checkbox id="2" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                    <textarea class="textareashow{{checkBoxShow[2]}}" placeholder="朋友圈下标中出现店铺定位位置"/>                  
+                </view>
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/其他.png"></image>
+                    <label>其他</label>
+                    <checkbox id="3" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                    <textarea class="textareashow{{checkBoxShow[3]}}" placeholder="特殊的要求"/>                    
+                </view>  
+                <view class="details-frame-details-1-l5">
+                    <image class="details-frame-smallicon" src="../../imgs/群发.png"></image>
+                    <label>群发</label>
+                    <checkbox id="4" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                    <textarea class="textareashow{{checkBoxShow[4]}}" placeholder="将图片发到至少一个群内"/>                  
+                </view>
+                <view class="details-frame-details-1-l5 padding-b">
+                    <image class="details-frame-smallicon" src="../../imgs/朋友圈.png"></image>
+                    <label>指定内容</label>
+                    <checkbox id="5" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                    <textarea class="textareashow{{checkBoxShow[5]}}" placeholder="若有指定的文字内容请在此处编辑"/>                  
+                </view>                                                              
+         </view>
+    </view>
+    <view class="footer">
+        <label class="preview">预览</label>
+        <label class="release">发布</label>
+    </view>
+</view>
+

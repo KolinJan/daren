@@ -1,0 +1,27 @@
+<!--pages/require-icon-state/require-icon-state.wxml-->
+<view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/九图.png"></image>
+        <view class="text">此次活动店家希望朋友圈满图发送哦</view>    
+    </view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/二维码.png"></image>
+        <view class="text">此次活动店家希望朋友圈出现商家二维码</view>    
+    </view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/位置.png"></image>
+        <view class="text">此次活动店家希望朋友圈出现店铺定位位置</view>    
+    </view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/朋友圈.png"></image>
+        <view class="text">此次活动店家希指定朋友圈内容</view>    
+    </view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/群发.png"></image>
+        <view class="text">此次活动店家希望晒图到群聊中</view>    
+    </view>
+    <view class="frame">
+        <image class="icons" src="../../imgs/其他.png"></image>
+        <view class="text">额外的需要，帮帮店家吧?</view>    
+    </view>              
+</view>

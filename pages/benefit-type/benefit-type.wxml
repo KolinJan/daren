@@ -1,0 +1,6 @@
+<!--pages/benefit-type/benefit-type.wxml-->
+<view class="frame">
+    <view class="my-label">请选择鼓励类型</view>
+    <view class="service" bindtap="ntService">优惠服务</view>
+    <view class="money" bindtap="ntBonus">佣金奖励</view>
+</view>

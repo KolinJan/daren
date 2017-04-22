@@ -1,0 +1,15 @@
+<!--pages/activity-merchant-2/activity-merchant-2.wxml-->
+    <view class="footer">
+        <view class="tab-item-frame" data-type="0" bindtap="ntotherPage">
+            <image class="tabIcon" src="../../imgs/我的活动dull.png"></image>
+            <label>我的活动</label>
+        </view>
+        <view class="tab-item-frame" data-type="1" bindtap="ntotherPage">
+            <image class="tabIcon" src="../../imgs/其他dull.png"></image>
+            <label class="">他人的活动</label>
+        </view>
+        <view class="tab-item-frame" data-type="2" bindtap="ntotherPage">
+            <image class="tabIcon" src="../../imgs/我的act.png"></image>
+            <label class="tabActLabel">我的</label>
+        </view>        
+    </view>    

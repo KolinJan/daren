@@ -1,0 +1,44 @@
+<!--pages/mechant-checking-talent/mechant-checking-talent.wxml-->
+<!--index.wxml-->
+<view class="">
+    <view  bindtap="bindViewTap" class="userinfo">
+        <image class="userinfo-avatar" src="../../imgs/mine-active.png" background-size="cover"></image>
+        <text class="userinfo-nickname">达人昵称</text>
+    </view>
+    <view class="mine-item-panel">
+        <view class="mine-item">
+            <view>
+                <image class="mine-icon" src="../../imgs/等级.png"></image>
+                <view class="mine-dicript-view">达人级别 2</view>
+             </view>
+        </view>
+        <view class="mine-item">
+            <view>
+                <image class="mine-icon" src="../../imgs/积分.png"></image>
+                <view class="mine-dicript-view">积分：30</view>
+             </view>        
+        </view>
+        <view class="mine-item">
+            <view>
+                <image class="mine-icon" src="../../imgs/评分.png"></image>
+                <view class="progress-title mine-dicript-view">分数:80</view>
+                <progress percent="80" color="#ff6537"/>
+             </view>          
+        </view>
+        <view class="mine-item" bindtap="ntAttended">
+            <view>
+                <image class="mine-icon" src="../../imgs/过去.png"></image>
+                <view class="mine-dicript-view">已参加的活动</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>                
+             </view> 
+        </view>
+        <view class="mine-item" bindtap="ntAttended">
+            <view>
+                <image class="mine-icon" src="../../imgs/内容.png"></image>
+                <view class="mine-dicript-view">收到的评价</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>                
+             </view> 
+        </view>        
+    </view>  
+</view>
+

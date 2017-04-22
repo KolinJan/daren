@@ -1,0 +1,22 @@
+/* pages/mine/mine.wxss */
+.register-frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: #F3F1F1;
+    margin-bottom:10px;
+}
+.register-frame-button{
+    color:#fff;
+    background-color:#FF6537;
+    padding:10px 15px;
+    border-radius:24px;
+    margin-top: 20px;
+}
+.tip-frame{
+    text-align: center;
+    margin-top: 50px;
+    color: #FF6537;
+}

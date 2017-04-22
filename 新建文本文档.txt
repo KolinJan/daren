@@ -1,0 +1,17 @@
+商家/达人的注册选择页面 "pages/register/register",
+商家/达人的首页"pages/home/home",
+商家专用首页(不一定需要，先留着)"pages/activity-merchant/activity-merchant",
+商家专用我的(不一定需要，先留着)"pages/activity-merchant-2/activity-merchant-2",
+商家专用其他人的页面(不一定需要，先留着)"pages/activity-merchant-1/activity-merchant-1",
+达人专用的我的"pages/mine/mine",
+商家注册页面(手机号和验证码注册)"pages/register-merchant/register-merchant",
+达人活动详情"pages/talentactivity/talentactivity",
+商家要求的小图图解"pages/require-icon-state/require-icon-state",
+达人未提交截图的活动列表"pages/submit-evidence-list/submit-evidence-list",
+达人上传截图的页面"pages/submit-evidence/submit-evidence",
+"pages/submit/submit",
+"pages/attended/attended",
+"pages/register2/register2",
+"pages/index/index",
+
+"pages/logs/logs"

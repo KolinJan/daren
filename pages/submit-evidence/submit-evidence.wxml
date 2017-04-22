@@ -1,0 +1,38 @@
+<view class="frame">
+    <view class="item-frame">
+        <view class="item">
+            <view class="list">
+                <view class="item-title">1.活动结束后，请于12小时内发送朋友圈，并上传截图: </view>    
+                <image class="add-icon-sample-small" data-params="0" src="{{sample[0]}}" bindtap="smallToBig"></image>
+            </view>
+            <view class="list">
+                <image class="add-icon" src="../../imgs/添加.png" bindtap="chooseimage" data-params="1"></image>
+            </view>
+            <view class="sample-frame">
+                <image class="add-icon-sample add-icon-sample-frame{{show1}}" src="{{tempFilePaths1}}"></image>
+            </view>  
+        </view>    
+    </view>
+
+    <view class="item-frame">
+        <view class="item">
+            <view class="list">
+                <view class="item-title">2.活动24小时后请上传第二次截图,例: </view>    
+                <image class="add-icon-sample-small" data-params="1" src="{{sample[1]}}" bindtap="smallToBig"></image>
+            </view>
+            <view class="list">
+                <image class="add-icon" src="../../imgs/添加.png" bindtap="chooseimage" data-params="2"></image>
+            </view>
+            <view class="sample-frame">
+                <image class="add-icon-sample add-icon-sample-frame{{show2}}" src="{{tempFilePaths2}}"></image>
+                <image class="add-icon-sample add-icon-sample-frame{{show3}}" src="{{tempFilePaths3}}"></image>
+            </view>            
+        </view>    
+    </view>
+    <view class="bottom" bindtap="jumpToHome">
+        <view class="submit">提 交</view>
+    </view>    
+</view>
+<view class="mask {{maskDisplay}}" bindtap="maskCancel">
+    <image class="add-icon-sample" src="{{maskSrc}}"></image>  
+</view>

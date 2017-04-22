@@ -1,0 +1,25 @@
+/* pages/benefit-type/benefit-type.wxss */
+
+.frame{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+.frame view{
+    display: inline-block;
+    color: #fff;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.service{
+    background-color: #ff6537;
+    margin: 35px 0px;
+}
+.money{
+    background-color: #FBD603;
+}
+.my-label{
+    color: #ff6537!important;
+}

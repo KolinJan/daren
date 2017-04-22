@@ -1,0 +1,5 @@
+<!--pages/qualification-aquired/qualification-aquired.wxml-->
+<view class="frame">
+    <view class="congratulation">恭喜你，领取成功</view>
+    <view class="ntCardBag" bindtap="ntCardBag">查看我的卡卷</view>
+</view>

@@ -1,0 +1,43 @@
+/* pages/cards-bag/cards-bag.wxss */
+.frame{
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.card-1{
+  background-color: #2ecc71;  
+}
+
+.use-now{
+    text-align: right;
+    padding: 5px;
+}
+.card-1 label{
+    padding: 5px;
+    background-color: #fff;
+    color: #2ecc71;
+    border-radius: 3px;
+}
+.card-2 label{
+    padding: 5px;
+    background-color: #fff;
+    color: #ff6753;
+    border-radius: 3px;
+}
+.card-2{
+    background-color: #ff6753;
+}
+.card{
+    width: 80%;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 5%;
+    margin-bottom: 10px;  
+}
+
+.card view{
+    color: #fff;
+    padding: 5px 0px;  
+}

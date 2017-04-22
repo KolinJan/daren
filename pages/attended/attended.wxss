@@ -1,0 +1,142 @@
+/*总菜单容器*/
+.menu {
+    display: block;
+    height: 38px;
+    position: relative;
+}
+
+/*一级菜单*/
+.menu dt {
+    font-size: 15px;
+    float: left;
+    /*hack*/
+    width: 100%;
+    height: 38px;
+    border-right: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #5a5a5a;
+    line-height: 38px;
+}
+
+/*二级菜单外部容器样式*/
+.menu dd{
+    position: absolute;
+    width: 100%;
+    /*hack*/
+    top:39px;
+    left:0;
+    z-index:999;
+}
+
+/*二级菜单普通样式*/
+.menu li{
+    font-size: 14px;
+    line-height: 34px;
+    color: #575757;
+    height: 34px;
+    display: block;
+    padding-left: 8px;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+/* 显示与隐藏 */
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+/*二级菜单高亮样式*/
+.menu li.highlight{
+    background-color: #f4f4f4;
+}
+
+
+/*--------------------------------------------list列表样式-----------------------------------------*/
+.list-frame{
+    padding-top: 5px;
+}
+.list-frame label{
+    font-size: 12px;
+    padding: 2px 0;
+}
+.list-frame-titleLable{
+    font-size: 16px!important;
+    font-weight: bold;
+}
+.list-frame-detailsLable{
+    color: #718c00;
+}
+.list-frame-statusLable{
+    color: #8959a8;
+}
+.list-frame-item{
+    position: relative;
+    margin-bottom: 5px;
+}
+.list-adimage{
+    width:80px;
+    height:80px;
+    padding:8px 5px;
+
+}
+.list-frame-item-panel{
+    position:absolute;
+    left:95px;
+    top:0;
+    /*width:100%;
+    border-bottom:1px solid #ccc;*/
+    padding:5px 0;
+
+}
+.list-frame-label-alone{
+    display: block;
+}
+.list-frame-label-price{
+    color: #f5871f;
+}
+.list-frame-requireLabel{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    display:block;
+    width:80px;
+    text-align: right;
+}
+.list-frame-requireLabel-details{
+    position:absolute;
+    bottom:0px;
+    left:80px;
+    display:block;
+    margin-left: 10px;
+}
+.list-require-frame{
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;    
+    height: 20px;
+    color: #ccc;
+}
+
+.mark{
+    position:absolute;
+    right:10px;
+    display:flex;
+    flex-direction:column;
+    top:45px;
+}
+.mark-l1{
+    padding: 5px 15px!important;
+    /*margin-bottom: 5px;*/
+    background: #f5871f;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+}
+.mark-l2{
+    color: #f5871f;
+    font-size: 25px!important;
+    text-align: center;
+}
