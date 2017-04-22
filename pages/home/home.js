@@ -21,28 +21,8 @@ Page({
     filtrateIndex:0    
   },
     onLoad:function(options){
-        console.log(111);
-    // qcloud.request({
-    //   url: 'http://wowyou.cc/api/user/login',
-    //   success: function(res){ console.log(222);
-    //     console.log(res);
-    //     // if(res.data && res.data.code && res.data.code == 0){
-    //     // }
-    //   },
-    //   error: function(error){console.log(333);
-    //     console.log(error);
-    //   }
-    // })
-    console.log(config)
-    qcloud.setLoginUrl(config.service.loginUrl);
-    qcloud.login({
-        success: function (userInfo) {
-            console.log('登录成功', userInfo);
-        },
-        fail: function (err) {
-            console.log('登录失败', err);
-        }
-    });
+        wxLoagin(qcloud);
+        getUserInfo(qcloud,"https://www.wowyou.cc/api/user/userinfo");
   },
 
 //----------------一级菜单事件-------------------//
@@ -123,4 +103,53 @@ function initImageTexts(){
     '4000元欧洲巴黎5日游',
     '2.5折四海一家开吃',
     '幸福西饼新季蛋糕免费送！',];
+}
+
+//  微信登录
+function wxLoagin(qCloud){
+    qcloud.setLoginUrl(config.service.loginUrl);
+    qcloud.login({
+        success: function (userInfo) {
+            console.log('登录成功', userInfo);
+        },
+        fail: function (err) {
+            console.log('登录失败', err);
+        }
+    });  
+}
+
+function getUserInfo(qcloud,url){
+    var obj={
+        url:url,
+    success(res) {
+        console.log(res)
+        console.log(res.data.data.is_vip)
+        if(res.data.code == 0){
+            wx.setStorage({
+              key: 'is_vip',
+              data: res.data.data.is_vip,
+              success: function(res){
+                console.log(res)
+              }
+            });
+            wx.getStorage({
+              key: 'is_vip',
+              success: function(res){
+                console.log(res);
+              },
+              fail: function() {
+                // fail
+              },
+              complete: function() {
+                // complete
+              }
+            })
+        }
+      },
+      error(res) {
+        console.log(JSON.stringify(res));
+        console.log('注册失败');
+      },
+    }
+    qcloud.request(obj);
 }

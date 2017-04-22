@@ -4,18 +4,40 @@
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
+    <view class="mine-item bonus">
+        <view>
+            <image class="mine-icon" src="../../imgs/积分.png"></image>
+            <view class="mine-dicript-view">积分：30</view>
+            </view>        
+    </view>
+    <view class="mine-item-panel">
+        <view class="mine-item">
+            <view>
+                <image class="mine-icon" src="../../imgs/等级.png"></image>
+                <view class="mine-dicript-view">商家等级 2</view>
+             </view>
+        </view>
+        <view class="mine-item" bindtap="ntMechantActList">
+            <view>
+                <image class="mine-icon" src="../../imgs/正在使用.png"></image>
+                <view class="mine-dicript-view">正在进行的活动</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>                
+             </view> 
+        </view>
+        <view class="mine-item">
+            <view bindtap="ntMechantEndList">
+                <image class="mine-icon" src="../../imgs/过去.png"></image>
+                <view class="mine-dicript-view">往期活动</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
+             </view> 
+        </view>
+    </view>
     <view class="mine-item-panel">
         <view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/等级.png"></image>
                 <view class="mine-dicript-view">达人级别 2</view>
              </view>
-        </view>
-        <view class="mine-item">
-            <view>
-                <image class="mine-icon" src="../../imgs/积分.png"></image>
-                <view class="mine-dicript-view">积分：30</view>
-             </view>        
         </view>
         <view class="mine-item">
             <view>
@@ -44,33 +66,5 @@
                 <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
              </view> 
         </view>
-    </view>
-    <view class="mine-item-panel">
-        <view class="mine-item">
-            <view>
-                <image class="mine-icon" src="../../imgs/等级.png"></image>
-                <view class="mine-dicript-view">商家等级 2</view>
-             </view>
-        </view>
-        <view class="mine-item">
-            <view>
-                <image class="mine-icon" src="../../imgs/积分.png"></image>
-                <view class="mine-dicript-view">积分：30</view>
-             </view>        
-        </view>
-        <view class="mine-item" bindtap="ntMechantActList">
-            <view>
-                <image class="mine-icon" src="../../imgs/正在使用.png"></image>
-                <view class="mine-dicript-view">正在进行的活动</view>
-                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>                
-             </view> 
-        </view>
-        <view class="mine-item">
-            <view bindtap="ntMechantEndList">
-                <image class="mine-icon" src="../../imgs/过去.png"></image>
-                <view class="mine-dicript-view">往期活动</view>
-                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
-             </view> 
-        </view>
-    </view>    
+    </view>        
 </view>

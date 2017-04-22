@@ -1,11 +1,13 @@
 {
   "pages":[
-    "pages/home/home",     
+    "pages/addr-add/addr-add",    
+    "pages/addr-list/addr-list",
+    "pages/home/home",        
+    "pages/register2/register2",        
     "pages/cards-bag/cards-bag",          
     "pages/qualification-aquired/qualification-aquired",    
     "pages/talentactivitys-edit-2/talentactivitys-edit-2",      
-    "pages/benefit-type/benefit-type",          
-    "pages/register2/register2",      
+    "pages/benefit-type/benefit-type",             
     "pages/register/register",           
     "pages/mechant-acting-details/mechant-acting-details",     
     "pages/mine/mine",            
@@ -42,7 +44,7 @@
       "iconPath":"imgs/discover.png",
       "text": "首页"
     }, {
-      "pagePath": "pages/register/register",
+      "pagePath": "pages/mine/mine",
       "selectedIconPath":"imgs/mine-active.png",
       "iconPath":"imgs/mine.png",
       "text": "我的"

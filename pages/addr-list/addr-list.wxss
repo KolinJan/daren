@@ -1,0 +1,56 @@
+/* pages/addr-add/addr-add.wxss */
+.icon-plus{
+    width: 18px;
+    height: 18px;
+}
+ .float-left{
+     float: left;
+ }
+  .float-right{
+     float: right;
+ }
+ .flex{
+     display: flex;
+ }
+ .flex-grow-1{
+     flex-grow: 1;
+ }
+ .text-align-right{
+     text-align:right;
+ }
+ .frame-item{
+     padding: 10px;
+ }
+ .border-bottom{
+     border-bottom:1px solid #f1f1f1;
+     padding-bottom: 10px;
+ }
+ .npaddingb{
+     padding-bottom: 0px;
+ }
+ .bg{
+     background-color: #ececec;
+ }
+ .item{
+     background-color: #fff;
+     margin-bottom:10px;
+    border-bottom: 1px solid #f1f1f1;
+ }
+ .margin-right{
+     margin-right: 20px;
+ }
+ .dark-font{
+     color: #3c3c3c;
+ }
+ .footer{
+     position: fixed;
+     bottom: 0px;
+     background-color: #ff6537;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+ }
+ .footer label{
+     color: #fff;
+     padding: 15px;
+ }

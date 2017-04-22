@@ -1,0 +1,65 @@
+/* pages/addr-add/addr-add.wxss */
+.frame-item{
+    border-bottom: 1px solid #f1f1f1;
+    overflow:hidden;zoom:1;
+}
+.frame-item view{
+    float: left
+}
+.frame-item-label{
+    width: 30%;
+    text-align: center;
+    padding: 10px 0px;
+}
+.frame-item-input-frame{
+    width: 70%;
+    padding: 10px 0px;
+}
+.clear-both{
+    clear: both;
+}
+ .footer{
+     position: fixed;
+     bottom: 0px;
+     background-color: #ff6537;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+ }
+ .footer label{
+     color: #fff;
+     padding: 15px;
+ }
+
+
+ /*····························三级联动························*/
+ .input {
+  width: 100%;
+}
+
+.input input {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0px;
+}
+
+.section {
+  /*padding-top: 20rpx;*/
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+}
+.relative-frame{
+    position: relative;
+}

@@ -49,7 +49,7 @@ Page({
     });
   },
   openMap:function(e){
-    openMap();
+    openMap(this);
   },
   getImgFromPhone:function(e){
     var that = this;
@@ -75,18 +75,21 @@ function getAddr(){
     ];
 }
 
-function openMap(){
-  wx.getLocation({
-    type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-    success: function(res) {
-      var latitude = res.latitude
-      var longitude = res.longitude
-      wx.openLocation({
-        address:'广东省深圳市罗湖区田贝三路粤大珠宝城4楼',
-        latitude: latitude,
-        longitude: longitude,
-        scale: 28
-      })
-    }
-  })  
+function openMap(that){
+  console.log(that);
+  var index = that.data.addrs.length;
+  wx.chooseLocation({
+    success:function(e){
+            console.log(e);
+      that.data.addrs[index] = e.name;
+                  console.log(that.data.addrs);
+      that.setData({
+        addrs:that.data.addrs
+      });
+    },
+    cancel:function(e){
+    },
+    fail:function(e){
+    },  
+  });
 }

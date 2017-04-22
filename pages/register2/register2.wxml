@@ -54,7 +54,7 @@
         </view>
 
         <view class="bottom" bindtap="ntMine">
-            <button type="primary" form-type="submit"class="submit">提 交</button>
+            <button type="primary" form-type="submit">提 交</button>
         </view>
     </form>    
 </view>

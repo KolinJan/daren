@@ -61,3 +61,7 @@ border-top: 1px solid #f1f1f1;
 .right{
   float: right;
 }
+.bonus{
+  margin-bottom: 15px;
+  border-top: 1px solid #f1f1f1;  
+}

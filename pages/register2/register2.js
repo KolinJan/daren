@@ -41,13 +41,14 @@ Page({
       data:{
         mobile:that.uploadData.mobile,
         code:that.uploadData.vCode,
-        picsStr:that.uploadData.jpg1+","+that.uploadData.jpg2,
+        images:that.uploadData.jpg1+","+that.uploadData.jpg2,
         t:that.uploadData.t,  
       },
       method:"POST",
       success(response) {
-        console.log(JSON.stringify(response));
-        console.log('1111');
+        if(res){
+
+        }
       },
       error(error) {
         console.log(JSON.stringify(error));
