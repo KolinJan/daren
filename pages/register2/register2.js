@@ -40,7 +40,7 @@ Page({
       url: "https://www.wowyou.cc/api/user/reg",
       data:{
         mobile:that.uploadData.mobile,
-        vCode:that.uploadData.vCode,
+        code:that.uploadData.vCode,
         picsStr:that.uploadData.jpg1+","+that.uploadData.jpg2,
         t:that.uploadData.t,  
       },
