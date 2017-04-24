@@ -1,4 +1,4 @@
-// pages/addr-add/addr-add.js
+// pages/addr-edit/addr-edit.js
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
 var tcity = require("../../utils/citys.js");
@@ -139,7 +139,19 @@ Page({
   },
 // ······························三级联动结束······························
   onReady:function(){
-    // 页面渲染完成
+    wx.getStorage({
+      key: 'address_id',
+      success: function(res){
+        // success
+        console.log(res.data);
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   onShow:function(){
     // 页面显示

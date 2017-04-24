@@ -1,39 +1,26 @@
 <!--pages/addr-add/addr-add.wxml-->
 <view class="bg">
-    <view class="item">
-        <view class="frame-item">
-            <label>小敏 15914114079</label>
-        </view>
-        <view class="frame-item npaddingb dark-font">
-            <view class="border-bottom">广东省深123123123圳市龙岗区龙岗街道创寓(大运店)-龙岗大道8288号大运软件小镇18 301</view>
-        </view>
-        <view class="flex frame-item dark-font">
-            <view class="float-left flex-grow-1 ">
-                <radio value="0" checked="false"/><label>默认地址</label>
+<radio-group class="radio-group" bindchange="radioChange">
+    <block wx:for="{{listData}}" for-index="idx">
+        <view class="item">
+            <view class="frame-item">
+                <label>{{item.consignee}} {{item.mobile}}</label>
             </view>
-            <view  class="float-left flex-grow-1 text-align-right ">
-                <label class="margin-right">编辑</label>
-                <label>删除</label>
+            <view class="frame-item npaddingb dark-font">
+                <view class="border-bottom">{{item.provinceid}}{{item.districtid}}{{item.cityid}}{{item.address}}</view>
             </view>
-        </view>    
-    </view>
-    <view class="item">
-        <view class="frame-item">
-            <label>小敏 15914114079</label>
+            <view class="flex frame-item dark-font">
+                <view class="float-left flex-grow-1 ">
+                    <radio value="1" checked="false"/><label>默认地址</label>
+                </view>
+                <view  class="float-left flex-grow-1 text-align-right ">
+                    <label class="margin-right" bindtap="ntAddrEdit" data-aid="{{item.address_id}}">编辑</label>
+                    <label>删除</label>
+                </view>
+            </view>    
         </view>
-        <view class="frame-item npaddingb dark-font">
-            <view class="border-bottom">广东省深圳市龙岗区龙岗街道创寓(大运店)-龙岗大道8288号大运软件小镇18 301</view>
-        </view>
-        <view class="flex frame-item dark-font">
-            <view class="float-left flex-grow-1 ">
-                <radio value="0" checked="false"/><label>默认地址</label>
-            </view>
-            <view  class="float-left flex-grow-1 text-align-right ">
-                <label class="margin-right">编辑</label>
-                <label>删除</label>
-            </view>
-        </view>    
-    </view>
+    </block>
+</radio-group>
     <view class="footer" bindtap="ntAddrAdd">
         <label>+</label>
         <label>新建活动地址</label>

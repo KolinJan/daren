@@ -1,4 +1,4 @@
-/* pages/addr-add/addr-add.wxss */
+/* pages/addr-edit/addr-edit.wxss */
 .frame-item{
     border-bottom: 1px solid #f1f1f1;
     overflow:hidden;zoom:1;

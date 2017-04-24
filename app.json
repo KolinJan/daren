@@ -1,8 +1,9 @@
 {
-  "pages":[
-    "pages/addr-add/addr-add",    
+  "pages":[ 
     "pages/addr-list/addr-list",
-    "pages/home/home",        
+    "pages/addr-edit/addr-edit",             
+    "pages/home/home",     
+    "pages/addr-add/addr-add",                 
     "pages/register2/register2",        
     "pages/cards-bag/cards-bag",          
     "pages/qualification-aquired/qualification-aquired",    

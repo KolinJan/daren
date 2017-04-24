@@ -1,3 +1,4 @@
+<!--pages/addr-edit/addr-edit.wxml-->
 <!--pages/addr-add/addr-add.wxml-->
 <view>
     <form bindsubmit="formSubmit">

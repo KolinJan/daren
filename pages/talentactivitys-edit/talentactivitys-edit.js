@@ -48,8 +48,10 @@ Page({
       checkBoxShow:that.data.checkBoxShow,
     });
   },
-  openMap:function(e){
-    openMap(this);
+  ntAddrList:function(e){
+    wx.navigateTo({
+      url: '../addr-list/addr-list',
+    })
   },
   getImgFromPhone:function(e){
     var that = this;
@@ -73,23 +75,4 @@ function getAddr(){
     {addr:'广东省深圳市罗湖区田贝三路粤大珠宝城4楼401',phone:'0755-28876665',value:'0'},
     {addr:'广东省深圳市罗湖区田贝三路粤大珠宝城4楼401',phone:'0755-28876665',value:'1'},
     ];
-}
-
-function openMap(that){
-  console.log(that);
-  var index = that.data.addrs.length;
-  wx.chooseLocation({
-    success:function(e){
-            console.log(e);
-      that.data.addrs[index] = e.name;
-                  console.log(that.data.addrs);
-      that.setData({
-        addrs:that.data.addrs
-      });
-    },
-    cancel:function(e){
-    },
-    fail:function(e){
-    },  
-  });
 }

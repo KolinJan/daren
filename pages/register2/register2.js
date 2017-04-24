@@ -38,13 +38,13 @@ Page({
     var resUpload = {
       login: true,
       url: "https://www.wowyou.cc/api/user/reg",
+      method:"POST",      
       data:{
         mobile:that.uploadData.mobile,
         code:that.uploadData.vCode,
         images:that.uploadData.jpg1+","+that.uploadData.jpg2,
         t:that.uploadData.t,  
       },
-      method:"POST",
       success(response) {
         if(res){
 

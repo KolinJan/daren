@@ -30,6 +30,8 @@
  }
  .bg{
      background-color: #ececec;
+    margin-bottom:48px;
+     
  }
  .item{
      background-color: #fff;
