@@ -3,6 +3,7 @@ var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
     listData:[''],
+    default_id:undefined,
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -24,6 +25,17 @@ Page({
     wx.navigateTo({
       url: '../addr-edit/addr-edit',
     })
+  },
+  radioChange:function(e){
+    console.log(e);
+    this.setData({
+      default_id : e.detail.value
+    });
+    changeDefault(this);
+  },
+  del:function(e){
+    var delId = e.target.dataset.aid;
+    delAddr(this,delId);
   }
 })
 
@@ -44,14 +56,56 @@ function getAddrList(that){
 }
 
 function changeDefault(that){
-  var obj = {
-    url:'',
-    success:function(e){
-      if(e.data.code == 0){
-        console.log(123);
-      }
-      console.log(e);
-    },    
+  var id = that.data.default_id;
+  if(id != undefined){
+    var obj = {
+      url:'https://www.wowyou.cc/api/user/setDefault',
+      data:{id:id},
+      success:function(e){
+        if(e.data.code == 0){
+          wx.showToast({
+            title: '默认地址修改成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }else{
+          wx.showToast({
+            title: '修改失败,请检查网络',
+            icon: 'loading',
+            duration: 1000
+          })
+        }
+        console.log(e);
+      },    
+    }
+    console.log(obj);console.log('obj');
   }
   qcloud.request(obj);  
+}
+
+function delAddr(that,id){
+  if(id != undefined){
+    var obj = {
+      url:'https://www.wowyou.cc/api/user/addressDel',
+      data:{aid:id},
+      success:function(e){
+        if(e.data.code == 0){
+          wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }else{
+          wx.showToast({
+            title: '删除失败,请检查网络',
+            icon: 'loading',
+            duration: 1000
+          })
+        }
+        console.log(e);
+      },    
+    }
+    console.log(obj);console.log('obj');
+  }
+  qcloud.request(obj);   
 }

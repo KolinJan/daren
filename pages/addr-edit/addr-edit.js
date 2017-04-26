@@ -23,6 +23,7 @@ Page({
     lat:222.222222,
     lng:222.222222,
     is_default:1,
+    aid:undefined,
   },
     bindChange: function(e) {
       console.log(e);
@@ -154,7 +155,8 @@ Page({
     })
   },
   onShow:function(){
-    // 页面显示
+    getStorage(this);
+    // getDetails(this);
   },
   onHide:function(){
     // 页面隐藏
@@ -176,7 +178,8 @@ Page({
         'lng':this.data.lng,
         'mobile':e.detail.value.phone,
         'address':this.data.name,
-        'is_default':this.data.is_default
+        'is_default':this.data.is_default,
+        'addr_id':this.data.aid
       }
       checkData(obj);
       console.log(obj);
@@ -272,11 +275,11 @@ function checkData(obj){
 function upLoad(obj){
     var resUpload = {
       login: true,
-      url: "https://www.wowyou.cc/api/user/addressAdd",
+      url: "https://www.wowyou.cc/api/user/addressEdit",
       method:"POST",      
       data:obj,
       success(res) {
-        if(res.code == 0){
+        if(res.data.code == 0){
             wx.navigateBack({
               delta: 1, // 回退前 delta(默认为1) 页面
             })
@@ -307,4 +310,56 @@ function toastError(str){
     icon:'loading',
     duration: 500
   })
+}
+function getDetails(that){
+  var aid = that.data.aid;
+    var resUpload = {
+      login: true,
+      url: "https://www.wowyou.cc/api/user/detail",  
+      data:{id:aid},
+      success(res) {
+        console.log(res);console.log('res');
+        if(res.data.code == 0){
+            that.setData({
+              mobile:res.data.data.mobile,              
+              name:res.data.data.address,
+              province: res.data.data.provinceName,
+              city: res.data.data.cityName,
+              county: res.data.data.countyName,
+              provinceid:res.data.data.provinceid,
+              cityid:res.data.data.cityid,
+              districtid:res.data.data.districtid,
+              lat:res.data.data.lat,
+              lng:res.data.data.lng,
+              is_default:res.data.data.is_default,
+              aid:res.data.data.address_id,
+              consignee:res.data.data.consignee         
+            });
+            console.log(that.data);console.log('that.data');
+        }else{
+          wx.showModal({
+            showCancel:false,            
+            title: '错误',
+            content: '错误',
+            success: function(res) {
+            }
+          })
+        }
+      },
+    }
+    console.log(resUpload);console.log('resUpload')
+  qcloud.request(resUpload);
+}
+function getStorage(that){
+    wx.getStorage({
+    key: 'address_id',
+    success: function(res){
+        var aid = res.data;
+        that.setData({
+          aid:aid
+        });
+        getDetails(that);
+    },
+  });
+  console.log(that.data);console.log('that.data');
 }

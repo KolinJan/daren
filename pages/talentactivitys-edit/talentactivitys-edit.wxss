@@ -176,3 +176,11 @@ textarea{
     left:0;
     top: 0;
 }
+
+.textarea-frame{
+    width: 100%;
+    padding: 10px 0px;
+}
+textarea{
+    width: 98%;
+}

@@ -23,6 +23,7 @@ Page({
     onLoad:function(options){
         wxLoagin(qcloud);
         getUserInfo(qcloud,"https://www.wowyou.cc/api/user/userinfo");
+        getList(this);
   },
 
 //----------------一级菜单事件-------------------//
@@ -152,4 +153,16 @@ function getUserInfo(qcloud,url){
       },
     }
     qcloud.request(obj);
+}
+function getList(that){
+    var obj = {
+      url:'https://www.wowyou.cc/api/activity/activityList',
+      data:{ispay:2},
+      success:function(e){
+                console.log(e);console.log('console.log(e);');
+        if(e.data.code == 0){
+        }
+      },    
+    }
+    qcloud.request(obj);    
 }

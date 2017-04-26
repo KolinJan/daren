@@ -1,8 +1,9 @@
 {
   "pages":[ 
-    "pages/addr-list/addr-list",
-    "pages/addr-edit/addr-edit",             
-    "pages/home/home",     
+    "pages/home/home",         
+    "pages/talentactivitys-edit/talentactivitys-edit",          
+    "pages/addr-list/addr-list",     
+    "pages/addr-edit/addr-edit",                
     "pages/addr-add/addr-add",                 
     "pages/register2/register2",        
     "pages/cards-bag/cards-bag",          
@@ -14,8 +15,7 @@
     "pages/mine/mine",            
     "pages/mechant-end-list/mechant-end-list",          
     "pages/mechant-acting-list/mechant-acting-list",         
-    "pages/mechant-checking-talent/mechant-checking-talent",                                                
-    "pages/talentactivitys-edit/talentactivitys-edit",     
+    "pages/mechant-checking-talent/mechant-checking-talent",                                                   
     "pages/talentactivity/talentactivity",                                                    
     "pages/attended/attended",     
     "pages/submit/submit",    

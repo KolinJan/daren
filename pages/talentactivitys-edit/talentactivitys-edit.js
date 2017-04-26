@@ -1,19 +1,21 @@
 // pages/talentactivitys-edit/talentactivitys-edit.js
+var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
         date: '2016-09-01',
         inputValue:'',
-        checkBoxShow: [false,false,false,false,false,false,],
-        addrs:getAddr(),
+        checkBoxShow: [false,false,false,false,false,false]
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    getAddrList(this);
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
     // 页面显示
+    console.log(this.data);console.log("this.data");
   },
   onHide:function(){
     // 页面隐藏
@@ -22,10 +24,20 @@ Page({
     // 页面关闭
   },
   bindDateChange: function(e) {
-    this.setData({
-      date: e.detail.value
-    })
+      this.setData({
+        up_deadline: e.detail.value
+      }); 
   },
+    gradeChange:function(e){
+      this.setData({
+        up_grade: e.detail.value
+      });
+    },
+    scroreChange:function(e){
+      this.setData({
+        up_scrore: e.detail.value
+      });     
+    },
     bindKeyInput: function(e) {
     this.setData({
       inputValue: e.detail.value
@@ -67,12 +79,51 @@ Page({
         });
       }
     })  
-  }
+  },
+    submitEvent: function(e) {
+    console.log(e);console.log('submit回调');
+    creatActivity(this,e.detail.value);
+  },
 })
 
-function getAddr(){
-  return [
-    {addr:'广东省深圳市罗湖区田贝三路粤大珠宝城4楼401',phone:'0755-28876665',value:'0'},
-    {addr:'广东省深圳市罗湖区田贝三路粤大珠宝城4楼401',phone:'0755-28876665',value:'1'},
-    ];
+
+function getAddrList(that){
+  var t = that;
+  var obj = {
+    url:'https://www.wowyou.cc/api/user/addressList',
+    success:function(e){
+      if(e.data.code == 0){
+        console.log(123);
+        console.log(e);
+        for(var i =0;i<e.data.data.length;i++){
+            console.log(e.data.data[i].is_default);
+            if(e.data.data[i].is_default == 1){
+              console.log('这是一个默认地址');
+              t.setData({
+                addrs:e.data.data[i]
+              });
+            }
+        }
+      }
+    },    
+  }
+  qcloud.request(obj);
+}
+
+function creatActivity(that,uData){
+  var t = that;
+  console.log(uData);
+  var obj = {
+    url:'https://www.wowyou.cc/api/activity/create',
+    method:"POST",
+    data:uData,
+    success:function(e){
+              console.log(e);
+      if(e.data.code == 0){
+        console.log(123);
+        console.log(e);
+      }
+    },    
+  }
+  qcloud.request(obj);  
 }

@@ -1,8 +1,10 @@
 // pages/talentactivity/talentactivity.js
+var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{},
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    getList(this);
   },
   onReady:function(){
     // 页面渲染完成
@@ -36,3 +38,15 @@ Page({
         })
     }  
 })
+
+// function getList(that){
+//     var obj = {
+//       url:'https://www.wowyou.cc/api/activity/activityList',
+//       success:function(e){
+//                 console.log(e);
+//         if(e.data.code == 0){
+//         }
+//       },    
+//     }
+//     qcloud.request(obj);    
+// }

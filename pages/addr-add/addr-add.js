@@ -264,7 +264,8 @@ function upLoad(obj){
       method:"POST",      
       data:obj,
       success(res) {
-        if(res.code == 0){
+        console.log(res);console.log('res');
+        if(res.data.code == 0){
             wx.navigateBack({
               delta: 1, // 回退前 delta(默认为1) 页面
             })
@@ -278,14 +279,6 @@ function upLoad(obj){
           })
         }
       },
-      error(error) {
-        console.log(JSON.stringify(error));
-        console.log('注册失败');
-      },
-      complete(res) {
-        console.log(JSON.stringify(res));
-        console.log('注册过程完成');
-      }
     }
   qcloud.request(resUpload);
 }

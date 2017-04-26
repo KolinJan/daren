@@ -11,11 +11,11 @@
             </view>
             <view class="flex frame-item dark-font">
                 <view class="float-left flex-grow-1 ">
-                    <radio value="1" checked="false"/><label>默认地址</label>
+                    <radio value="{{item.address_id}}" checked="false"/><label>默认地址</label>
                 </view>
                 <view  class="float-left flex-grow-1 text-align-right ">
                     <label class="margin-right" bindtap="ntAddrEdit" data-aid="{{item.address_id}}">编辑</label>
-                    <label>删除</label>
+                    <label data-aid="{{item.address_id}}" bindtap="del">删除</label>
                 </view>
             </view>    
         </view>
