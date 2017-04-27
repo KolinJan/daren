@@ -73,10 +73,8 @@ Page({
       sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
-        that.setData({
-          imgUrl:tempFilePaths,
-        });
+        var tempFilePaths = res.tempFilePaths[0]
+        uploadPic(that,tempFilePaths);
       }
     })  
   },
@@ -109,6 +107,28 @@ function getAddrList(that){
   }
   qcloud.request(obj);
 }
+
+function uploadPic(that,wxUrl){
+  if(wxUrl != undefined){
+    wx.uploadFile({
+        url:'https://www.wowyou.cc/api/upload/uploadOne', 
+        filePath:wxUrl,
+        name:'image',
+        method:'POST',
+        success:function(res){
+            console.log(JSON.parse(res.data).data+"123123");
+            var picUrl = JSON.parse(res.data).data;
+                that.setData({
+                imgUrl: 'https://www.wowyou.cc/'+picUrl,
+              });                          
+        },
+        error:function(res){
+                console.log(res);
+        }
+    });  
+  }
+}
+
 
 function creatActivity(that,uData){
   var t = that;

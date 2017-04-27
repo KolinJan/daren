@@ -1,40 +1,40 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
 Page({
-  data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg',
-      'http://p2.so.qhimgs1.com/bdr/_240_/t01c064057f29a800de.jpg'
-    ],
-    imgTexts:initImageTexts(),
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000, 
-    imageText:(initImageTexts())[0],
+    data: {
+        imgUrls: [
+            'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            'http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg',
+            'http://p2.so.qhimgs1.com/bdr/_240_/t01c064057f29a800de.jpg'
+        ],
+        imgTexts: initImageTexts(),
+        indicatorDots: true,
+        autoplay: true,
+        interval: 3000,
+        duration: 1000,
+        imageText: (initImageTexts())[0],
 
-// filtrate
-    subMenueContent:initSubMenuContent(),
-    filtrate:filtrate(),
-    subMenuDisplay:initSubMenuDisplay(),
-    filtrateIndex:0    
-  },
-    onLoad:function(options){
+        // filtrate
+        subMenueContent: initSubMenuContent(),
+        filtrate: filtrate(),
+        subMenuDisplay: initSubMenuDisplay(),
+        filtrateIndex: 0,
+    },
+    onLoad: function (options) {
         wxLoagin(qcloud);
-        getUserInfo(qcloud,"https://www.wowyou.cc/api/user/userinfo");
+        getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
         getList(this);
-  },
+    },
 
-//----------------一级菜单事件-------------------//
-    tapMainMenu: function(e) {
-//      获取当前显示的一级菜单标识
+    //----------------一级菜单事件-------------------//
+    tapMainMenu: function (e) {
+        //      获取当前显示的一级菜单标识
         var index = parseInt(e.currentTarget.dataset.index);
         this.data.filtrateIndex = index;
         // 生成数组，全为hidden的，只对当前的进行显示
         var newSubMenuDisplay = initSubMenuDisplay();
-//      如果目前是显示则隐藏，反之亦反之。同时要隐藏其他的菜单
-        if(this.data.subMenuDisplay[index] == 'hidden') {
+        //      如果目前是显示则隐藏，反之亦反之。同时要隐藏其他的菜单
+        if (this.data.subMenuDisplay[index] == 'hidden') {
             newSubMenuDisplay[index] = 'show';
         } else {
             newSubMenuDisplay[index] = 'hidden';
@@ -42,10 +42,10 @@ Page({
         this.setData({
             subMenuDisplay: newSubMenuDisplay
         });
-    },  
-//----------------二级菜单事件-------------------//
-    tapSubMenu: function(e) {
-      var filtrateIndex = this.data.filtrateIndex;
+    },
+    //----------------二级菜单事件-------------------//
+    tapSubMenu: function (e) {
+        var filtrateIndex = this.data.filtrateIndex;
         // 隐藏所有一级菜单
         this.setData({
             subMenuDisplay: initSubMenuDisplay()
@@ -55,29 +55,29 @@ Page({
         var filtrate = this.data.filtrate;
         filtrate[filtrateIndex] = subMenuContent[filtrateIndex][subMenuIndex];
         this.setData({
-            filtrate:filtrate,
+            filtrate: filtrate,
         });
     },
 
 
-    testChange:function(e){
+    testChange: function (e) {
         var imageTextIndex = e.detail.current;
         this.setData({
-            imageText:this.data.imgTexts[imageTextIndex],
+            imageText: this.data.imgTexts[imageTextIndex],
         });
 
     },
-    lookForDetails:function(){
+    lookForDetails: function () {
         wx.navigateTo({
-            url: '../talentactivity/talentactivity' 
+            url: '../talentactivity/talentactivity'
         })
     },
-    ntType:function(){
+    ntType: function () {
         wx.navigateTo({
-          url: '../benefit-type/benefit-type',
+            url: '../benefit-type/benefit-type',
         })
-    }                  
- 
+    }
+
 })
 
 
@@ -87,27 +87,27 @@ function initSubMenuDisplay() {
 }
 
 //----------------一级菜单初始化--------------------------//
-function filtrate(){
-    return ['类型','地区','综合排序'];
+function filtrate() {
+    return ['类型', '地区', '综合排序'];
 }
 
-function initSubMenuContent(){
+function initSubMenuContent() {
     return [
-        ['好吃','好喝','好玩','好赚'],
-        ['福田区','罗湖区','龙岗区','盐田区','大鹏新区','龙华新区','光明新区','南山区','宝安区','坪山新区'],
-        ['综合排序','折扣最高','价格最低']
-    ];    
+        ['好吃', '好喝', '好玩', '好赚'],
+        ['福田区', '罗湖区', '龙岗区', '盐田区', '大鹏新区', '龙华新区', '光明新区', '南山区', '宝安区', '坪山新区'],
+        ['综合排序', '折扣最高', '价格最低']
+    ];
 }
 
-function initImageTexts(){
+function initImageTexts() {
     return [
-    '4000元欧洲巴黎5日游',
-    '2.5折四海一家开吃',
-    '幸福西饼新季蛋糕免费送！',];
+        '4000元欧洲巴黎5日游',
+        '2.5折四海一家开吃',
+        '幸福西饼新季蛋糕免费送！',];
 }
 
 //  微信登录
-function wxLoagin(qCloud){
+function wxLoagin(qCloud) {
     qcloud.setLoginUrl(config.service.loginUrl);
     qcloud.login({
         success: function (userInfo) {
@@ -116,53 +116,71 @@ function wxLoagin(qCloud){
         fail: function (err) {
             console.log('登录失败', err);
         }
-    });  
+    });
 }
 
-function getUserInfo(qcloud,url){
-    var obj={
-        url:url,
-    success(res) {
-        console.log(res)
-        console.log(res.data.data.is_vip)
-        if(res.data.code == 0){
-            wx.setStorage({
-              key: 'is_vip',
-              data: res.data.data.is_vip,
-              success: function(res){
-                console.log(res)
-              }
-            });
-            wx.getStorage({
-              key: 'is_vip',
-              success: function(res){
-                console.log(res);
-              },
-              fail: function() {
-                // fail
-              },
-              complete: function() {
-                // complete
-              }
-            })
-        }
-      },
-      error(res) {
-        console.log(JSON.stringify(res));
-        console.log('注册失败');
-      },
+function getUserInfo(qcloud, url) {
+    var obj = {
+        url: url,
+        success(res) {
+            console.log(res)
+            console.log(res.data.data.is_vip)
+            if (res.data.code == 0) {
+                wx.setStorage({
+                    key: 'is_vip',
+                    data: res.data.data.is_vip,
+                    success: function (res) {
+                        console.log(res)
+                    }
+                });
+                wx.getStorage({
+                    key: 'is_vip',
+                    success: function (res) {
+                        console.log(res);
+                    },
+                    fail: function () {
+                        // fail
+                    },
+                    complete: function () {
+                        // complete
+                    }
+                })
+            }
+        },
+        error(res) {
+            console.log(JSON.stringify(res));
+            console.log('注册失败');
+        },
     }
     qcloud.request(obj);
 }
-function getList(that){
+function getList(that) {
     var obj = {
-      url:'https://www.wowyou.cc/api/activity/activityList',
-      data:{ispay:2},
-      success:function(e){
-                console.log(e);console.log('console.log(e);');
-        if(e.data.code == 0){
-        }
-      },    
+        login:true,
+        url: 'https://www.wowyou.cc/api/activity/activityHome',
+        success: function (e) {
+            console.log(e); console.log('console.log(e);');
+            if(e.data.code == 0 ){
+                that.setData({
+                    activityList:e.data.data,
+                });
+                setSlide(that,e.data.data);
+            }
+ console.log(that.data); console.log('that.data');
+        },
     }
-    qcloud.request(obj);    
+    qcloud.request(obj);
+}
+
+function setSlide(that,data){
+    console.log(data);console.log('data');      
+    var slideImgs = [];
+    for(var i=0;i<3;i++){
+        slideImgs[i] = (data[i].images[0]);
+    }
+    that.setData({
+        slideImgs:slideImgs,
+    });    
+
+    console.log(slideImgs);console.log('slideImgs');    
 }
