@@ -27,15 +27,6 @@ Page({
   ntRequireIconState:function(){+
     wx.navigateTo({
       url: '../require-icon-state/require-icon-state',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
     ntQualificationAquired:function(){
@@ -76,18 +67,14 @@ function QualificationAquired(that){
             console.log(e); console.log('QualificationAquired');
             if(e.data.code == 0 ){
               console.log(e);
-              // wx.navigateTo({
-              //   url: '../qualification-aquired/qualification-aquired',
-              // })
+              wx.navigateTo({
+                url: '../qualification-aquired/qualification-aquired',
+              })
             }else{
               wx.showModal({
                 title: '领取失败',
                 content: e.data.msg,
                 success: function(res) {
-                  if (res.confirm) {
-                  } else if (res.cancel) {
-                    console.log('用户点击取消')
-                  }
                 }
               })
             }

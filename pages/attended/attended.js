@@ -1,4 +1,4 @@
-
+var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
         subMenuDisplay:initSubMenuDisplay(),
@@ -7,6 +7,7 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    getList(4,this);
   },
   onReady:function(){
     // 页面渲染完成
@@ -46,12 +47,22 @@ Page({
             subMenuDisplay: initSubMenuDisplay()
         });
         var subMenuIndex = e.currentTarget.dataset.index;
+        console.log(subMenuIndex+":二级菜单数值");
         var subMenuContent = this.data.subMenueContent;
         var filtrate = this.data.filtrate;
         filtrate[filtrateIndex] = subMenuContent[filtrateIndex][subMenuIndex];
         this.setData({
             filtrate:filtrate,
         });
+        
+        getList(+subMenuIndex+1,this);
+    },
+    lookForDetails:function(e){
+        console.log(e);console.log('点击事件范湖i')
+        var aid = e.currentTarget.dataset.aid;
+        wx.navigateTo({
+          url: '../cards-bag/cards-bag?aid='+aid,
+        })
     },
 
 
@@ -76,6 +87,30 @@ function filtrate(){
 
 function initSubMenuContent(){
     return [
-        ['已完成','截图尚缺','未使用','全部'],
+        ['未使用','已完成','截图尚缺','全部'],
     ];    
+}
+
+function getList(aType,that){
+    if(aType == 4) aType = '';
+    console.log('刷新数据');
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/user/myJoin',
+        data:{status:aType},
+        success: function (e) {
+            console.log(e); console.log('console.log(e);');
+            if(e.data.code == 0 ){
+                that.setData({
+                    listDetails:e.data.data,
+                });
+            }else{
+                that.setData({
+                    listDetails:"",
+                }); 
+            }
+            console.log(that.data); console.log('that.data');
+        },
+    }
+    qcloud.request(obj);  
 }

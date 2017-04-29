@@ -65,12 +65,6 @@ border-top: 1px solid #f1f1f1;
   margin-bottom: 15px;
   border-top: 1px solid #f1f1f1;  
 }
-.displayShow{
-  display: block;
-}
-.displayHide{
-  display: none;
-}
 .register-frame{
     display: flex;
     flex-direction: column;
@@ -92,9 +86,9 @@ border-top: 1px solid #f1f1f1;
     margin-top: 50px;
     color: #FF6537;
 }
-.displayhide{
-    display: none;
+.displayHide{
+    display: none!important
 }
-.displayshow{
-    display: block;
+.displayShow{
+    display: block!important;
 }

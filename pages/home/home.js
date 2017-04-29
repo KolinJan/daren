@@ -24,7 +24,6 @@ Page({
         wxLoagin(qcloud);
         getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
         getList(this);
-        test(this);
     },
 
     //----------------一级菜单事件-------------------//
@@ -178,16 +177,4 @@ function setSlide(that,data){
     });    
 
     console.log(slideImgs);console.log('slideImgs');    
-}
-
-function test(that){
-    var obj = {
-        login:true,
-        url: 'https://www.wowyou.cc/api/activity/activityGoing',
-        success: function (e) {
-            console.log(e); console.log('console.log(e);');
- console.log(that.data); console.log('商家自己正在进行的活动列表');
-        },
-    }
-    qcloud.request(obj);    
 }

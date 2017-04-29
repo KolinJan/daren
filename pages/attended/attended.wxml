@@ -11,24 +11,26 @@
 </dl>
     <!---------------------------------------------参加过的活动-------------------------------------------------->
     <view class="list-frame">
-        <view class="list-frame-item" bindtap="lookForDetails">
-            <image class="list-adimage" src="http://p2.so.qhimgs1.com/bdr/_240_/t01c064057f29a800de.jpg"></image>
-            <view class="list-frame-item-panel">
-                <label class="list-frame-label-alone list-frame-titleLable">幸福西饼一磅黑森林蛋糕(布心店)</label>
-                <label class="list-frame-label-alone list-frame-label-price">免费! (市价90元)</label>
-                <label class="list-frame-detailsLable">等级:2↑     评分:85↑</label>
-                <label class="list-frame-label-alone list-frame-statusLable">名额 10/15</label>
+        <block wx:for="{{listDetails}}">
+            <view class="list-frame-item" bindtap="lookForDetails" data-aid="{{item.aid}}">
+                <image class="list-adimage" src="{{item.images}}"></image>
+                <view class="list-frame-item-panel">
+                    <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
+                    <label class="list-frame-label-alone list-frame-label-price">免费! (市价90元)</label>
+                    <label class="list-frame-detailsLable">等级:2↑     评分:85↑</label>
+                    <label class="list-frame-label-alone list-frame-statusLable">名额 10/15</label>
+                </view>
+                <view class="mark">
+                    <label class="mark-l1" style="background-color:#19b955;">未使用</label>
+                    <label class="mark-l2"></label>
+                </view>
+                <view class="list-require-frame">
+                    <label class="list-frame-requireLabel">商家要求：</label>
+                    <label class="list-frame-requireLabel-details">九图 其他</label>
+                </view>
             </view>
-            <view class="mark">
-                <label class="mark-l1" style="background-color:#19b955;">未使用</label>
-                <label class="mark-l2"></label>
-            </view>
-            <view class="list-require-frame">
-                <label class="list-frame-requireLabel">商家要求：</label>
-                <label class="list-frame-requireLabel-details">九图 其他</label>
-            </view>
-        </view>
-        <view class="list-frame-item" bindtap="lookForDetails">
+        </block>    
+        <!--<view class="list-frame-item" bindtap="lookForDetails">
             <image class="list-adimage" src="http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg"></image>
             <view class="list-frame-item-panel">
                 <label class="list-frame-label-alone list-frame-titleLable">四海一家(南山益田假日店)</label>
@@ -61,5 +63,5 @@
                 <label class="list-frame-requireLabel">商家要求：</label>
                 <label class="list-frame-requireLabel-details">二维码 指定内容  位置  其他</label>
             </view>
-        </view>                       
+        </view>                       -->
     </view>    

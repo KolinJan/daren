@@ -7,16 +7,16 @@
     <view class="mine-item bonus">
         <view>
             <image class="mine-icon" src="../../imgs/积分.png"></image>
-            <view class="mine-dicript-view">积分：30</view>
+            <view class="mine-dicript-view">积分：{{userData.points}}</view>
             </view>        
     </view>
     <view class="mine-item-panel">
-        <view class="mine-item">
+        <!--<view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/等级.png"></image>
                 <view class="mine-dicript-view">商家等级 2</view>
              </view>
-        </view>
+        </view>-->
         <view class="mine-item" bindtap="ntMechantActList">
             <view>
                 <image class="mine-icon" src="../../imgs/正在使用.png"></image>
@@ -32,23 +32,23 @@
              </view> 
         </view>
     </view>
-    <view class="mine-item-panel {{userStatus == 2?'displayShow':'displayHide'}}">
+    <view class="mine-item-panel {{userStatus == '2'?'displayShow':'displayHide'}}">
         <view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/等级.png"></image>
-                <view class="mine-dicript-view">达人级别 2</view>
+                <view class="mine-dicript-view">达人级别 {{userData.vip_level}}</view>
              </view>
         </view>
         <view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/次数.png"></image>
-                <view class="mine-dicript-view">本日剩余次数 1/2</view>
+                <view class="mine-dicript-view">本日剩余次数 {{userData.frequency}}</view>
              </view>         
         </view>
         <view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/评分.png"></image>
-                <view class="progress-title mine-dicript-view">分数:80</view>
+                <view class="progress-title mine-dicript-view">分数:{{userData.score}}</view>
                 <progress percent="80" color="#ff6537"/>
              </view>          
         </view>
@@ -68,11 +68,11 @@
         </view>
     </view>
         <view class="main-frame">
-            <view class="register-frame {{display}}">
-                <view>成为达人，立刻享受优质生活</view>
+            <view class="register-frame {{userStatus == '1'?'displayShow':'displayHide'}}">
+                <view>成为达人，立刻享受优质生活{{userStatus}}</view>
                 <view class="register-frame-button" bindtap="ntRegister2">成为达人</view>    
             </view>
-            <view class="tip-frame">
+            <view class="tip-frame {{userStatus != '2'?'displayShow':'displayHide'}}">
                 <view>{{tipsShow}}</view>
             </view>
         </view>   

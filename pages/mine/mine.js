@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var app = getApp()
 Page({
   data: {
@@ -24,6 +25,7 @@ Page({
       })
     })
     getUserStatus(this);
+    getUserInfo(this);
   },
   ntAttended:function(){
     wx.navigateTo({
@@ -98,7 +100,7 @@ function getUserStatus(that){
       success: function(res){
         // success
         if(res.data == "0"){
-          that.setData({userStatus:"displayblock"});
+          that.setData({userStatus:res.data});
           console.log("游客");
         }else if(res.data == "1"){
           console.log("审核中");
@@ -110,8 +112,30 @@ function getUserStatus(that){
         var str = that.data.tips[parseInt(res.data)];
         console.log(str);
         that.setData({
-          tipsShow:str
+          tipsShow:str,
+          userStatus:res.data
         })
       },
     })  
+}
+
+function getUserInfo(that){
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/user/userinfo',
+        success: function (e) {
+            console.log(e); console.log('console.log(e);');
+            if(e.data.code == 0 ){
+                that.setData({
+                    userData:e.data.data,
+                });
+            }else{
+                that.setData({
+                    userData:"",
+                }); 
+            }
+            console.log(that.data); console.log('that.data');
+        },
+    }
+    qcloud.request(obj);   
 }

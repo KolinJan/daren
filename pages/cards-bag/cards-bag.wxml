@@ -1,12 +1,13 @@
 <!--pages/cards-bag/cards-bag.wxml-->
 <view class="frame">
-    <block wx:for="{{cards}}">
-    <view class="card card-{{item.cardType}}">
-        <view>{{item.cardName}}</view>
-        <view>积分:{{item.bonus}}</view>
+    <!--<block wx:for="{{cards}}">-->
+    <view class="card card-1">
+        <view class="title">{{cardData.voucher_title}}</view>
+        <view>积分:{{cardData.voucher_price}}</view>
         <view class="use-now">
-            <label bindtap="changeStatus" id="{{index}}" data-carId="{{item.cardId}}">{{item.status}}</label>
+            <label bindtap="changeStatus" id="{{index}}" data-carId="{{cardData.cardId}}">{{cardData.voucher_status}}</label>
+            <view class="date">2017-05-05</view>
         </view>
     </view>
-    </block>   
+    <!--</block>   -->
 </view>
