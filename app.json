@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/home/home",         
     "pages/mechant-acting-list/mechant-acting-list",       
     "pages/mechant-acting-details/mechant-acting-details",      
-    "pages/home/home",     
     "pages/attended/attended",            
     "pages/cards-bag/cards-bag",                           
     "pages/register/register",       
