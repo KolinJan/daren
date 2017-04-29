@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <swiper bindchange="testChange" indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{slideImgs}}">
+    <block wx:for="{{imgUrls}}">
         <swiper-item>
             <image src="{{item}}" class="slide-image" width="355" height="150"/>
             <block wx:for="{{imgTexts}}">
@@ -49,7 +49,7 @@
     <!---------------------------------------------list-------------------------------------------------->
     <view class="list-frame">
         <block wx:for="{{activityList}}">
-            <view class="list-frame-item" bindtap="lookForDetails">
+            <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
                 <image class="list-adimage" src="{{item.images}}"></image>
                 <view class="list-frame-item-panel">
                     <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>

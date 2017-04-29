@@ -24,6 +24,7 @@ Page({
         wxLoagin(qcloud);
         getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
         getList(this);
+        test(this);
     },
 
     //----------------一级菜单事件-------------------//
@@ -67,9 +68,10 @@ Page({
         });
 
     },
-    lookForDetails: function () {
+    lookForDetails: function (e) {
+        console.log(e);console.log('lookForDetails e');
         wx.navigateTo({
-            url: '../talentactivity/talentactivity'
+            url: '../talentactivity/talentactivity?actId='+e.currentTarget.dataset.id,
         })
     },
     ntType: function () {
@@ -123,8 +125,7 @@ function getUserInfo(qcloud, url) {
     var obj = {
         url: url,
         success(res) {
-            console.log(res)
-            console.log(res.data.data.is_vip)
+            console.log(res);console.log("res.data.data.is_vip");
             if (res.data.code == 0) {
                 wx.setStorage({
                     key: 'is_vip',
@@ -138,12 +139,6 @@ function getUserInfo(qcloud, url) {
                     success: function (res) {
                         console.log(res);
                     },
-                    fail: function () {
-                        // fail
-                    },
-                    complete: function () {
-                        // complete
-                    }
                 })
             }
         },
@@ -183,4 +178,16 @@ function setSlide(that,data){
     });    
 
     console.log(slideImgs);console.log('slideImgs');    
+}
+
+function test(that){
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/activity/activityGoing',
+        success: function (e) {
+            console.log(e); console.log('console.log(e);');
+ console.log(that.data); console.log('商家自己正在进行的活动列表');
+        },
+    }
+    qcloud.request(obj);    
 }

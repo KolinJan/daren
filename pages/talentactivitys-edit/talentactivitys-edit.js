@@ -2,7 +2,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
-        date: '2016-09-01',
+        up_deadline: '2016-09-01',
         inputValue:'',
         checkBoxShow: [false,false,false,false,false,false]
   },
@@ -132,7 +132,7 @@ function uploadPic(that,wxUrl){
 
 function creatActivity(that,uData){
   var t = that;
-  console.log(uData);
+  console.log(uData);console.log("uData");
   var obj = {
     url:'https://www.wowyou.cc/api/activity/create',
     method:"POST",

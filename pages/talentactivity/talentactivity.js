@@ -1,10 +1,15 @@
 // pages/talentactivity/talentactivity.js
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
-  data:{},
+  data:{
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    getList(this);
+    console.log(options.actId); console.log('console.log(options.actId);');    
+    this.setData({
+      actId:options.actId
+    })
+    getDetails(this);    
   },
   onReady:function(){
     // 页面渲染完成
@@ -18,7 +23,7 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  ntRequireIconState:function(){
+  ntRequireIconState:function(){+
     wx.navigateTo({
       url: '../require-icon-state/require-icon-state',
       success: function(res){
@@ -39,14 +44,23 @@ Page({
     }  
 })
 
-// function getList(that){
-//     var obj = {
-//       url:'https://www.wowyou.cc/api/activity/activityList',
-//       success:function(e){
-//                 console.log(e);
-//         if(e.data.code == 0){
-//         }
-//       },    
-//     }
-//     qcloud.request(obj);    
-// }
+function getDetails(that){
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/activity/activityDetail',
+        data:{
+          aid:that.data.actId
+        },
+        success: function (e) {
+            console.log(e); console.log('console.log(e);activityDetail');
+            if(e.data.code == 0 ){
+                that.setData({
+                    details:e.data.data,
+                });
+            }
+ console.log(that.data); console.log('that.data');
+        },
+    }
+    qcloud.request(obj);
+
+}

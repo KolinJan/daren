@@ -1,8 +1,23 @@
 // pages/mine/mine.js
 Page({
-  data:{},
+  data:{
+    is_vip:0
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    wx.getStorage({
+      key: 'is_vip',
+      success: function(res){
+        // success
+        if(res.data == "1"){
+          console.log("游客");
+        }else if(res.data == "2"){
+          console.log("达人");
+        }else{
+          console.log("审核中");
+        }
+      },
+    })
   },
   onReady:function(){
     // 页面渲染完成
