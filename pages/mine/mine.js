@@ -3,7 +3,9 @@
 var app = getApp()
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    userStatus:'0',
+    tips:['审核通过后，以后将自动登录','审核中，别焦急呢~',' ','对不起，审核没通过呢~',],    
   },
   //事件处理函数
   bindViewTap: function() {
@@ -21,6 +23,7 @@ Page({
         userInfo:userInfo
       })
     })
+    getUserStatus(this);
   },
   ntAttended:function(){
     wx.navigateTo({
@@ -77,5 +80,38 @@ Page({
         // complete
       }
     })
-  }
+  },
+  ntRegister2:function(){
+    wx.navigateTo({
+      url: '../register2/register2',
+      success: function(res){
+        // success
+      },
+    })
+  },  
 })
+
+
+function getUserStatus(that){
+    wx.getStorage({
+      key: 'master_status',
+      success: function(res){
+        // success
+        if(res.data == "0"){
+          that.setData({userStatus:"displayblock"});
+          console.log("游客");
+        }else if(res.data == "1"){
+          console.log("审核中");
+        }else if(res.data == "2"){
+          console.log("达人");
+        }else{
+           console.log("对不起，您的审核申请失败了");
+        }
+        var str = that.data.tips[parseInt(res.data)];
+        console.log(str);
+        that.setData({
+          tipsShow:str
+        })
+      },
+    })  
+}

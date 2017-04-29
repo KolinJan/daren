@@ -103,7 +103,7 @@
                             <textarea class="textareashowfalse" placeholder="若有指定的文字内容请在此处编辑"/>                  
                         </view>
                         <view class="section textarea-frame">
-                             <textarea bindblur="bindTextAreaBlur" name="remark" auto-height placeholder="备注要求明细" />
+                             <textarea bindblur="bindTextAreaBlur" name="description" auto-height placeholder="备注要求明细" />
                         </view>                                                             
                 </view>
                 <!---------------------------------------------添加地址-------------------------------------------------------->

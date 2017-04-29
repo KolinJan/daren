@@ -49,7 +49,7 @@
          <view>
             <view class="shouldKnow-frame">
                 <view class="shouldKnow-frame-title">商家要求说明</view>
-                <view class="shouldKnow-frame-itemContent">{{details.remark}}</view>
+                <view class="shouldKnow-frame-itemContent">{{details.description}}</view>
             </view>         
             <view class="shouldKnow-frame">
                 <view class="shouldKnow-frame-title">不可用日期</view>

@@ -45,9 +45,18 @@ Page({
         images:that.uploadData.jpg1+","+that.uploadData.jpg2,
         t:that.uploadData.t,  
       },
-      success(response) {
-        if(res){
-
+      success(res) {
+        if(res.data.code == 0){
+          wx.showToast({
+            title: res.data.data,
+            icon: 'success',
+            duration: 2000
+          })
+        }else{
+          wx.showModal({
+            title: '错误',
+            content: res.data.msg,
+          })
         }
       },
       error(error) {
@@ -159,17 +168,19 @@ funevent: function (e) {
           t:t,
         },
         success(response) {
-          console.log(JSON.stringify(response));
-          console.log('获取成功');
+          if(response.data.code == 1){
+            wx.showToast({
+              title: res.data.data,
+              icon: 'success',
+              duration: 2000
+            })
+          }else{
+            wx.showModal({
+              title: '错误',
+              content: res.data.msg,
+            })
+          }
         },
-        error(error) {
-          console.log(JSON.stringify(error));
-          console.log('获取失败');
-        },
-        complete(res) {
-          console.log(JSON.stringify(res));
-          console.log('获取过程完成');
-        }
       }
               console.log(obj);
       qcloud.request(obj);

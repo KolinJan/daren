@@ -128,14 +128,14 @@ function getUserInfo(qcloud, url) {
             console.log(res);console.log("res.data.data.is_vip");
             if (res.data.code == 0) {
                 wx.setStorage({
-                    key: 'is_vip',
-                    data: res.data.data.is_vip,
+                    key: 'master_status',
+                    data: res.data.data.master_status,
                     success: function (res) {
                         console.log(res)
                     }
                 });
                 wx.getStorage({
-                    key: 'is_vip',
+                    key: 'master_status',
                     success: function (res) {
                         console.log(res);
                     },

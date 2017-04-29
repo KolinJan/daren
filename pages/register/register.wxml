@@ -1,13 +1,9 @@
 <view class="main-frame">
-    <view class="register-frame">
+    <view class="register-frame {{display}}">
         <view>成为达人，立刻享受优质生活</view>
         <view class="register-frame-button" bindtap="ntRegister2">成为达人</view>    
     </view>
-    <!--<view class="register-frame">
-        <view>成为商家，让产品成为朋友圈热点</view>
-        <view class="register-frame-button" bindtap="ntRegisterMerchant">成为商家</view>    
-    </view>    -->
     <view class="tip-frame">
-        <view>审核通过后，以后将自动登录</view>
+        <view>{{tipsShow}}</view>
     </view>
 </view>

@@ -20,3 +20,9 @@
     margin-top: 50px;
     color: #FF6537;
 }
+.displayhide{
+    display: none;
+}
+.displayshow{
+    display: block;
+}

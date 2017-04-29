@@ -2,6 +2,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
+    details:{}
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -38,9 +39,7 @@ Page({
     })
   },
     ntQualificationAquired:function(){
-        wx.navigateTo({
-          url: '../qualification-aquired/qualification-aquired',
-        })
+      QualificationAquired(this);
     }  
 })
 
@@ -63,4 +62,36 @@ function getDetails(that){
     }
     qcloud.request(obj);
 
+}
+
+function QualificationAquired(that){
+    console.log(that.data);
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/activity/activityJoin',
+        data:{
+          aid:that.data.details.id
+        },
+        success: function (e) {
+            console.log(e); console.log('QualificationAquired');
+            if(e.data.code == 0 ){
+              console.log(e);
+              // wx.navigateTo({
+              //   url: '../qualification-aquired/qualification-aquired',
+              // })
+            }else{
+              wx.showModal({
+                title: '领取失败',
+                content: e.data.msg,
+                success: function(res) {
+                  if (res.confirm) {
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            }
+        },
+    }
+    qcloud.request(obj); 
 }

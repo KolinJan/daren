@@ -44,7 +44,7 @@
       "iconPath":"imgs/discover.png",
       "text": "首页"
     }, {
-      "pagePath": "pages/register/register",
+      "pagePath": "pages/mine/mine",
       "selectedIconPath":"imgs/mine-active.png",
       "iconPath":"imgs/mine.png",
       "text": "我的"

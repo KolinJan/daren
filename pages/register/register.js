@@ -1,21 +1,32 @@
 // pages/mine/mine.js
 Page({
   data:{
-    is_vip:0
+    display:'diplayhide',
+    tips:['审核通过后，以后将自动登录','审核中，别焦急呢~',' ','对不起，审核没通过呢~',],
+    tipsShow:''
   },
   onLoad:function(options){
+    var that = this;
     // 页面初始化 options为页面跳转所带来的参数
     wx.getStorage({
-      key: 'is_vip',
+      key: 'master_status',
       success: function(res){
         // success
-        if(res.data == "1"){
+        if(res.data == "0"){
+          that.setData({display:"displayblock"});
           console.log("游客");
+        }else if(res.data == "1"){
+          console.log("审核中");
         }else if(res.data == "2"){
           console.log("达人");
         }else{
-          console.log("审核中");
+           console.log("对不起，您的审核申请失败了");
         }
+        var str = that.data.tips[parseInt(res.data)];
+        console.log(str);
+        that.setData({
+          tipsShow:str
+        })
       },
     })
   },
@@ -37,12 +48,6 @@ Page({
       success: function(res){
         // success
       },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
   ntRegisterMerchant:function(){
@@ -51,12 +56,6 @@ Page({
       success: function(res){
         // success
       },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   }
 })
