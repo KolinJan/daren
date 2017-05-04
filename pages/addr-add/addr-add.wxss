@@ -71,3 +71,9 @@
      color: #fff;
      position: static;
  }
+checkbox-group{
+    padding: 10px;
+}
+checkbox-group label{
+    padding: 5px;
+}

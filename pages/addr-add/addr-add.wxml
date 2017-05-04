@@ -1,12 +1,13 @@
 <!--pages/addr-add/addr-add.wxml-->
+<include src="../../template/toast.wxml"/>
 <view>
     <form bindsubmit="formSubmit">
-        <view class="frame-item">
+        <!--<view class="frame-item">
             <view class="frame-item-label">活动名称:</view>
             <view class="frame-item-input-frame">
                 <input type="text" name="name"/>
             </view>
-        </view>
+        </view>-->
         
 
         <view class="frame-item relative-frame">
@@ -37,10 +38,10 @@
 
         </view>
         
-        <view class="frame-item" bindtap="chooseLocation">
+        <view class="frame-item"  bindtap="chooseLocation" >
             <view class="frame-item-label">详细地址:</view>
             <view class="frame-item-input-frame">
-                <input name="address" type="text" value="{{name}}" />
+                <input name="address" type="text" value="{{name}}" disabled/>
             </view>
         </view>
         
@@ -52,7 +53,7 @@
         </view>
         <view>
             <checkbox-group bindchange="checkboxChange">
-                <checkbox value="1" checked="true" />默认地址
+                <label>默认地址</label><checkbox value="1" checked="true" />
             </checkbox-group>      
         </view>
         <view class="footer">

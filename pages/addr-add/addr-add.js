@@ -2,6 +2,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
 var tcity = require("../../utils/citys.js");
+var toast = require('../../utils/toast');
 var app = getApp();
 Page({
   data:{
@@ -183,6 +184,10 @@ Page({
 })
 
 function openMap(that){
+toast.showToast({
+    context: that,
+    title: '正在打开地图，请稍后...'
+})
   console.log(that);
   wx.chooseLocation({
     success:function(e){

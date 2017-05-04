@@ -13,9 +13,9 @@
 </swiper>
     <!---------------------------------------------filtrate-------------------------------------------------->
 <dl class="menu">
-    <dt data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
-    <dt data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}</dt>
-    <dt data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}</dt>
+    <dt data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
+    <dt data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
+    <dt data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
     <dd class="{{subMenuDisplay[0]}}">
         <ul>
             <li class="" data-index="0" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
@@ -50,7 +50,7 @@
     <view class="list-frame">
         <block wx:for="{{activityList}}">
             <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
-                <image class="list-adimage" src="{{item.images}}"></image>
+                <image class="list-adimage" src="{{item.images}}" mode="aspectFill"></image>
                 <view class="list-frame-item-panel">
                     <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
                     <label class="list-frame-label-alone list-frame-label-price">{{item.shop_price}}! (市价{{item.market_price}}元)</label>

@@ -1,21 +1,24 @@
 // pages/talentactivitys-edit/talentactivitys-edit.js
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
+var toast = require('../../utils/toast');
 Page({
   data:{
         up_deadline: '2016-09-01',
         inputValue:'',
-        checkBoxShow: [false,false,false,false,false,false]
+        checkBoxShow: [false,false,false,false,false,false],
+        addrIsShow:0,
+        aType:['美食类','游玩类','饮品类','娱乐类'],
+        up_grade:5,
+        up_scrore:60
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    getAddrList(this);
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
-    // 页面显示
-    console.log(this.data);console.log("this.data");
+     getAddrList(this);
   },
   onHide:function(){
     // 页面隐藏
@@ -44,7 +47,9 @@ Page({
     })
   },
     radioChange: function(e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+        this.setData({
+          aTypeRadioIndex:e.detail.value
+        });    
   },
   checkboxChange: function(e) {
     var that = this;
@@ -98,7 +103,8 @@ function getAddrList(that){
             if(e.data.data[i].is_default == 1){
               console.log('这是一个默认地址');
               t.setData({
-                addrs:e.data.data[i]
+                addrs:e.data.data[i],
+                addrIsShow:1
               });
             }
         }
@@ -120,6 +126,7 @@ function uploadPic(that,wxUrl){
             var picUrl = JSON.parse(res.data).data;
                 that.setData({
                 imgUrl: 'https://www.wowyou.cc/'+picUrl,
+                upImg:picUrl
               });                          
         },
         error:function(res){
@@ -133,6 +140,7 @@ function uploadPic(that,wxUrl){
 function creatActivity(that,uData){
   var t = that;
   console.log(uData);console.log("uData");
+  uData["type"] = 1;
   var obj = {
     url:'https://www.wowyou.cc/api/activity/create',
     method:"POST",
@@ -140,8 +148,18 @@ function creatActivity(that,uData){
     success:function(e){
               console.log(e);
       if(e.data.code == 0){
-        console.log(123);
-        console.log(e);
+        toast.showToast({
+            context: that,
+            title: "发布成功"
+        })
+        wx.switchTab({
+          url:"../home/home"
+        })
+      }else if(e.data.code == -1){
+        toast.showToast({
+            context: that,
+            title: "表单数据需填写完整"
+        })
       }
     },    
   }

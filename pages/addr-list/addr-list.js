@@ -4,11 +4,15 @@ Page({
   data:{
     listData:[''],
     default_id:undefined,
+    hasAddr:0
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    // getAddrList(this);
+  }, 
+  onShow:function(){
+    // 页面显示
     getAddrList(this);
-            console.log(this.data.listData);
   },
   ntAddrAdd:function(){
     wx.navigateTo({
@@ -43,11 +47,13 @@ function getAddrList(that){
   var obj = {
     url:'https://www.wowyou.cc/api/user/addressList',
     success:function(e){
+      console.log(e);
       if(e.data.code == 0){
         console.log(123);
         console.log(e.data.data);
         that.setData({
-          listData:e.data.data
+          listData:e.data.data,
+          hasAddr:1
         });
       }
     },    

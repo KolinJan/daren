@@ -68,8 +68,8 @@
         </view>
     </view>
         <view class="main-frame">
-            <view class="register-frame {{userStatus == '1'?'displayShow':'displayHide'}}">
-                <view>成为达人，立刻享受优质生活{{userStatus}}</view>
+            <view class="register-frame {{userStatus == '0'?'displayShow':'displayHide'}}">
+                <view>成为达人，立刻享受优质生活</view>
                 <view class="register-frame-button" bindtap="ntRegister2">成为达人</view>    
             </view>
             <view class="tip-frame {{userStatus != '2'?'displayShow':'displayHide'}}">

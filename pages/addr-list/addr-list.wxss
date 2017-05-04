@@ -56,3 +56,14 @@
      color: #fff;
      padding: 15px;
  }
+ .addrShow{
+     display: block;
+ }
+ .addrHide{
+     display: none;
+ }
+ .tips{
+    text-align:center;
+    padding-top:22px;
+    color:#999;
+}

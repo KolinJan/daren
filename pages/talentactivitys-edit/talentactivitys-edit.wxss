@@ -140,12 +140,12 @@ textarea{
     display: flex;
     width: 100%;
 }
-.footer label{
+.footer button{
     flex-grow: 1;
-    padding: 15px;
     text-align: center;
     color: #fff;
     background: #ff6537;
+    border-radius: 0;
 }
 .preview{
     background-color: #8959a8!important;
@@ -183,4 +183,24 @@ textarea{
 }
 textarea{
     width: 98%;
+}
+
+.addrShow{
+    display: block;
+}
+.addrHide{
+    display: none;
+}
+.tips{
+    text-align:center;
+    padding-top:22px;
+    color:#999;
+}
+.myRadio{
+    width: 50%;
+    float: left;
+    padding: 5px 0px;
+}
+radio-group{
+    overflow: hidden;
 }

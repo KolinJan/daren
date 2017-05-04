@@ -1,6 +1,7 @@
 <!--pages/addr-add/addr-add.wxml-->
+<view class="tips {{hasAddr == 0?'addrShow':'addrHide'}}">暂无地址，去添加一个吧</view>
 <view class="bg">
-<radio-group class="radio-group" bindchange="radioChange">
+<radio-group class="radio-group {{hasAddr == 1?'addrShow':'addrHide'}}" bindchange="radioChange">
     <block wx:for="{{listData}}" for-index="idx">
         <view class="item">
             <view class="frame-item">

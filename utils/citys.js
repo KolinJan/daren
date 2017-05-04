@@ -985,7 +985,7 @@ var cityData = [
     }, 
     {
         "code": 3102, 
-        "name": "山西", 
+        "name": "山西省", 
         "sub": [
             {
                 "code": 3103, 

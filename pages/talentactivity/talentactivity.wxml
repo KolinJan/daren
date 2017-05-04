@@ -1,7 +1,7 @@
 <view class="container-frame">
     <!--<block wx:for="{{details}}">-->
     <view class="main-img-frame">
-        <image class="main-img" src="{{details.images}}"></image>
+        <image class="main-img" src="{{details.images}}" mode="aspectFill"></image>
         <view class="main-img-label-frame">
            <view class="main-img-label">{{details.title}}</view>     
         </view>

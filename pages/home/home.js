@@ -23,6 +23,8 @@ Page({
     onLoad: function (options) {
         wxLoagin(qcloud);
         getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
+    },
+    onShow:function(){
         getList(this);
     },
 
@@ -128,17 +130,12 @@ function getUserInfo(qcloud, url) {
             if (res.data.code == 0) {
                 wx.setStorage({
                     key: 'master_status',
-                    data: res.data.data.master_status,
+                    data: res.data.data.master_status,       
+                    
                     success: function (res) {
                         console.log(res)
                     }
                 });
-                wx.getStorage({
-                    key: 'master_status',
-                    success: function (res) {
-                        console.log(res);
-                    },
-                })
             }
         },
         error(res) {
@@ -156,25 +153,11 @@ function getList(that) {
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){
                 that.setData({
-                    activityList:e.data.data,
+                    activityList:e.data.data.data,
                 });
-                setSlide(that,e.data.data);
             }
  console.log(that.data); console.log('that.data');
         },
     }
     qcloud.request(obj);
-}
-
-function setSlide(that,data){
-    console.log(data);console.log('data');      
-    var slideImgs = [];
-    for(var i=0;i<3;i++){
-        slideImgs[i] = (data[i].images[0]);
-    }
-    that.setData({
-        slideImgs:slideImgs,
-    });    
-
-    console.log(slideImgs);console.log('slideImgs');    
 }
