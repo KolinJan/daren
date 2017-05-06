@@ -1,6 +1,6 @@
 /* pages/home/home.wxss */
 swiper{
-    height:240px;
+    height:200px;
     position: relative;
 }
 .swiper-image-text-frame{
@@ -178,7 +178,8 @@ swiper{
 }
 
 .scroll-view{
-    height: 300px;
+    height: 100px;
+    margin-top: 5px;
 }
 
 

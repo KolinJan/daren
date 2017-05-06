@@ -1,8 +1,9 @@
 <!--pages/home/home.wxml-->
-<!--<swiper bindchange="testChange" indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<include src="../../template/toast.wxml"/>
+<swiper bindchange="testChange" indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
         <swiper-item>
-            <image src="{{item}}" class="slide-image" width="355" height="150"/>
+            <image src="{{item}}" class="slide-image" width="355" height="150" mode="center"/>
             <block wx:for="{{imgTexts}}">
                 <view class="swiper-image-text-frame">
                     <view class="swiper-image-text">{{imageText}}</view>
@@ -10,9 +11,9 @@
             </block>
         </swiper-item>
     </block>
-</swiper>-->
+</swiper>
     <!---------------------------------------------filtrate-------------------------------------------------->
-<!--<dl class="menu">
+<dl class="menu">
     <dt class="filter-tab active" data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
     <dt class="filter-tab" data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}</dt>
     <dt class="filter-tab" data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}</dt>
@@ -45,9 +46,9 @@
             <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[2][2]}}</li>
         </ul>
     </dd>        
-</dl>-->
+</dl>
     <!---------------------------------------------list-------------------------------------------------->
-    <scroll-view class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">
+    <scroll-view style="height:{{scrollerHeight}}px;" class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">
         <view class="list-frame">
             <block wx:for="{{activityList}}">
                 <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">

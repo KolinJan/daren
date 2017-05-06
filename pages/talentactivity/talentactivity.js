@@ -38,7 +38,7 @@ Page({
       wx.openLocation({
         latitude:e.currentTarget.dataset.lat,
         longitude:e.currentTarget.dataset.lng,
-        address:"本次活动地址",
+        // address:"本次活动地址",
       });
     }  
 })
@@ -76,9 +76,11 @@ function QualificationAquired(that){
             console.log(e); console.log('QualificationAquired');
             if(e.data.code == 0 ){
               console.log(e);
-              wx.navigateTo({
-                url: '../qualification-aquired/qualification-aquired',
-              })
+              if(that.data.actId != undefined){
+                wx.navigateTo({
+                  url: '../qualification-aquired/qualification-aquired?qid='+that.data.actId,
+                })
+              }
             }else{
               wx.showModal({
                 title: '领取失败',

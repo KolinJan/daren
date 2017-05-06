@@ -1,6 +1,10 @@
 {
   "pages":[
+    "pages/upload-evidence/upload-evidence",  
     "pages/home/home",     
+    "pages/qualification-aquired/qualification-aquired",           
+    "pages/register2/register2",         
+    "pages/cards-bag/cards-bag",        
     "pages/addr-edit/addr-edit",         
     "pages/addr-add/addr-add",                 
     "pages/talentactivity/talentactivity",           
@@ -9,11 +13,8 @@
     "pages/addr-list/addr-list",               
     "pages/mechant-acting-list/mechant-acting-list",       
     "pages/mechant-acting-details/mechant-acting-details",      
-    "pages/attended/attended",            
-    "pages/cards-bag/cards-bag",                           
-    "pages/register/register",                                                                          
-    "pages/register2/register2",               
-    "pages/qualification-aquired/qualification-aquired",    
+    "pages/attended/attended",                                     
+    "pages/register/register",                                                                                           
     "pages/talentactivitys-edit-2/talentactivitys-edit-2",      
     "pages/benefit-type/benefit-type",                        
     "pages/mine/mine",            
@@ -36,8 +37,7 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh":true
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "list": [{

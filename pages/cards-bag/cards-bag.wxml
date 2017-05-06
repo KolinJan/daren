@@ -6,7 +6,7 @@
         <view>积分:{{cardData.voucher_price}}</view>
         <view class="use-now">
             <label bindtap="changeStatus" id="{{index}}" data-carId="{{cardData.cardId}}">{{cardData.voucher_status}}</label>
-            <view class="date">2017-05-05</view>
+            <view class="date">使用时间:{{cardData.voucher_use_time != null?cardData.voucher_use_time:' '}}</view>
         </view>
     </view>
     <!--</block>   -->

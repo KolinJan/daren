@@ -8,6 +8,11 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     console.log(options);console.log('console.log(options);');
     getCardList(options.aid,this);
+    this.setData({
+      id:options.id,
+      aid:options.aid
+    });
+    console.log(this.data);
   },
   onReady:function(){
     // 页面渲染完成
@@ -22,6 +27,7 @@ Page({
     // 页面关闭
   },
   changeStatus:function(e){
+    var that = this;
     console.log(this.data.cardData);console.log("this.data.cardData");
     wx.showModal({
       title: "提示",
@@ -29,6 +35,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          useCard(that);
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -53,4 +60,36 @@ function getCardList(id,that){
         },
     }
     qcloud.request(obj);  
+}
+
+function useCard(that){
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/voucher/voucherUse',
+        data:{
+          vid:that.data.cardData.voucher_id,
+          aid:that.data.cardData.voucher_act_id,
+          id:that.data.id
+          },
+        method:"GET",
+        success: function (e) {
+            console.log(e); console.log('使用圈');
+            if(e.data.code == 0 ){
+              wx.showToast({
+                title: '使用成功',
+                icon: 'success',
+                duration: 2000
+              })
+              getCardList(that.data.id,that);
+            }else{
+              wx.showToast({
+                title: '已使用或已过期',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+ console.log(that.data); console.log('that.data');
+        },
+    }
+    qcloud.request(obj);    
 }

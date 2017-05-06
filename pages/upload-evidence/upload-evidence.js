@@ -1,4 +1,4 @@
-// pages/register2/register2.js
+// pages/upload-evidence/upload-evidence.js
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
 Page({

@@ -36,7 +36,7 @@ function getList(that){
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){
                 that.setData({
-                    activityList:e.data.data,
+                    activityList:e.data.data.data,
                 });
             }
             console.log(that.data); console.log('that.data');

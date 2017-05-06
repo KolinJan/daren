@@ -1,5 +1,8 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
+var toast = require('../../utils/toast');
+var pageIndex = 1;
+var currentPage = 999;
 Page({
     data: {       
         imgUrls: [
@@ -19,10 +22,13 @@ Page({
         filtrate: filtrate(),
         subMenuDisplay: initSubMenuDisplay(),
         filtrateIndex: 0,
+
+        activityList:[],
         lat:'',
         lng:'',
     },
     onLoad: function (options) {
+        getScrollerHeight(this);
         wxLoagin(qcloud);
         getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
         getLocation(this);
@@ -85,10 +91,17 @@ Page({
     },
     // 上拉刷新
     refreshEvent:function(){
-        console.log("刷新中");
+        wx.showLoading({
+        title: '加载中...',
+        })
+        getList(this);
     },
     nextPageEvent:function(){
-        console.log("翻页");
+            pageIndex ++;   
+        wx.showLoading({
+        title: '加载中...',
+        });
+        getList(this);
     },
 
 
@@ -161,19 +174,41 @@ function getList(that) {
         login:true,
         data:{
             lat:that.data.lat,
-            lng:that.data.lng
+            lng:that.data.lng,
+            page:pageIndex,
         },
         url: 'https://www.wowyou.cc/api/activity/activityHome',
         success: function (e) {
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){
-                that.setData({
-                    activityList:e.data.data.data,
-                });
+                console.log(currentPage+":系统定义的页数");
+                console.log(e.data.data.current_page+":接口返回的页数");
+                if(e.data.data.current_page <= Math.floor(e.data.data.total/e.data.data.per_page) ){
+                    console.log(11111111111111111111111111111111111111111111111);
+                    currentPage = e.data.currentPage;
+                    if(e.data.data.current_page != 1){
+                        that.setData({
+                            activityList:that.data.activityList.concat(e.data.data.data),
+                            totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
+                        });  
+                    }else{
+                        that.setData({
+                            activityList:e.data.data.data,
+                            totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
+                        });                          
+                    }                  
+                }else{
+                    toast.showToast({
+                        context: that,
+                        title: "没有更多了"
+                    })
+                }
             }
  console.log(that.data); console.log('that.data');
+              wx.hideLoading()
         },
     }
+    console.log(obj);console.log('obj');
     qcloud.request(obj);
 }
 
@@ -192,4 +227,24 @@ function getLocation(that){
             console.log(res);console.log("位置信息");
         }
     })    
+}
+
+function getTotalPage(len,per){
+    console.log(len);console.log('len');
+    var totalPage = (len/per)+1;
+    totalPage = Math.floor(totalPage);
+    console.log(totalPage);console.log('totalPage');
+    return totalPage;
+}
+
+function getScrollerHeight(that){
+    
+    wx.getSystemInfo({
+        success: function(res) {
+            console.log(res.windowHeight)
+            that.setData({
+                scrollerHeight:(res.windowHeight-245),
+            });
+        }
+})
 }

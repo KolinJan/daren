@@ -59,10 +59,18 @@ Page({
     },
     lookForDetails:function(e){
         console.log(e);console.log('点击事件范湖i')
-        var aid = e.currentTarget.dataset.aid;
-        wx.navigateTo({
-          url: '../cards-bag/cards-bag?aid='+aid,
-        })
+        var status = e.currentTarget.dataset.status;
+            var id = e.currentTarget.dataset.id;
+            var aid = e.currentTarget.dataset.aid;        
+        if(status == 2){
+            wx.navigateTo({
+            url: '../upload-evidence/upload-evidence?aid='+aid,
+            })
+        }else{
+            wx.navigateTo({
+            url: '../cards-bag/cards-bag?id='+id+"&aid="+aid,
+            })
+        }
     },
 
 
@@ -97,7 +105,7 @@ function getList(aType,that){
     var obj = {
         login:true,
         url: 'https://www.wowyou.cc/api/user/myJoin',
-        data:{status:aType},
+        data:{status:2},
         success: function (e) {
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){

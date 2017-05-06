@@ -3,6 +3,9 @@ Page({
   data:{},
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    this.setData({
+        aid:options.qid
+    });
   },
   onReady:function(){
     // 页面渲染完成
@@ -17,17 +20,11 @@ Page({
     // 页面关闭
   },
   ntCardBag:function(){
-    wx.navigateTo({
-      url: '../cards-bag/cards-bag',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
+    // if(this.data.aid != undefined){
+      wx.navigateTo({
+        // url: '../cards-bag/cards-bag?qid='+this.data.aid,
+        url: '../attended/attended',
+      })
+    // }
   }
 })
