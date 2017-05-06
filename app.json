@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/upload-evidence/upload-evidence",  
     "pages/home/home",     
+    "pages/upload-evidence/upload-evidence",      
     "pages/qualification-aquired/qualification-aquired",           
     "pages/register2/register2",         
     "pages/cards-bag/cards-bag",        
