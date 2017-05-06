@@ -21,11 +21,15 @@
             <label class="details-frame-details-1-l6">评分 : {{details.min_score}}↑</label>
          </view>
          <view class="details-frame-details-1 flex-row" bindtap="ntRequireIconState">
-                <view class="details-frame-details-1-l5">
-                    <image class="details-frame-smallicon" src="../../imgs/九图.png"></image>
-                    <label>九图</label>                
-                </view>
-                <view class="details-frame-details-1-l5">
+                <block wx:for="{{details.rqstd}}">
+                    <view class="details-frame-details-1-l5">
+                         <block wx:for="{{item}}">
+                            <image class="details-frame-smallicon" src="{{asked[item.id-1]}}"></image>
+                            <label>{{item.name}}</label>
+                        </block>                
+                    </view>
+                </block>
+                <!--<view class="details-frame-details-1-l5">
                     <image class="details-frame-smallicon" src="../../imgs/二维码.png"></image>
                     <label>二维码</label>                
                 </view>     
@@ -44,7 +48,11 @@
                 <view class="details-frame-details-1-l5">
                     <image class="details-frame-smallicon" src="../../imgs/朋友圈.png"></image>
                     <label>指定内容</label>                
-                </view>                                                              
+                </view>                                                              -->
+         </view>
+         <view class="details-frame-details-1 flex-row" bindtap="openMap" data-lat="{{details.lat}}" data-lng="{{details.lng}}">
+            <image src="../../imgs/地图.png" class="map-icon"></image>
+            <view class="map-icon-label">查看活动地址</view>
          </view>
          <view>
             <view class="shouldKnow-frame">

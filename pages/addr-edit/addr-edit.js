@@ -7,6 +7,7 @@ Page({
   data:{
     location:'点击编辑',
     name:'',
+    complate:0,    
     // ······························三级联动开始······························
     provinces: [],
     province: "",
@@ -104,6 +105,15 @@ Page({
     })
   },
     onLoad: function () {
+      
+      wx.getStorage({
+        key: 'address_id',
+        success: function(res){
+          // success
+          console.log(res.data);
+        },
+      })
+
     console.log("onLoad");
     var that = this;
     
@@ -134,25 +144,13 @@ Page({
       'countys':countys,
       'province':cityData[0].name,
       'city':cityData[0].sub[0].name,
-      'county':cityData[0].sub[0].sub[0].name
+      'county':cityData[0].sub[0].sub[0].name,
+      'complate':1
     })
     console.log('初始化完成');
   },
 // ······························三级联动结束······························
   onReady:function(){
-    wx.getStorage({
-      key: 'address_id',
-      success: function(res){
-        // success
-        console.log(res.data);
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
   },
   onShow:function(){
     getStorage(this);

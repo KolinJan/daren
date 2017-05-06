@@ -2,7 +2,8 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
-    details:{}
+    details:{},
+    asked:getAskList(),
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -31,6 +32,14 @@ Page({
   },
     ntQualificationAquired:function(){
       QualificationAquired(this);
+    },
+    openMap:function(e){
+      console.log(e);console.log("接口读的定位");
+      wx.openLocation({
+        latitude:e.currentTarget.dataset.lat,
+        longitude:e.currentTarget.dataset.lng,
+        address:"本次活动地址",
+      });
     }  
 })
 
@@ -81,4 +90,15 @@ function QualificationAquired(that){
         },
     }
     qcloud.request(obj); 
+}
+
+function getAskList(){
+  return [
+    "../../imgs/九图.png",
+    "../../imgs/二维码.png",
+    "../../imgs/位置.png",
+    "../../imgs/其他.png",
+    "../../imgs/群发.png",    
+    "../../imgs/朋友圈.png",
+  ]
 }

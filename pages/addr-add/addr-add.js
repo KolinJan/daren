@@ -8,6 +8,7 @@ Page({
   data:{
     location:'点击编辑',
     name:'',
+    complate:0,
     // ······························三级联动开始······························
     provinces: [],
     province: "",
@@ -134,7 +135,9 @@ Page({
       'countys':countys,
       'province':cityData[0].name,
       'city':cityData[0].sub[0].name,
-      'county':cityData[0].sub[0].sub[0].name
+      'county':cityData[0].sub[0].sub[0].name,
+      'inputAbled':'',
+      'complate':1
     })
     console.log('初始化完成');
   },

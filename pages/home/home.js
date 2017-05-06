@@ -1,7 +1,7 @@
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
 Page({
-    data: {
+    data: {       
         imgUrls: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
             'http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg',
@@ -19,10 +19,13 @@ Page({
         filtrate: filtrate(),
         subMenuDisplay: initSubMenuDisplay(),
         filtrateIndex: 0,
+        lat:'',
+        lng:'',
     },
     onLoad: function (options) {
         wxLoagin(qcloud);
         getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
+        getLocation(this);
     },
     onShow:function(){
         getList(this);
@@ -79,7 +82,15 @@ Page({
         wx.navigateTo({
             url: '../benefit-type/benefit-type',
         })
-    }
+    },
+    // 上拉刷新
+    refreshEvent:function(){
+        console.log("刷新中");
+    },
+    nextPageEvent:function(){
+        console.log("翻页");
+    },
+
 
 })
 
@@ -148,6 +159,10 @@ function getUserInfo(qcloud, url) {
 function getList(that) {
     var obj = {
         login:true,
+        data:{
+            lat:that.data.lat,
+            lng:that.data.lng
+        },
         url: 'https://www.wowyou.cc/api/activity/activityHome',
         success: function (e) {
             console.log(e); console.log('console.log(e);');
@@ -160,4 +175,21 @@ function getList(that) {
         },
     }
     qcloud.request(obj);
+}
+
+function getLocation(that){
+    wx.getLocation({
+        success: function(res) {
+            // var latitude = res.latitude
+            // var longitude = res.longitude
+            // var speed = res.speed
+            // var accuracy = res.accuracy
+            that.setData({
+                lat:res.latitude,
+                lng:res.longitude            
+            });
+            getList(that);
+            console.log(res);console.log("位置信息");
+        }
+    })    
 }

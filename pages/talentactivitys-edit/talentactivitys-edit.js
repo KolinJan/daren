@@ -9,7 +9,8 @@ Page({
         addrIsShow:0,
         aType:['美食类','游玩类','饮品类','娱乐类'],
         up_grade:5,
-        up_scrore:60
+        up_scrore:60,
+        ids:[]
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -52,6 +53,7 @@ Page({
         });    
   },
   checkboxChange: function(e) {
+    console.log(e);console.log("checkbox");
     var that = this;
     // console.log(this.data.checkboxBaseNum%2);
     // this.data.checkboxBaseNum ++;
@@ -60,7 +62,16 @@ Page({
     var clickResult = !that.data.checkBoxShow[index];
     that.data.checkBoxShow[index] = clickResult;
     console.log(that.data.checkBoxShow[index]);
-    // console.log(e);
+    if(that.data.checkBoxShow[index]){
+        this.data.ids.push(e.target.id);
+    }else{
+      for(var i = 0;i<this.data.ids.length;i++){
+        if(this.data.ids[i] == e.target.id){
+            this.data.ids.splice(i, 1);
+        }
+      }
+    }
+    console.log(this.data.ids);
     that.setData({
       checkBoxShow:that.data.checkBoxShow,
     });
@@ -141,6 +152,8 @@ function creatActivity(that,uData){
   var t = that;
   console.log(uData);console.log("uData");
   uData["type"] = 1;
+  uData["ids"] = that.data.ids;
+  // uData["ids"] = 
   var obj = {
     url:'https://www.wowyou.cc/api/activity/create',
     method:"POST",

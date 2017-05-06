@@ -10,12 +10,12 @@
         </view>-->
         
 
-        <view class="frame-item relative-frame">
+        <view class="frame-item relative-frame {{complate==1?'show':'hide'}}">
             <view class="frame-item-label">所在地区:</view>
-
             <view class="">
-                <view class="input">
-                    <input name="area" placeholder="选择" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />
+                <view class="input" bindtap="open">
+                    <view class="showAddPanel overlength">{{province}}-{{city}}-{{county}}</view>
+                    <input name="area" placeholder="选择" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" class="hide"/>
                 </view>
             </view>
                 <view wx:if="{{condition}}" class="citypicker">
@@ -25,13 +25,13 @@
                         <view bindtap="open" class="city-true">确定</view>
                 </view>
                     <picker-view-column>
-                        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+                        <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;" class="debug-{{item.length}}">{{item}}</view>
                     </picker-view-column>
                     <picker-view-column>
-                        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+                        <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;"class="debug-{{item.length}}">{{item}}</view>
                     </picker-view-column>
                     <picker-view-column>
-                        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+                        <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;"class="debug-{{item.length}}">{{item}}</view>
                     </picker-view-column>
                 </picker-view>
             </view>
@@ -41,7 +41,8 @@
         <view class="frame-item"  bindtap="chooseLocation" >
             <view class="frame-item-label">详细地址:</view>
             <view class="frame-item-input-frame">
-                <input name="address" type="text" value="{{name}}" disabled/>
+                <view class="showAddPanel overlength">{{name}}</view>
+                <input name="address" type="text" value="{{name}}" class="addrInput"/>
             </view>
         </view>
         

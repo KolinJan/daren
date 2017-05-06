@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<swiper bindchange="testChange" indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<!--<swiper bindchange="testChange" indicator-dots="{{indicatorDots}}"autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
         <swiper-item>
             <image src="{{item}}" class="slide-image" width="355" height="150"/>
@@ -10,12 +10,12 @@
             </block>
         </swiper-item>
     </block>
-</swiper>
+</swiper>-->
     <!---------------------------------------------filtrate-------------------------------------------------->
-<dl class="menu">
-    <dt data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
-    <dt data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
-    <dt data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}<image src="../../imgs/down.png" class="img-down"></image></dt>
+<!--<dl class="menu">
+    <dt class="filter-tab active" data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
+    <dt class="filter-tab" data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}</dt>
+    <dt class="filter-tab" data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}</dt>
     <dd class="{{subMenuDisplay[0]}}">
         <ul>
             <li class="" data-index="0" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
@@ -45,25 +45,30 @@
             <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[2][2]}}</li>
         </ul>
     </dd>        
-</dl>
+</dl>-->
     <!---------------------------------------------list-------------------------------------------------->
-    <view class="list-frame">
-        <block wx:for="{{activityList}}">
-            <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
-                <image class="list-adimage" src="{{item.images}}" mode="aspectFill"></image>
-                <view class="list-frame-item-panel">
-                    <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
-                    <label class="list-frame-label-alone list-frame-label-price">{{item.shop_price}}! (市价{{item.market_price}}元)</label>
-                    <label class="list-frame-detailsLable">等级:{{item.min_level}} ↑     评分:{{item.min_score}}↑</label>
-                    <label class="list-frame-label-alone list-frame-statusLable">名额 10/{{item.quota}}</label>
+    <scroll-view class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">
+        <view class="list-frame">
+            <block wx:for="{{activityList}}">
+                <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
+                    <image class="list-adimage" src="{{item.images}}" mode="aspectFill"></image>
+                    <view class="list-frame-item-panel">
+                        <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
+                        <label class="list-frame-label-alone list-frame-label-price">{{item.shop_price}}! (市价{{item.market_price}}元)</label>
+                        <label class="list-frame-detailsLable">等级:{{item.min_level}} ↑     评分:{{item.min_score}}↑</label>
+                        <label class="list-frame-label-alone list-frame-statusLable">名额 10/{{item.quota}}</label>
+                    </view>
+                    <label class="distance-label">小于{{(item.distance)+1}}公里</label>
+                    <!--<view class="list-require-frame">
+                        <label class="list-frame-requireLabel">商家要求：</label>
+                        <block wx:for="item.">
+                            <label class="list-frame-requireLabel-details">九图 其他</label>
+                        </block>
+                    </view>-->
                 </view>
-                <view class="list-require-frame">
-                    <label class="list-frame-requireLabel">商家要求：</label>
-                    <label class="list-frame-requireLabel-details">九图 其他</label>
-                </view>
-            </view>
-        </block>                     
-    </view>
+            </block>                     
+        </view>    
+    </scroll-view>
 
     <view class="add_icon_frame" bindtap="ntType">
         <image class="add_icon" src="../../imgs/添加.png"></image>

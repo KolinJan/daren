@@ -86,3 +86,11 @@
     box-sizing: border-box;
     padding: 10px;
 }
+.map-icon{
+    width: 20px;
+    height: 20px;
+}
+.map-icon-label{
+    color:#999;
+    margin-left:10px;
+}

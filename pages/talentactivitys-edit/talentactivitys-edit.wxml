@@ -81,37 +81,37 @@
                         <view class="details-frame-details-1-l5">
                             <image class="details-frame-smallicon" src="../../imgs/九图.png"></image>
                             <label>九图</label>
-                            <checkbox id="0" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                            <checkbox id="1" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
                             <textarea class="textareashowfalse" placeholder="要求九图发放"/>                
                         </view>
                         <view class="details-frame-details-1-l5">
                             <image class="details-frame-smallicon" src="../../imgs/二维码.png"></image>
                             <label>二维码</label>
-                            <checkbox id="1" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>                       
+                            <checkbox id="2" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>                       
                             <textarea class="textareashowfalse" placeholder="九图中包含商家提供的二维码"/>                                    
                         </view>     
                         <view class="details-frame-details-1-l5">
                             <image class="details-frame-smallicon" src="../../imgs/位置.png"></image>
                             <label>位置</label>
-                            <checkbox id="2" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                            <checkbox id="3" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
                             <textarea class="textareashowfalse" placeholder="朋友圈下标中出现店铺定位位置"/>                  
                         </view>
                         <view class="details-frame-details-1-l5">
                             <image class="details-frame-smallicon" src="../../imgs/其他.png"></image>
                             <label>其他</label>
-                            <checkbox id="3" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                            <checkbox id="4" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
                             <textarea class="textareashowfalse" placeholder="特殊的要求"/>                    
                         </view>  
                         <view class="details-frame-details-1-l5">
                             <image class="details-frame-smallicon" src="../../imgs/群发.png"></image>
                             <label>群发</label>
-                            <checkbox id="4" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                            <checkbox id="5" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
                             <textarea class="textareashowfalse" placeholder="将图片发到至少一个群内"/>                  
                         </view>
                         <view class="details-frame-details-1-l5 padding-b">
                             <image class="details-frame-smallicon" src="../../imgs/朋友圈.png"></image>
                             <label>指定内容</label>
-                            <checkbox id="5" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
+                            <checkbox id="6" bindtap="checkboxChange"  checked="" class="icon-checkedbox"/>
                             <textarea class="textareashowfalse" placeholder="若有指定的文字内容请在此处编辑"/>                  
                         </view>
                         <view class="section textarea-frame">

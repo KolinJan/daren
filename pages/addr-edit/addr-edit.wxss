@@ -2,6 +2,7 @@
 .frame-item{
     border-bottom: 1px solid #f1f1f1;
     overflow:hidden;zoom:1;
+    position: relative;
 }
 .frame-item view{
     float: left
@@ -71,3 +72,40 @@
      color: #fff;
      position: static;
  }
+
+ .debug-1{
+    width: 25%;
+}
+.debug-2{
+    width: 50%;
+}
+.debug-3{
+    width: 75%;
+}
+.debug4{
+    width: 100%;
+}
+.show{
+    /*display: block;*/
+    visibility:visible;
+}
+.hide{
+    visibility:hidden;
+}
+.addrInput{
+    display: none;
+}
+.showAddPanel{
+    position: absolute;
+    top: 11px;
+}
+.overlength{
+    width:300px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;    
+}
+checkbox{
+    padding: 5px;
+}
