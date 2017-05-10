@@ -1,0 +1,26 @@
+/* pages/account/account/account.wxss */
+.mine-item-panel{
+  margin-bottom:50px;
+
+}
+.mine-item{
+  padding: 15px 8px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.mine-dicript-view{
+  display: inline-block;
+  margin-left: 10px;
+}
+.mine-icon{
+  width:25px;
+  height:25px;
+  vertical-align:bottom;
+}
+
+.mine-item:nth-child(1)
+{
+border-top: 1px solid #f1f1f1;
+}
+.right{
+  float: right;
+}

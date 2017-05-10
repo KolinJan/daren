@@ -11,6 +11,7 @@
 </dl>
     <!---------------------------------------------参加过的活动-------------------------------------------------->
     <view class="list-frame">
+        <view class="noAttendLabel {{listDetails.length >0?'none':'block'}}">暂无{{filtrate}}的任务</view>    
         <block wx:for="{{listDetails}}">
             <view class="list-frame-item" bindtap="lookForDetails" data-status="{{item.status}}"data-id="{{item.id}}" data-aid="{{item.aid}}">
                 <image class="list-adimage" src="{{item.images}}"></image>
@@ -23,45 +24,7 @@
                 <view class="mark">
                     <label class="mark-l1" style="background-color:#19b955;">{{item.status_txt}}</label>
                     <label class="mark-l2"></label>
-                </view>
-                <!--<view class="list-require-frame">
-                    <label class="list-frame-requireLabel">商家要求：</label>
-                    <label class="list-frame-requireLabel-details">九图 其他</label>
-                </view>-->
+                </view> 
             </view>
         </block>    
-        <!--<view class="list-frame-item" bindtap="lookForDetails">
-            <image class="list-adimage" src="http://p0.so.qhimgs1.com/bdr/_240_/t01e10eb3ca17c7e420.jpg"></image>
-            <view class="list-frame-item-panel">
-                <label class="list-frame-label-alone list-frame-titleLable">四海一家(南山益田假日店)</label>
-                <label class="list-frame-label-alone list-frame-label-price">2.5折 50元 (市价200元)</label>
-                <label class="list-frame-detailsLable">等级:2↑     评分:85↑</label>
-                <label class="list-frame-label-alone list-frame-statusLable">名额 10/15</label>
-            </view>
-            <view class="mark">
-                <label class="mark-l1">请上传截图</label>
-                <label class="mark-l2"></label>
-            </view>            
-            <view class="list-require-frame">
-                <label class="list-frame-requireLabel">商家要求：</label>
-                <label class="list-frame-requireLabel-details">九图 位置  其他</label>
-            </view>
-        </view>
-        <view class="list-frame-item" bindtap="lookForDetails">
-            <image class="list-adimage" src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg"></image>
-            <view class="list-frame-item-panel">
-                <label class="list-frame-label-alone list-frame-titleLable">巴黎五日游(东泰旅行社)</label>
-                <label class="list-frame-label-alone list-frame-label-price">4折 8000元 (市价20000元)</label>
-                <label class="list-frame-detailsLable">等级:2↑     评分:85↑</label>
-                <label class="list-frame-label-alone list-frame-statusLable">名额 10/15</label>
-            </view>
-            <view class="mark">
-                <label class="mark-l1">已完成</label>
-                <label class="mark-l2">95</label>
-            </view>            
-            <view class="list-require-frame">
-                <label class="list-frame-requireLabel">商家要求：</label>
-                <label class="list-frame-requireLabel-details">二维码 指定内容  位置  其他</label>
-            </view>
-        </view>                       -->
     </view>    

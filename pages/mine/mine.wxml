@@ -4,10 +4,11 @@
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
-    <view class="mine-item bonus">
+    <view class="mine-item bonus" bindtap="ntAccount">
         <view>
             <image class="mine-icon" src="../../imgs/积分.png"></image>
             <view class="mine-dicript-view">积分：{{userData.points}}</view>
+            <image class="mine-icon right" src="../../imgs/箭头右.png"></image>                  
             </view>        
     </view>
     <view class="mine-item-panel">
@@ -31,6 +32,13 @@
                 <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
              </view> 
         </view>
+        <view class="mine-item">
+            <view bindtap="ntAddrList">
+                <image class="mine-icon" src="../../imgs/商家位置.png"></image>
+                <view class="mine-dicript-view">地址管理</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
+             </view> 
+        </view>        
     </view>
     <view class="mine-item-panel {{userStatus == '2'?'displayShow':'displayHide'}}">
         <view class="mine-item">
@@ -49,7 +57,7 @@
             <view>
                 <image class="mine-icon" src="../../imgs/评分.png"></image>
                 <view class="progress-title mine-dicript-view">分数:{{userData.score}}</view>
-                <progress percent="80" color="#ff6537"/>
+                <progress percent="{{userData.score}}" color="#ff6537"/>
              </view>          
         </view>
         <view class="mine-item" bindtap="ntAttended">

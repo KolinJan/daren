@@ -29,7 +29,8 @@ App({
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+              typeof cb == "function" && cb(that.globalData.userInfo);
+              // getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
             }
           })
         }
@@ -40,3 +41,27 @@ App({
     userInfo:null
   }
 })
+
+// function getUserInfo(qcloud, url) {
+//     var obj = {
+//         url: url,
+//         success(res) {
+//             console.log(res);console.log("res.data.data.is_vip");
+//             if (res.data.code == 0) {
+//                 wx.setStorage({
+//                     key: 'master_status',
+//                     data: res.data.data.master_status,       
+                    
+//                     success: function (res) {
+//                         console.log(res)
+//                     }
+//                 });
+//             }
+//         },
+//         error(res) {
+//             console.log(JSON.stringify(res));
+//             console.log('注册失败');
+//         },
+//     }
+//     qcloud.request(obj);
+// }

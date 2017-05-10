@@ -36,9 +36,21 @@ Page({
     openMap:function(e){
       console.log(e);console.log("接口读的定位");
       wx.openLocation({
-        latitude:e.currentTarget.dataset.lat,
-        longitude:e.currentTarget.dataset.lng,
-        // address:"本次活动地址",
+        latitude:parseFloat(e.currentTarget.dataset.lat),
+        longitude:parseFloat(e.currentTarget.dataset.lng),
+        // latitude:22.576140,
+        // longitude:114.062010,        
+        address:"本次活动地址",
+        success:function(){
+          console.log("地图打开成功");
+        },
+        fail:function(e){
+          console.log(e);          
+          console.log("地图打开fail");
+        },
+        complete:function(e){
+          console.log("地图打开complete");
+        },                
       });
     }  
 })

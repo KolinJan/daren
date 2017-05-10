@@ -1,5 +1,6 @@
 <!--pages/talentactivitys-edit/talentactivitys-edit.wxml-->
 <include src="../../template/toast.wxml"/>
+<view animation="{{ animationData }}" class="block" hidden="{{ hidden }}">123</view>
 <view class="container-frame">
     <form bindsubmit="submitEvent">
         <view class="main-img-frame">
@@ -115,7 +116,7 @@
                             <textarea class="textareashowfalse" placeholder="若有指定的文字内容请在此处编辑"/>                  
                         </view>
                         <view class="section textarea-frame">
-                             <textarea bindblur="bindTextAreaBlur" name="description" auto-height placeholder="备注要求明细" />
+                             <textarea bindblur="bindTextAreaBlur" name="description" auto-height />
                         </view>                                                             
                 </view>
                 <!---------------------------------------------添加地址-------------------------------------------------------->
@@ -139,7 +140,36 @@
             </view>
             <view class="footer">
                 <button class="release preview" formType="submit">预览</button>
-                <button class="release" formType="submit">发布</button>
+                <button class="release" formType="submit">发布</button>              
             </view>    
     </form>
+
+
+
+    <view class="diposit-panel {{hidden?'hidden':'block'}}" animation="{{ animationData }}" >
+        <view class="input-frame item-frame">
+            <view class="item-label maxWidth">发布任务所需积分 15*5=75，尚需25积分</view>
+        </view>        
+        <view class="item-frame padding-left">
+                <icon type="success" size="20"/>
+                <label>微信支付</label>
+        </view>
+        <view>  
+            <view class="input-frame item-frame">
+                <view class="item-label">现有积分</view>
+                <input type="number" disabled value="50"/>
+            </view>
+        </view>
+        <view>  
+        </view>             
+        <view>  
+            <view class="input-frame item-frame">
+                <view class="item-label">充值金额</view>
+                <input type="number" placeholder=" 1 元 = 1 积分"/>
+            </view>
+        </view>
+        <view class="diposit-frame">
+            <view>充值</view>
+        </view>
+    </view>      
 </view>

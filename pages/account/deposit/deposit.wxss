@@ -1,0 +1,43 @@
+/* pages/account/deposit/deposit.wxss */
+.input-frame{
+    position: relative;
+}
+.input-frame input{
+    position: absolute;
+    top: 10px;
+    left: 25%;
+}
+.item-frame{
+    padding: 10px 0px;
+    border-bottom: 1px solid #f1f1f1;        
+}
+.item-label{
+    width: 25%;
+    text-align: left;
+    text-align: center;
+}
+.padding-left{
+    padding-left:8.5%;
+}
+icon{
+    margin-right: 10px;
+    vertical-align:middle;
+}
+.padding-left label{
+    vertical-align: middle;
+}
+.diposit-frame{
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+.diposit-frame view{
+    background-color: #0ABA07;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    width: 80%;
+    border-radius: 3px;
+}

@@ -331,7 +331,8 @@ function getDetails(that){
               lng:res.data.data.lng,
               is_default:res.data.data.is_default,
               aid:res.data.data.address_id,
-              consignee:res.data.data.consignee         
+              consignee:res.data.data.consignee,
+              districtName:res.data.data.districtName   
             });
             console.log(that.data);console.log('that.data');
         }else{

@@ -14,7 +14,7 @@
             <view class="frame-item-label">所在地区:</view>
             <view class="">
                 <view class="input" bindtap="open">
-                    <view class="showAddPanel overlength">{{province}}-{{city}}-{{county}}</view>
+                    <view class="showAddPanel overlength">{{province}}-{{city}}-{{districtName}}</view>
                     <input name="area" placeholder="选择" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" class="hide"/>
                 </view>
             </view>

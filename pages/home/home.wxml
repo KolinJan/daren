@@ -48,7 +48,7 @@
     </dd>        
 </dl>
     <!---------------------------------------------list-------------------------------------------------->
-    <scroll-view style="height:{{scrollerHeight}}px;" class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">
+    <!--<scroll-view style="height:{{scrollerHeight}}px;" class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">-->
         <view class="list-frame">
             <block wx:for="{{activityList}}">
                 <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
@@ -57,7 +57,7 @@
                         <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
                         <label class="list-frame-label-alone list-frame-label-price">{{item.shop_price}}! (市价{{item.market_price}}元)</label>
                         <label class="list-frame-detailsLable">等级:{{item.min_level}} ↑     评分:{{item.min_score}}↑</label>
-                        <label class="list-frame-label-alone list-frame-statusLable">名额 10/{{item.quota}}</label>
+                        <label class="list-frame-label-alone list-frame-statusLable">名额 {{item.join_quota}}/{{item.quota}}</label>
                     </view>
                     <label class="distance-label">小于{{(item.distance)+1}}公里</label>
                     <!--<view class="list-require-frame">
@@ -69,7 +69,7 @@
                 </view>
             </block>                     
         </view>    
-    </scroll-view>
+    <!--</scroll-view>-->
 
     <view class="add_icon_frame" bindtap="ntType">
         <image class="add_icon" src="../../imgs/添加.png"></image>

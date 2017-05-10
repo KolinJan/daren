@@ -10,7 +10,10 @@ Page({
         aType:['美食类','游玩类','饮品类','娱乐类'],
         up_grade:5,
         up_scrore:60,
-        ids:[]
+        ids:[],
+
+animationData: {},
+    hidden: true        
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -19,7 +22,7 @@ Page({
     // 页面渲染完成
   },
   onShow:function(){
-     getAddrList(this);
+     getAddrList(this);  
   },
   onHide:function(){
     // 页面隐藏
@@ -96,6 +99,7 @@ Page({
   },
     submitEvent: function(e) {
     console.log(e);console.log('submit回调');
+    // payPanelShow(this);
     creatActivity(this,e.detail.value);
   },
 })
@@ -177,4 +181,32 @@ function creatActivity(that,uData){
     },    
   }
   qcloud.request(obj);  
+}
+function getSystemHeight(){
+
+}
+
+function payPanelShow(that){
+      that.setData({
+        hidden: false
+      })  
+    // 页面显示
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+ 
+    that.animation = animation
+ 
+    animation.translateY(-203).step()
+ 
+    that.setData({
+      animationData: animation.export()
+    })
+ 
+    // setTimeout(function () {
+    //   that.setData({
+    //     hidden: true
+    //   })
+    // }.bind(that), 10000)     
 }

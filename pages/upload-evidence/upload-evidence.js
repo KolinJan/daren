@@ -10,13 +10,13 @@ Page({
   uploadData:{
     jpg1:'',
     jpg2:'',
-    mobile:'',
-    vCode:'',
-    t:'',
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(this);
+    console.log(options);console.log('options');
+    this.setData({
+      aid:options.aid
+    });
   },
   onReady: function () {
     // 页面渲染完成
@@ -33,49 +33,42 @@ Page({
   reg: function(e) {
     var that = this;
     that.uploadData.mobile = e.detail.value.mobile;
-    that.uploadData.vCode = e.detail.value.vCode;
 
     var resUpload = {
       login: true,
-      url: "https://www.wowyou.cc/api/user/reg",
+      url: "https://www.wowyou.cc/api/activity/uploadActImg",
       method:"POST",      
       data:{
-        mobile:that.uploadData.mobile,
-        code:that.uploadData.vCode,
-        images:that.uploadData.jpg1+","+that.uploadData.jpg2,
-        t:that.uploadData.t,  
+        images:that.uploadData.jpg1,
+        aid:that.data.aid
       },
       success(res) {
         if(res.data.code == 0){
-          wx.showToast({
-            title: res.data.data,
-            icon: 'success',
-            duration: 2000
-          })
+          wx.showModal({
+            title: '结果',
+            content: res.data.data,
+            showCancel:false,
+            success: function(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../attended/attended',
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }            
+          })       
         }else{
           wx.showModal({
             title: '错误',
             content: res.data.msg,
+            showCancel:false,
           })
         }
       },
-      error(error) {
-        console.log(JSON.stringify(error));
-        console.log('注册失败');
-      },
-      complete(res) {
-        console.log(JSON.stringify(res));
-        console.log('注册过程完成');
-      }
     }
     console.log(resUpload);
     qcloud.request(resUpload);
-
-    // wx.showToast({
-    //   title: "成功",
-    //   icon: "success",
-    //   duration: 2000
-    // });
   },
   // ----------------------------------------从相册选择照片-------------------------------------------
   smallToBig: function (e) {
@@ -93,25 +86,6 @@ Page({
       maskSrc: '',
     });
   },
-  // register: function (e) {
-  //   var obj = {
-  //     login: true,
-  //     url: 'https://www.wowyou.cc/api/user/reg',
-  //     mobile: '15914114079',
-  //     images: '../../imgs/sample-1.jpg',
-  //     success(response) {
-  //       console.log(JSON.stringify(response));
-  //       console.log('登录完毕111');
-  //     },
-  //     error(error) {
-  //       console.log(JSON.stringify(error));
-  //     },
-  //     complete(res) {
-  //       console.log(JSON.stringify(res));
-  //     }
-  //   }
-  //   register(qcloud, obj);
-  // },
 
 // +号添加图片事件
 funevent: function (e) {
@@ -131,20 +105,11 @@ funevent: function (e) {
                     success:function(res){
                         console.log(JSON.parse(res.data).data);
                         picUrl = JSON.parse(res.data).data;
-                        console.log(e.currentTarget.dataset.params +"参数");
-                        if(e.currentTarget.dataset.params == '1'){
                             that.uploadData.jpg1 = JSON.parse(res.data).data;
                             that.setData({
                             tempFilePaths1: tempFilePaths[0],
                             show1: 'block'
                           });
-                        }else{
-                          that.uploadData.jpg2 = JSON.parse(res.data).data;
-                            that.setData({
-                            tempFilePaths2: tempFilePaths[0],
-                            show2: 'block'
-                          });                          
-                        }
                         console.log(that.uploadData);
                     },
                     error:function(res){
@@ -154,37 +119,6 @@ funevent: function (e) {
             }
         })
     },
-    // 获取验证码
-    getVCode:function(e){
-      var mobile = e.detail.value.mobile;
-      var t = Date.parse(new Date());
-      var that = this;
-      that.uploadData.t = t;
-      var obj = {
-        login: true,
-        url: "https://www.wowyou.cc/api/api/send",
-        data:{
-          mobile:mobile,
-          t:t,
-        },
-        success(response) {
-          if(response.data.code == 1){
-            wx.showToast({
-              title: res.data.data,
-              icon: 'success',
-              duration: 2000
-            })
-          }else{
-            wx.showModal({
-              title: '错误',
-              content: response.data.msg,
-            })
-          }
-        },
-      }
-              console.log(obj);
-      qcloud.request(obj);
-      }  
 })
 
 function sample() {

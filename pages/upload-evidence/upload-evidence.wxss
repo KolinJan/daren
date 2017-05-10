@@ -100,3 +100,9 @@ add-icon-sample-frameshow{
 button{
     line-height: inherit;
 }
+.frameShow{
+    display: block;
+}
+.frameHide{
+    display: none;
+}

@@ -11,11 +11,11 @@
                     <label class="list-frame-detailsLable">等级:{{item.min_level}} ↑     评分: {{item.min_score}} ↑</label>
                     <label class="list-frame-label-alone list-frame-statusLable">名额 {{item.quota}}</label>
                 </view>
-                <label class="finished">完成人数:暂缺</label>
-                <view class="list-require-frame">
+                <label class="finished">领取人数:{{item.join_quota}}</label>
+                <!--<view class="list-require-frame">
                     <label class="list-frame-requireLabel">商家要求：</label>
                     <label class="list-frame-requireLabel-details">九图 其他</label>
-                </view>
+                </view>-->
             </view>
         </block>                      
     </view>

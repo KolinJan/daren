@@ -51,7 +51,7 @@ Page({
           cityid: cityData[val[0]].sub[0].code,
           citys:citys,
           county: cityData[val[0]].sub[0].sub[0].name,
-          districtid: cityData[val[0]].sub[0].sub[0].code,
+          // districtid: cityData[val[0]].sub[0].sub[0].code,
           countys:countys,
           values: val,
           value:[val[0],0,0],
@@ -60,10 +60,10 @@ Page({
           province: this.data.provinces[val[0]],
           provinceid:cityData[val[0]].code,
           city: cityData[val[0]].sub[0].name,
-          cityid: cityData[val[0]].sub[0].code,
+          // cityid: cityData[val[0]].sub[0].code,
           citys:citys,
           county: cityData[val[0]].sub[0].sub[0].name,
-          districtid: cityData[val[0]].sub[0].sub[0].code,
+          // districtid: cityData[val[0]].sub[0].sub[0].code,
           countys:countys,
           values: val,
           value:[val[0],0,0]
@@ -83,19 +83,36 @@ Page({
         
         this.setData({
           city: this.data.citys[val[1]],
+          cityid: cityData[val[0]].sub[val[1]].code,         
           county: cityData[val[0]].sub[val[1]].sub[0].name,
           countys:countys,
           values: val,
           value:[val[0],val[1],0]
         })
+        console.log({
+          city: this.data.citys[val[1]],
+          cityid: cityData[val[0]].sub[val[1]].code,          
+          county: cityData[val[0]].sub[val[1]].sub[0].name,
+          countys:countys,
+          values: val,
+          value:[val[0],val[1],0],
+          test:cityData[val[0]]
+        });        
         return;
       }
       if(val[2] != t[2]){
-        console.log('county no');
+        console.log('county no'+cityData[val[0]].sub[0].sub[0].code);
         this.setData({
           county: this.data.countys[val[2]],
+          districtid: cityData[val[0]].sub[val[1]].sub[val[2]].code,          
           values: val
         })
+        console.log({
+          county: this.data.countys[val[2]],
+          districtid: cityData[val[0]].sub[val[1]].sub[val[2]].code,          
+          values: val,
+          test: cityData[val[0]].sub[0]
+        });         
         return;
       }
   },
@@ -281,7 +298,7 @@ function upLoad(obj){
           wx.showModal({
             showCancel:false,            
             title: '错误',
-            content: '添加活动地址失败',
+            content: res.data.msg,
             success: function(res) {
             }
           })

@@ -1,0 +1,23 @@
+<!--pages/account/deposit/deposit.wxml-->
+<view>
+    <view class="item-frame padding-left">
+            <icon type="success" size="20"/>
+            <label>微信支付</label>
+    </view>
+    <view>  
+        <view class="input-frame item-frame">
+            <view class="item-label">现有积分</view>
+            <input type="number" disabled value="50"/>
+        </view>
+    </view>    
+    <view>  
+        <view class="input-frame item-frame">
+            <view class="item-label">充值金额</view>
+            <input type="number" placeholder=" 1 元 = 1 积分"/>
+        </view>
+    </view>
+    <view class="diposit-frame">
+        <view>去充值</view>
+    </view>
+</view>
+

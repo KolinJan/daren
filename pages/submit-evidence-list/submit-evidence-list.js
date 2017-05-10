@@ -1,4 +1,4 @@
-
+var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 Page({
   data:{
         subMenuDisplay:initSubMenuDisplay(),
@@ -7,6 +7,7 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    getList(2,this);
   },
   onReady:function(){
     // 页面渲染完成
@@ -19,20 +20,6 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  },
-  ntSubEvidence:function(){
-    wx.navigateTo({
-      url: '../submit-evidence/submit-evidence',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
   },
   //----------------一级菜单事件-------------------//
     tapMainMenu: function(e) {
@@ -60,12 +47,30 @@ Page({
             subMenuDisplay: initSubMenuDisplay()
         });
         var subMenuIndex = e.currentTarget.dataset.index;
+        console.log(subMenuIndex+":二级菜单数值");
         var subMenuContent = this.data.subMenueContent;
         var filtrate = this.data.filtrate;
         filtrate[filtrateIndex] = subMenuContent[filtrateIndex][subMenuIndex];
         this.setData({
             filtrate:filtrate,
         });
+        
+        getList(2,this);
+    },
+    lookForDetails:function(e){
+        console.log(e);console.log('点击事件范湖i')
+        var status = e.currentTarget.dataset.status;
+            var id = e.currentTarget.dataset.id;
+            var aid = e.currentTarget.dataset.aid;        
+        if(status == 2){
+            wx.navigateTo({
+            url: '../upload-evidence/upload-evidence?aid='+aid,
+            })
+        }else{
+            wx.navigateTo({
+            url: '../cards-bag/cards-bag?id='+id+"&aid="+aid,
+            })
+        }
     },
 
 
@@ -80,16 +85,42 @@ Page({
 })
 //----------------二级菜单显示状态初始化-------------------//
 function initSubMenuDisplay() {
-    return ['hidden'];
+    return ['hidden', 'hidden', 'hidden'];
 }
 
 //----------------一级菜单初始化--------------------------//
 function filtrate(){
-    return ['截图尚缺'];
+    return ['全部'];
 }
 
 function initSubMenuContent(){
     return [
-        ['截图尚缺'],
+        ['全部','未使用','截图尚缺','已完成'],
     ];    
+}
+
+function getList(aType,that){
+    
+    // if(aType != 0) var data = {status:aType};
+
+    console.log('刷新数据');
+    var obj = {
+        login:true,
+        url: 'https://www.wowyou.cc/api/user/myJoin',
+        data:{status:2},
+        success: function (e) {
+            console.log(e); console.log('console.log(e);');
+            if(e.data.code == 0 ){
+                that.setData({
+                    listDetails:e.data.data,
+                });
+            }else{
+                that.setData({
+                    listDetails:"",
+                }); 
+            }
+            console.log(that.data); console.log('that.data');
+        },
+    }
+    qcloud.request(obj);  
 }

@@ -8,11 +8,11 @@
                 <label>{{item.consignee}} {{item.mobile}}</label>
             </view>
             <view class="frame-item npaddingb dark-font">
-                <view class="border-bottom">{{item.provinceid}}{{item.districtid}}{{item.cityid}}{{item.address}}</view>
+                <view class="border-bottom">{{item.provinceid}}{{item.cityid}}{{item.districtid}}{{item.address}}</view>
             </view>
             <view class="flex frame-item dark-font">
                 <view class="float-left flex-grow-1 ">
-                    <radio value="{{item.address_id}}" checked="false"/><label>默认地址</label>
+                    <radio value="{{item.address_id}}" checked="{{item.is_default == 1?true:false}}"/><label>默认地址</label>
                 </view>
                 <view  class="float-left flex-grow-1 text-align-right ">
                     <label class="margin-right" bindtap="ntAddrEdit" data-aid="{{item.address_id}}">编辑</label>

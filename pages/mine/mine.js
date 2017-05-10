@@ -17,6 +17,7 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
+    getUserVip("https://www.wowyou.cc/api/user/userinfo",this);    
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
       //更新数据
@@ -24,100 +25,45 @@ Page({
         userInfo:userInfo
       })
     })
-    getUserStatus(this);
     getUserInfo(this);
   },
   ntAttended:function(){
     wx.navigateTo({
       url: '../attended/attended',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
   ntSubmitEvidence:function(){
     console.log('123');
       wx.navigateTo({
       url: '../submit-evidence-list/submit-evidence-list',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },ntMechantActList:function(){
     wx.navigateTo({
       url: '../mechant-acting-list/mechant-acting-list',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
   ntMechantEndList:function(){
     wx.navigateTo({
       url: '../mechant-end-list/mechant-end-list',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
+  ntAddrList:function(){
+    wx.navigateTo({
+      url: '../addr-list/addr-list',
+    })
+  },  
   ntRegister2:function(){
     wx.navigateTo({
       url: '../register2/register2',
-      success: function(res){
-        // success
-      },
     })
-  },  
+  },
+  ntAccount:function(){
+    wx.navigateTo({
+      url: '../account/account/account',
+    })    
+  }  
 })
 
-
-function getUserStatus(that){
-    wx.getStorage({
-      key: 'master_status',
-      success: function(res){
-        // success
-        if(res.data == "0"){
-          that.setData({userStatus:res.data});
-          console.log("游客");
-        }else if(res.data == "1"){
-          console.log("审核中");
-        }else if(res.data == "2"){
-          console.log("达人");
-        }else{
-           console.log("对不起，您的审核申请失败了");
-        }
-        var str = that.data.tips[parseInt(res.data)];
-        console.log(str);
-        that.setData({
-          tipsShow:str,
-          userStatus:res.data
-        })
-      },
-    })  
-}
 
 function getUserInfo(that){
     var obj = {
@@ -138,4 +84,41 @@ function getUserInfo(that){
         },
     }
     qcloud.request(obj);   
+}
+
+
+
+function getUserVip( url,that) {
+    var obj = {
+        url: url,
+        success(res) {
+            console.log(res);console.log("res.data.data.is_vip");
+            if (res.data.code == 0) {
+                  // success
+                  if( res.data.data.master_status == "0"){
+                    that.setData({userStatus:res.data});
+                    console.log("游客");
+                  }else if( res.data.data.master_status == "1"){
+                    console.log("审核中");
+                  }else if( res.data.data.master_status == "2"){
+                    console.log("达人");
+                  }else{
+                    console.log("对不起，您的审核申请失败了");
+                  }
+                  var str = that.data.tips[parseInt( res.data.data.master_status)];
+                  console.log(res);
+                  console.log("mine页面读取到的达人缓存");
+                  that.setData({
+                    tipsShow:str,
+                    userStatus: res.data.data.master_status
+                  })
+
+            }
+        },
+        error(res) {
+            console.log(JSON.stringify(res));
+            console.log('注册失败');
+        },
+    }
+    qcloud.request(obj);
 }

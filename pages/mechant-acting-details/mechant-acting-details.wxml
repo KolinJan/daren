@@ -1,7 +1,7 @@
 <!--pages/mechant-acting-details/mechant-acting-details.wxml-->
 <view class="container-frame">
     <view class="main-img-frame">
-        <image class="main-img" src="{{details.images[0]}}"></image>
+        <image class="main-img" src="{{details.images[0]}}" mode="center"></image>
         <view class="main-img-label-frame">
            <view class="main-img-label">{{details.title}}</view>     
         </view>
@@ -53,17 +53,18 @@
                     <view>达人</view>
                     <view>朋友圈</view>
                     <view>优惠使用</view>
-                    <!--<view>已截图</view>-->
+                    <view>对TA评分</view>
                 </view>
                 <block wx:for="{{details.joinUsers}}">
                     <view class="talentList-item">
                         <view bindtap="ntMechantCT"><image class="talent-icon" src="{{item.avatar}}"></image></view>
-                        <view><image class="talent-icon" src="../../imgs/朋友圈{{item.status}}.png"></image></view>
+                        <view><image class="talent-icon" src="../../imgs/朋友圈{{(item.status ==3)?2:1}}.png" bindtap="previewImages" data-status = "{{item.status}}" data-userId="{{item.id}}"></image></view>
                         <view>{{item.status_txt}}</view>
-                        <!--<view>1/2</view>-->
+                        <view><image class="talent-icon" src="../../imgs/评分{{(item.status ==3)?'':2}}.png"></image></view>
                     </view>
                 </block>                                              
             </view>
+            <view class="noAttendLabel {{details.joinUsers.length >= 1?'none':'block'}}">暂无探客参加</view>
          </view> 
 
          <view>

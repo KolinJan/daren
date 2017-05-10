@@ -1,0 +1,15 @@
+<!--pages/account/account/account.wxml-->
+<view class="mine-item" bindtap="ntMechantActList">
+    <view>
+        <image class="mine-icon" src="../../../imgs/正在使用.png"></image>
+        <view class="mine-dicript-view">积分使用记录</view>
+        <image class="mine-icon right" src="../../../imgs/箭头右.png"></image>                
+        </view> 
+</view>
+<view class="mine-item" bindtap="ntDeposit">
+    <view>
+        <image class="mine-icon" src="../../../imgs/正在使用.png"></image>
+        <view class="mine-dicript-view">积分充值</view>
+        <image class="mine-icon right" src="../../../imgs/箭头右.png"></image>                
+    </view> 
+</view>

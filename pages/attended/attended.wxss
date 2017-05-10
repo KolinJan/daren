@@ -141,3 +141,14 @@
     font-size: 25px!important;
     text-align: center;
 }
+.noAttendLabel{
+    text-align: center;
+    color: #777;
+    padding: 5px;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}

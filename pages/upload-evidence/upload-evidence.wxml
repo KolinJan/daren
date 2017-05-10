@@ -1,43 +1,29 @@
+
 <!--pages/upload-evidence/upload-evidence.wxml-->
-<view class="frame">
-    <form bindsubmit="reg" bindreset="getVCode">
-        <view class="submit-pic">
-            <view class="item-frame">
-                    <view class="item">
-                        <view class="list">
-                            <view class="item-title">1.第一次截图(请在券使用后3小时内发布朋友圈并截图上传),例: </view>    
-                            <image class="add-icon-sample-small" data-params="0" src="{{sample[0]}}" bindtap="smallToBig"></image>
-                        </view>
-                        <view class="list">
-                            <image class="add-icon" src="../../imgs/添加.png" bindtap="funevent" data-params="1"></image>
-                        </view>
-                        <view class="sample-frame">
-                            <image class="add-icon-sample add-icon-sample-frame{{show1}}" src="{{tempFilePaths1}}"></image>
-                        </view>  
-                    </view>    
-                </view>
-
-                <view class="item-frame">
-                    <view class="item">
-                        <view class="list">
-                            <view class="item-title">2.上传2016年截10月1号，2017年2月1号左右的截图,例: </view>    
-                            <image class="add-icon-sample-small" data-params="1" src="{{sample[1]}}" bindtap="smallToBig"></image>
-                        </view>
-                        <view class="list">
-                            <image class="add-icon" src="../../imgs/添加.png" bindtap="funevent" data-params="2"></image>
-                        </view>
-                        <view class="sample-frame">
-                            <image class="add-icon-sample add-icon-sample-frame{{show2}}" src="{{tempFilePaths2}}"></image>
-                        </view>            
-                    </view>    
-                </view>    
+<view class="frame frameShow">
+  <form bindsubmit="reg" bindreset="getVCode">
+    <view class="submit-pic">
+      <view class="item-frame">
+        <view class="item">
+          <view class="list">
+            <view class="item-title">1.第一次截图(请在券使用后3小时内发布朋友圈并截图上传),例: </view>
+            <image class="add-icon-sample-small" data-params="0" src="{{sample[0]}}" bindtap="smallToBig"></image>
+          </view>
+          <view class="list">
+            <image class="add-icon" src="../../imgs/添加.png" bindtap="funevent" data-params="1"></image>
+          </view>
+          <view class="sample-frame">
+            <image class="add-icon-sample add-icon-sample-frame{{show1}}" src="{{tempFilePaths1}}"></image>
+          </view>
         </view>
-
-        <view class="bottom" bindtap="ntMine">
-            <button type="primary" form-type="submit">提 交</button>
-        </view>
-    </form>    
+      </view>
+    </view>
+    <view class="bottom frameShow" bindtap="ntMine">
+      <button type="primary" form-type="submit">提交活动第一次截图</button>
+    </view>
+  </form>
 </view>
+
 <view class="mask {{maskDisplay}}" bindtap="maskCancel">
-    <image class="add-icon-sample" src="{{maskSrc}}"></image>  
+  <image class="add-icon-sample" src="{{maskSrc}}"></image>
 </view>

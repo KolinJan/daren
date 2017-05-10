@@ -4,6 +4,23 @@ var toast = require('../../utils/toast');
 var pageIndex = 1;
 var currentPage = 999;
 Page({
+onPullDownRefresh: function() {
+    wx.showLoading({
+    title: '加载中...',
+    })
+    pageIndex = 1;
+    getList(this);
+ },
+  // 上拉加载回调接口
+    onReachBottom: function () {
+        // if(pageIndex < this.data.totalPage){
+            pageIndex ++;  
+        // } 
+            wx.showLoading({
+            title: '加载中...',
+            });
+            getList(this);     
+    },    
     data: {       
         imgUrls: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
@@ -30,11 +47,11 @@ Page({
     onLoad: function (options) {
         getScrollerHeight(this);
         wxLoagin(qcloud);
-        getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
+        // getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
         getLocation(this);
     },
     onShow:function(){
-        getList(this);
+        // getList(this);
     },
 
     //----------------一级菜单事件-------------------//
@@ -68,6 +85,7 @@ Page({
         this.setData({
             filtrate: filtrate,
         });
+        console.log(filtrate);
     },
 
 
@@ -90,19 +108,19 @@ Page({
         })
     },
     // 上拉刷新
-    refreshEvent:function(){
-        wx.showLoading({
-        title: '加载中...',
-        })
-        getList(this);
-    },
-    nextPageEvent:function(){
-            pageIndex ++;   
-        wx.showLoading({
-        title: '加载中...',
-        });
-        getList(this);
-    },
+    // refreshEvent:function(){
+    //     wx.showLoading({
+    //     title: '加载中...',
+    //     })
+    //     getList(this);
+    // },
+    // nextPageEvent:function(){
+    //         pageIndex ++;   
+    //     wx.showLoading({
+    //     title: '加载中...',
+    //     });
+    //     getList(this);
+    // },
 
 
 })
@@ -179,11 +197,14 @@ function getList(that) {
         },
         url: 'https://www.wowyou.cc/api/activity/activityHome',
         success: function (e) {
+             wx.stopPullDownRefresh();
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){
                 console.log(currentPage+":系统定义的页数");
                 console.log(e.data.data.current_page+":接口返回的页数");
-                if(e.data.data.current_page <= Math.floor(e.data.data.total/e.data.data.per_page) ){
+                console.log(e.data.data.current_page+":e.data.data.current_page");
+                console.log(Math.ceil(e.data.data.total/e.data.data.per_page)+"Math.floor(e.data.data.total/e.data.data.per_page");
+                if(e.data.data.current_page <= Math.ceil(e.data.data.total/e.data.data.per_page) ){
                     console.log(11111111111111111111111111111111111111111111111);
                     currentPage = e.data.currentPage;
                     if(e.data.data.current_page != 1){
@@ -225,6 +246,10 @@ function getLocation(that){
             });
             getList(that);
             console.log(res);console.log("位置信息");
+        },
+        fail:function(res){            
+            getList(that);
+            console.log(res);console.log("打开定位失败");            
         }
     })    
 }
