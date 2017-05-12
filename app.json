@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/home/home",      
+    "pages/evaluate/evaluate",     
+    "pages/moreJoinerList/moreJoinerList",          
     "pages/mine/mine",         
     "pages/talentactivitys-edit/talentactivitys-edit",                
     "pages/register2/register2",           

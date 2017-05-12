@@ -52,19 +52,23 @@
                 <view class="talentList-title-bar">
                     <view>达人</view>
                     <view>朋友圈</view>
-                    <view>优惠使用</view>
-                    <view>对TA评分</view>
+                    <view>状态</view>
+                    <view style="width:40%;">评分</view>
                 </view>
                 <block wx:for="{{details.joinUsers}}">
                     <view class="talentList-item">
                         <view bindtap="ntMechantCT"><image class="talent-icon" src="{{item.avatar}}"></image></view>
                         <view><image class="talent-icon" src="../../imgs/朋友圈{{(item.status ==3)?2:1}}.png" bindtap="previewImages" data-status = "{{item.status}}" data-userId="{{item.id}}"></image></view>
                         <view>{{item.status_txt}}</view>
-                        <view><image class="talent-icon" src="../../imgs/评分{{(item.status ==3)?'':2}}.png"></image></view>
+                        <view><label class="{{(item.status ==3)?'able':'disabled'}} {{setDefalut==1?'isDefault':'undefineDefalut'}}" bindtap="sureDefault" data-id="{{item.id}}" data-status="{{item.status}}">默认</label></view>
+                        <view><label class="{{(item.status ==3)?'able':'disabled'}} {{hEval==1?'hEval':'hnEval'}}" bindtap="sureEval" data-id="{{item.id}}" data-status="{{item.status}}">评分</label></view>
                     </view>
                 </block>                                              
             </view>
             <view class="noAttendLabel {{details.joinUsers.length >= 1?'none':'block'}}">暂无探客参加</view>
+            <view class="more {{details.joinUsers.length >= 1?'block':'none'}}">
+                <label data-aid="{{details.id}}" bindtap="ntMore">查看全部..</label>
+            </view>
          </view> 
 
          <view>

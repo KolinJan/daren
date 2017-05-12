@@ -1,0 +1,64 @@
+/* pages/evaluate/evaluate.wxss */
+.order-list{
+    font-size: 14px;
+    overflow:hidden;
+
+}
+.order-list view{
+    float: left;
+}
+.order-list .list-top{
+    height: 40px;
+    line-height: 40px;
+}
+.order-list .list-top,.order-list .list-midd{
+    width: 100%;
+}
+.list-top .state{
+    float: right;
+}
+.order-list .list-midd{
+    height: 82px;
+}
+.list-midd{
+    border-top:1px solid #dedede;
+    border-bottom:1px solid #dedede;
+}
+.list-midd view{
+    height: 80px;
+    line-height: 20px;
+}
+.list-midd .order-img,.list-midd .order-monnum{
+    width: 25%;
+}
+.list-midd .order-name{
+    width: 50%;
+    -webkit-line-clamp: 3;
+}
+textarea{
+    height: 90px;
+    padding: 5px 0;
+    line-height: 30px;
+    border: 1px solid #dedede;
+    margin-top: 50px;
+    width:100%;
+}
+button{
+    margin-top:20px;
+    background-color: #37bad9;
+    color: #ffffff;
+}
+/*//星星样式*/
+.star-image{
+  position: absolute;
+  top: 130px;
+  width: 30px;
+  height: 30px;
+  src: "../../images/normal.png";
+}
+.item{
+  position: absolute;
+  top: 0px;
+  width: 15px;
+  height: 30px;
+}

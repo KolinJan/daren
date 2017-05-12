@@ -5,7 +5,7 @@ var app = getApp()
 Page({
   data: {
     userInfo: {},
-    userStatus:'0',
+    userStatus:'',
     tips:['审核通过后，以后将自动登录','审核中，别焦急呢~',' ','对不起，审核没通过呢~',],    
   },
   //事件处理函数
@@ -15,18 +15,19 @@ Page({
     })
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    getUserVip("https://www.wowyou.cc/api/user/userinfo",this);    
-    //调用应用实例的方法获取全局数据
+    var that = this;
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
         userInfo:userInfo
       })
-    })
-    getUserInfo(this);
+    })    
   },
+  onShow:function(){
+    getUserVip("https://www.wowyou.cc/api/user/userinfo",this);    
+    //调用应用实例的方法获取全局数据
+    getUserInfo(this);
+},
   ntAttended:function(){
     wx.navigateTo({
       url: '../attended/attended',

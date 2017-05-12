@@ -21,7 +21,7 @@ swiper{
 /*--------------------------------------------filtrate列表样式-----------------------------------------*/
 /*总菜单容器*/
 .menu {
-    display: block;
+    display: flex;
     height: 38px;
     position: relative;
 }
@@ -37,7 +37,9 @@ swiper{
     text-align:center;
     color:#999;
     line-height:38px;
-    position: relative;
+    position:relative;
+    flex-grow:1;
+
 }
 
 /*二级菜单外部容器样式*/
@@ -181,5 +183,15 @@ swiper{
     height: 100px;
     margin-top: 5px;
 }
-
+.noAttendLabel{
+    text-align: center;
+    color: #777;
+    padding: 5px;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
 

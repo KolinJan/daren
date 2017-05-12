@@ -1,0 +1,21 @@
+<!--pages/moreJoinerList/moreJoinerList.wxml-->
+
+<view class="shouldKnow-frame">
+<view class="shouldKnow-frame-title">参与人员信息</view>
+<view class="talentList">
+    <view class="talentList-title-bar">
+        <view>达人</view>
+        <view>朋友圈</view>
+        <view>优惠使用</view>
+        <view>对TA评分</view>
+    </view>
+    <block wx:for="{{details.joinUsers}}">
+        <view class="talentList-item">
+            <view bindtap="ntMechantCT"><image class="talent-icon" src="{{item.avatar}}"></image></view>
+            <view><image class="talent-icon" src="../../imgs/朋友圈{{(item.status ==3)?2:1}}.png" bindtap="previewImages" data-status = "{{item.status}}" data-userId="{{item.id}}"></image></view>
+            <view>{{item.status_txt}}</view>
+            <view><image class="talent-icon" src="../../imgs/评分{{(item.status ==3)?'':2}}.png"></image></view>
+        </view>
+    </block>                                              
+</view>
+</view> 

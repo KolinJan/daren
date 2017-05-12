@@ -16,13 +16,13 @@
 <dl class="menu">
     <dt class="filter-tab active" data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
     <dt class="filter-tab" data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}</dt>
-    <dt class="filter-tab" data-index="2" bindtap="tapMainMenu">{{filtrate[2]}}</dt>
+    <dt class="filter-tab" data-index="2" bindtap="tapMainMenu" style="display:none;">{{filtrate[2]}}</dt>
     <dd class="{{subMenuDisplay[0]}}">
         <ul>
-            <li class="" data-index="0" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
-            <li class="" data-index="1" bindtap="tapSubMenu">{{subMenueContent[0][1]}}</li>
-            <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[0][2]}}</li>
-            <li class="" data-index="3" bindtap="tapSubMenu">{{subMenueContent[0][3]}}</li>
+            <li class="" data-index="1" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
+            <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[0][1]}}</li>
+            <li class="" data-index="3" bindtap="tapSubMenu">{{subMenueContent[0][2]}}</li>
+            <li class="" data-index="4" bindtap="tapSubMenu">{{subMenueContent[0][3]}}</li>
         </ul>
     </dd>
     <dd class="{{subMenuDisplay[1]}}">
@@ -49,8 +49,9 @@
 </dl>
     <!---------------------------------------------list-------------------------------------------------->
     <!--<scroll-view style="height:{{scrollerHeight}}px;" class="scroll-view" scroll-y="true" bindscrolltoupper="refreshEvent" bindscrolltolower="nextPageEvent">-->
-        <view class="list-frame">
-            <block wx:for="{{activityList}}">
+        <view class="list-frame">   
+                <view class="noAttendLabel {{activityList.length >0?'none':'block'}}">暂无活动</view>          
+            <block wx:for="{{activityList}}">               
                 <view class="list-frame-item" bindtap="lookForDetails" data-id="{{item.id}}">
                     <image class="list-adimage" src="{{item.images}}" mode="aspectFill"></image>
                     <view class="list-frame-item-panel">

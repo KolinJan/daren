@@ -7,7 +7,7 @@ Page({
         inputValue:'',
         checkBoxShow: [false,false,false,false,false,false],
         addrIsShow:0,
-        aType:['美食类','游玩类','饮品类','娱乐类'],
+        aType:['美食类','饮品类','游玩类','娱乐类'],
         up_grade:5,
         up_scrore:60,
         ids:[],

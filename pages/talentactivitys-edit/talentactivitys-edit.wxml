@@ -18,7 +18,7 @@
                     <radio-group class="radio-group" bindchange="radioChange">
                         <!--<view>-->
                             <label class="radio myRadio" wx:for="{{aType}}">
-                                <radio value="{{index}}"/>{{item}}
+                                <radio value="{{index+1}}"/>{{item}}
                                 <input type="text" name="atype"  value="{{aTypeRadioIndex}}" style="display:none;"/>
                             </label>                        
                         <!--</view>-->

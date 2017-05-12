@@ -21,29 +21,11 @@ Page({
   },  ntRequireIconState:function(){
     wx.navigateTo({
       url: '../require-icon-state/require-icon-state',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
   ntMechantCT:function(){
     wx.navigateTo({
       url: '../mechant-checking-talent/mechant-checking-talent',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
   },
   previewImages:function(e){
@@ -53,6 +35,19 @@ Page({
     if(status == 3){
       preview(userId,this);
     }
+  },
+  ntMore:function(e){
+    console.log(e);console.log('查看aid');
+    wx.navigateTo({
+      url: '../moreJoinerList/moreJoinerList?aid='+e.currentTarget.dataset.aid,
+    })
+  },
+  sureDefault:function(e){
+    sureDefault(this,e.currentTarget.dataset.id,e.currentTarget.dataset.status);
+  },
+  sureEval:function(e){
+    console.log(e.currentTarget.dataset.id);console.log('sssssssssssssssssssss');
+    sureEval(this,e.currentTarget.dataset.id,e.currentTarget.dataset.status);
   }
 })
 
@@ -105,4 +100,45 @@ function loading(){
 
 function stopLoading(){
     wx.hideLoading();
+}
+
+function sureDefault(that,userid,status){
+  console.log(that.data);
+  if(status == 3){
+      wx.showToast({
+        title: '默认评价成功',
+        icon: 'success',
+        duration: 2000
+      })
+      that.setData({
+        setDefalut:1
+      });
+      console.log(that.data);
+      console.log('查看default');
+    }    
+  }
+
+function sureEval(that,userid,status){
+    if(status == 3){
+        wx.showActionSheet({
+          itemList: ['60', '70', '80','90','100'],
+          success: function(res) {
+            console.log(res.tapIndex)
+            var obj = {
+                login:true,
+                url: 'https://www.wowyou.cc/api/comment/commentAdd',
+                data:{id:userid,star:res.tapIndex,aid:that.data.details.id},
+                success: function (e) {
+                    console.log(e); console.log('console.log(e);');
+                    if(e.data.code == 0 ){
+                        that.setData({
+                          hEval:1
+                        });
+                    }
+                },
+            }
+            qcloud.request(obj);      
+          },
+        }) 
+    } 
 }

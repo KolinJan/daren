@@ -13,9 +13,9 @@ onPullDownRefresh: function() {
  },
   // 上拉加载回调接口
     onReachBottom: function () {
-        // if(pageIndex < this.data.totalPage){
+        if(pageIndex < this.data.totalPage){
             pageIndex ++;  
-        // } 
+        } 
             wx.showLoading({
             title: '加载中...',
             });
@@ -43,6 +43,7 @@ onPullDownRefresh: function() {
         activityList:[],
         lat:'',
         lng:'',
+        
     },
     onLoad: function (options) {
         getScrollerHeight(this);
@@ -58,6 +59,7 @@ onPullDownRefresh: function() {
     tapMainMenu: function (e) {
         //      获取当前显示的一级菜单标识
         var index = parseInt(e.currentTarget.dataset.index);
+        console.log(index+":index");
         this.data.filtrateIndex = index;
         // 生成数组，全为hidden的，只对当前的进行显示
         var newSubMenuDisplay = initSubMenuDisplay();
@@ -68,6 +70,7 @@ onPullDownRefresh: function() {
             newSubMenuDisplay[index] = 'hidden';
         }
         this.setData({
+            filtrateArrIndex:index,
             subMenuDisplay: newSubMenuDisplay
         });
     },
@@ -81,11 +84,21 @@ onPullDownRefresh: function() {
         var subMenuIndex = e.currentTarget.dataset.index;
         var subMenuContent = this.data.subMenueContent;
         var filtrate = this.data.filtrate;
-        filtrate[filtrateIndex] = subMenuContent[filtrateIndex][subMenuIndex];
-        this.setData({
-            filtrate: filtrate,
-        });
-        console.log(filtrate);
+        filtrate[filtrateIndex] = subMenuContent[filtrateIndex][subMenuIndex-1];
+        
+
+         var index = parseInt(e.currentTarget.dataset.index);
+          console.log(index+":subindex");
+          if(this.data.filtrateArrIndex == 0){
+            this.setData({
+                filtrate: filtrate,
+                atype:index
+            });
+          }else{
+          
+          }
+          getList(this);
+        console.log(this.data.filtrateArr+":filtrateArr");
     },
 
 
@@ -107,20 +120,6 @@ onPullDownRefresh: function() {
             url: '../benefit-type/benefit-type',
         })
     },
-    // 上拉刷新
-    // refreshEvent:function(){
-    //     wx.showLoading({
-    //     title: '加载中...',
-    //     })
-    //     getList(this);
-    // },
-    // nextPageEvent:function(){
-    //         pageIndex ++;   
-    //     wx.showLoading({
-    //     title: '加载中...',
-    //     });
-    //     getList(this);
-    // },
 
 
 })
@@ -188,41 +187,60 @@ function getUserInfo(qcloud, url) {
     qcloud.request(obj);
 }
 function getList(that) {
-    var obj = {
-        login:true,
-        data:{
+    var atype = that.data.atype;
+    var data;
+    if (atype != undefined){
+        data={
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
-        },
+            atype:that.data.atype
+        }
+    }else{
+        data={
+            lat:that.data.lat,
+            lng:that.data.lng,
+            page:pageIndex,
+        }
+    }
+    var obj = {
+        login:true,
+        data,
         url: 'https://www.wowyou.cc/api/activity/activityHome',
         success: function (e) {
              wx.stopPullDownRefresh();
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){
-                console.log(currentPage+":系统定义的页数");
-                console.log(e.data.data.current_page+":接口返回的页数");
-                console.log(e.data.data.current_page+":e.data.data.current_page");
-                console.log(Math.ceil(e.data.data.total/e.data.data.per_page)+"Math.floor(e.data.data.total/e.data.data.per_page");
                 if(e.data.data.current_page <= Math.ceil(e.data.data.total/e.data.data.per_page) ){
                     console.log(11111111111111111111111111111111111111111111111);
                     currentPage = e.data.currentPage;
-                    if(e.data.data.current_page != 1){
+                    if(e.data.data.current_page != 1 && e.data.data.data.length !=0){
                         that.setData({
                             activityList:that.data.activityList.concat(e.data.data.data),
                             totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
                         });  
-                    }else{
+                    }else if(e.data.data.current_page == 1 && e.data.data.data.length ==0){// 第一页就没有数据的
                         that.setData({
                             activityList:e.data.data.data,
                             totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
                         });                          
+                    }else{
+                        that.setData({
+                            activityList:e.data.data.data,
+                            totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
+                        });  
                     }                  
                 }else{
+                    if(Math.ceil(e.data.data.total/e.data.data.per_page) == 0){
+                        that.setData({
+                            activityList:e.data.data.data,
+                            totalPage:getTotalPage(e.data.data.total,e.data.data.per_page)
+                        });  
+                    }
                     toast.showToast({
                         context: that,
                         title: "没有更多了"
-                    })
+                    });
                 }
             }
  console.log(that.data); console.log('that.data');

@@ -1,0 +1,55 @@
+/* pages/moreJoinerList/moreJoinerList.wxss */
+.shouldKnow-frame{
+    padding: 5px;
+}
+.shouldKnow-frame-title{
+    color: #ff6537;
+    font-size: 16px;
+    text-align:center;
+
+}
+.shouldKnow-frame-itemContent{
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #666;
+}
+.adv-img-frame{
+    display: flex;
+    flex-direction: column;
+}
+.adv-img{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.talentList{
+    display: flex;
+    flex-direction: column;
+}
+.surplus-amount{
+    font-weight: bold;
+}
+
+/*-------------------------------------参与人员信息列表样式----------------------------------*/
+.talent-icon{
+    width: 30px;
+    height: 30px;
+}
+.talentList-title-bar{
+    padding: 5px;
+    background-color: #ff6537;
+    margin: 5px;
+}
+.talentList-title-bar view{
+    color: #fff;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.talentList-item view{
+    padding: 5px 0px;
+    float: left;
+    width: 25%;
+    text-align: center;
+}

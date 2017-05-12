@@ -1,0 +1,28 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class="container">
+    <form bindsubmit="eva_input">
+        <view class="order-list">
+            <view class="list-top">
+                <view class="number">订单编号：<label>{{item.order_sn}}</label></view>
+                <view class="state">已收货</view>
+            </view>
+            <view class="list-midd"> 
+                <view class="order-img"><image src="https://www.easy-key.cn{{item.img}}"></image></view>
+                <view class="order-name font-sl">{{item.goods_name}}</view>
+                <view class="order-monnum">
+                    <view class="order-money">¥{{item.goods_price}}</view>
+                    <view class="order-num">x{{item.goods_num}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:for="{{stars}}">
+            <image class="star-image" style="left: {{item*30+10}}px" 
+            src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                <view class="item" style="left:0px" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                <view class="item" style="left:15px" data-key="{{item+1}}" bindtap="selectRight"></view>
+            </image>
+        </block>
+        <textarea placeholder="认真填写您的评价" name="eva" />
+        <button form-type="submit">提交</button>
+    </form>
+</view>

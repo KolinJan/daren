@@ -94,8 +94,8 @@
 
 /*-------------------------------------参与人员信息列表样式----------------------------------*/
 .talent-icon{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 .talentList-title-bar{
     padding: 5px;
@@ -105,13 +105,13 @@
 .talentList-title-bar view{
     color: #fff;
     float: left;
-    width: 25%;
+    width: 20%;
     text-align: center;
 }
 .talentList-item view{
     padding: 5px 0px;
     float: left;
-    width: 25%;
+    width: 20%;
     text-align: center;
 }
 .noAttendLabel{
@@ -119,9 +119,47 @@
     color: #777;
     padding: 5px;
 }
+.more{
+    text-align: center;
+    padding-top: 20px;    
+}
+.more label{
+    color:#fff;
+    padding:5px;
+    background-color:#ff6537;
+    border-radius:3px;
+
+}
 .none{
     display: none;
 }
 .block{
     display: block;
+}
+.isDefault{
+    background-color: #ff6537;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;   
+}
+.undefineDefalut{
+    background-color: #48C23D;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;  
+}
+.hnEval{
+    background-color: #48C23D;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;    
+}
+.hEval{
+    background-color: #ff6537;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;       
+}
+.disabled{
+    background-color: #DBDBDB!important;
 }
