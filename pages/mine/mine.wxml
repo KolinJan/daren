@@ -56,8 +56,8 @@
         <view class="mine-item">
             <view>
                 <image class="mine-icon" src="../../imgs/评分.png"></image>
-                <view class="progress-title mine-dicript-view">分数:{{userData.score}}</view>
-                <progress percent="{{userData.score}}" color="#ff6537"/>
+                <view class="progress-title mine-dicript-view">分数:{{50+userData.star*10}}</view>
+                <progress percent="{{50+userData.star*10}}" color="#ff6537"/>
              </view>          
         </view>
         <view class="mine-item" bindtap="ntAttended">

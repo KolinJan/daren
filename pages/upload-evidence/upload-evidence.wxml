@@ -6,7 +6,7 @@
       <view class="item-frame">
         <view class="item">
           <view class="list">
-            <view class="item-title">1.第一次截图(请在券使用后3小时内发布朋友圈并截图上传),例: </view>
+            <view class="item-title">1.发布的朋友圈保留24小时以上后的截图，例: </view>
             <image class="add-icon-sample-small" data-params="0" src="{{sample[0]}}" bindtap="smallToBig"></image>
           </view>
           <view class="list">
@@ -19,7 +19,7 @@
       </view>
     </view>
     <view class="bottom frameShow" bindtap="ntMine">
-      <button type="primary" form-type="submit">提交活动第一次截图</button>
+      <button type="primary" form-type="submit">提交</button>
     </view>
   </form>
 </view>

@@ -187,10 +187,14 @@ function getUserInfo(qcloud, url) {
     qcloud.request(obj);
 }
 function getList(that) {
+    wx.showLoading({
+        title: '加载中',
+    })
     var atype = that.data.atype;
     var data;
     if (atype != undefined){
         data={
+            districtid:105,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
@@ -198,6 +202,7 @@ function getList(that) {
         }
     }else{
         data={
+            districtid:105,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,

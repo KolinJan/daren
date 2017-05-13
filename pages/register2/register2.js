@@ -1,11 +1,13 @@
 // pages/register2/register2.js
 var qcloud = require('../../vendor/qcloud-weapp-client-sdk/index');
 var config = require('../../config');
+var time = 60;
 Page({
   data: {
     sample: sample(),
     tempFilePaths1: '',
-    tempFilePaths2: ''
+    tempFilePaths2: '',
+    count:'获取验证码',
   },
   uploadData:{
     jpg1:'',
@@ -93,25 +95,6 @@ Page({
       maskSrc: '',
     });
   },
-  // register: function (e) {
-  //   var obj = {
-  //     login: true,
-  //     url: 'https://www.wowyou.cc/api/user/reg',
-  //     mobile: '15914114079',
-  //     images: '../../imgs/sample-1.jpg',
-  //     success(response) {
-  //       console.log(JSON.stringify(response));
-  //       console.log('登录完毕111');
-  //     },
-  //     error(error) {
-  //       console.log(JSON.stringify(error));
-  //     },
-  //     complete(res) {
-  //       console.log(JSON.stringify(res));
-  //     }
-  //   }
-  //   register(qcloud, obj);
-  // },
 
 // +号添加图片事件
 funevent: function (e) {
@@ -156,6 +139,7 @@ funevent: function (e) {
     },
     // 获取验证码
     getVCode:function(e){
+      console.log(e);
       var mobile = e.detail.value.mobile;
       var t = Date.parse(new Date());
       var that = this;
@@ -168,9 +152,11 @@ funevent: function (e) {
           t:t,
         },
         success(response) {
-          if(response.data.code == 1){
+          console.log(response)
+          if(response.data.code != 0){
+            beginTimer(that);
             wx.showToast({
-              title: res.data.data,
+              title: "发送成功",
               icon: 'success',
               duration: 2000
             })
@@ -178,13 +164,34 @@ funevent: function (e) {
             wx.showModal({
               title: '错误',
               content: response.data.msg,
+              showCancel:false
             })
           }
         },
       }
               console.log(obj);
       qcloud.request(obj);
-      }  
+      },
+    // beginTimer:function() {
+    //     this.setData({
+    //       sending: true,
+    //       count:60     
+    //     })
+    //     let _this = this
+    //     var verifyTimer = setInterval(function() {
+    //       var count = _this.data.count - 1
+    //       _this.setData({
+    //         count: count
+    //       })
+    //       if (count < 1) {
+    //         clearInterval(verifyTimer)
+    //         _this.setData({
+    //           count: "重新发送",
+    //           sending: false
+    //         })
+    //       }
+    //     }, 1000)
+    //   }, 
 })
 
 function sample() {
@@ -197,3 +204,25 @@ function sample() {
 function register(qcloud, obj) {
   qcloud.request(obj);
 }
+
+function beginTimer(that){
+    that.setData({
+      sending: true,
+      count:60     
+    })
+    let _this = that
+    var verifyTimer = setInterval(function() {
+      var count = _this.data.count - 1
+      _this.setData({
+        count: count
+      })
+      if (count < 1) {
+        clearInterval(verifyTimer)
+        _this.setData({
+          count: "重新发送",
+          sending: false
+        })
+      }
+    }, 1000)  
+}
+

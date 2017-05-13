@@ -10,8 +10,8 @@
             <view class="item-label">验证码</view>
             <input class="item-input" placeholder="输入验证码" auto-focus type="number" name="vCode"/>
             <view class="v-code">
-                 <button type="primary" form-type="submit">
-                    获取验证码
+                 <button type="primary" form-type="submit"disabled="{{sending}}">
+                    {{count}}
                 </button>
             </view>        
             <view style="clear:both"></view>    
@@ -21,7 +21,7 @@
             <view class="register-button">注册</view>
         </view>-->
 
-        <view class="submit-pic">
+        <!--<view class="submit-pic">
             <view class="item-frame">
                     <view class="item">
                         <view class="list">
@@ -51,9 +51,9 @@
                         </view>            
                     </view>    
                 </view>    
-        </view>
+        </view>-->
 
-        <view class="bottom" bindtap="ntMine">
+        <view class="bottom">
             <button type="primary" form-type="submit">提 交</button>
         </view>
     </form>    
