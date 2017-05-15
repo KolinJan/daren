@@ -117,6 +117,10 @@
                         </view>
                         <view class="section textarea-frame">
                              <textarea bindblur="bindTextAreaBlur" name="description" auto-height />
+                             <block wx:for="{{imgUrls}}">
+                                <image class="require-img-preview"  bindtap="preview" src="{{item}}"></image>
+                             </block>
+                             <image class="require-img-add" bindtap="getImgs" src="../../imgs/添加.png"></image>
                         </view>                                                             
                 </view>
                 <!---------------------------------------------添加地址-------------------------------------------------------->
@@ -132,7 +136,6 @@
                     <view class="details-frame-details-1-l5 ">
                         <view class="details-frame-details-1-l5-addr">地址:{{addrs.address}}</view>
                         <view class="details-frame-details-1-l5-addr">电话:{{addrs.mobile}}</view>
-                        <radio value="{{addrs.is_default}}" bindtap="checkboxChangeAddr"  checked="" class="icon-checkedbox"/>
                         <input type="text" name="addr_id"  value="{{addrs.address_id}}" style="display:none;"/>
                     </view>
                     </radio-group>

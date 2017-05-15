@@ -181,7 +181,6 @@ textarea{
 
 .textarea-frame{
     width: 100%;
-    padding: 10px 0px;
 }
 textarea{
     width: 98%;
@@ -276,4 +275,16 @@ icon{
 }
 .maxWidth{
     width: 100%!important;
+}
+.require-img-add{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    float: right;
+}
+.require-img-preview{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    float: left;    
 }

@@ -102,6 +102,21 @@ animationData: {},
     // payPanelShow(this);
     creatActivity(this,e.detail.value);
   },
+  preview:function(e){
+    preview();
+  },
+    getImgs:function(e){
+    var that = this;
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        uploadRequirePics(that,res.tempFilePaths[0]);
+      }
+    })  
+  },
 })
 
 
@@ -203,10 +218,42 @@ function payPanelShow(that){
     that.setData({
       animationData: animation.export()
     })
- 
-    // setTimeout(function () {
-    //   that.setData({
-    //     hidden: true
-    //   })
-    // }.bind(that), 10000)     
 }
+
+function preview(){
+  wx.previewImage({
+    current: '', // 当前显示图片的http链接
+    urls: ['../../imgs/添加.png'] // 需要预览的图片http链接列表
+  })
+}
+
+
+function uploadRequirePics(that,wxUrl){
+  console.log(wxUrl);
+  if(wxUrl != undefined){
+    wx.uploadFile({
+        url:'https://www.wowyou.cc/api/upload/uploadOne', 
+        filePath:wxUrl,
+        name:'image',
+        method:'POST',
+        success:function(res){
+            console.log(JSON.parse(res.data).data+"123123");
+            var picUrl = JSON.parse(res.data).data;
+            var imgs = that.data.imgUrls;
+                if(imgs != undefined){
+                  imgs.push(wxUrl);
+                }else{
+                  imgs = new Array();
+                  imgs.push(wxUrl);
+                }
+                that.setData({
+                imgUrls: imgs,
+              });                          
+        },
+        error:function(res){
+                console.log(res);
+        }
+    });  
+  }
+}
+

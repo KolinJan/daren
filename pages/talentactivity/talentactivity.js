@@ -97,6 +97,7 @@ function QualificationAquired(that){
               wx.showModal({
                 title: '领取失败',
                 content: e.data.msg,
+                showCancel:false,
                 success: function(res) {
                 }
               })

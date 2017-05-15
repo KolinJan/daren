@@ -14,6 +14,9 @@ onPullDownRefresh: function() {
   // 上拉加载回调接口
     onReachBottom: function () {
         if(pageIndex < this.data.totalPage){
+            console.log('pageIndex++');
+            console.log(this.data.totalPage);
+            console.log('this.data.totalPage');
             pageIndex ++;  
         } 
             wx.showLoading({
@@ -211,7 +214,7 @@ function getList(that) {
     var obj = {
         login:true,
         data,
-        url: 'https://www.wowyou.cc/api/activity/activityHome',
+        url: 'https://api.wowyou.cc/v1/activity/activityHome',
         success: function (e) {
              wx.stopPullDownRefresh();
             console.log(e); console.log('console.log(e);');
@@ -279,8 +282,8 @@ function getLocation(that){
 
 function getTotalPage(len,per){
     console.log(len);console.log('len');
-    var totalPage = (len/per)+1;
-    totalPage = Math.floor(totalPage);
+    var totalPage = (len/per);
+    totalPage = Math.ceil(totalPage);
     console.log(totalPage);console.log('totalPage');
     return totalPage;
 }

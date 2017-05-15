@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://www.wowyou.cc';
+var host = 'https://api.wowyou.cc/v1';
 // https://qiuqiuo.com/v1/index.php
 
 var config = {
@@ -13,7 +13,7 @@ var config = {
         host,
 
         // 登录地址，用于建立会话
-        loginUrl: `${host}/api/user/login`,
+        loginUrl: `${host}/user/login`,
 
         // 测试的请求地址，用于测试会话
         requestUrl: `${host}/user`,

@@ -1,11 +1,11 @@
 {
   "pages":[
-    "pages/home/home",     
+    "pages/home/home",       
+    "pages/talentactivitys-edit/talentactivitys-edit",          
     "pages/register2/register2",            
     "pages/evaluate/evaluate",     
     "pages/moreJoinerList/moreJoinerList",          
-    "pages/mine/mine",         
-    "pages/talentactivitys-edit/talentactivitys-edit",                        
+    "pages/mine/mine",                             
     "pages/account/account/account",    
     "pages/account/deposit/deposit",     
     "pages/attended/attended",        
