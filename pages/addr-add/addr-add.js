@@ -285,7 +285,7 @@ function checkData(obj){
 function upLoad(obj){
     var resUpload = {
       login: true,
-      url: "https://www.wowyou.cc/api/user/addressAdd",
+      url: "https://api.wowyou.cc/v1/user/addressAdd",
       method:"POST",      
       data:obj,
       success(res) {

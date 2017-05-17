@@ -94,3 +94,7 @@
     color:#999;
     margin-left:10px;
 }
+.img-require{
+    width: 100px;
+    height: 100px;
+}

@@ -117,8 +117,8 @@
                         </view>
                         <view class="section textarea-frame">
                              <textarea bindblur="bindTextAreaBlur" name="description" auto-height />
-                             <block wx:for="{{imgUrls}}">
-                                <image class="require-img-preview"  bindtap="preview" src="{{item}}"></image>
+                             <block wx:for="{{wxImgs}}">
+                                <image class="require-img-preview"  bindtap="preview" data-src="{{item}}" src="{{item}}"></image>
                              </block>
                              <image class="require-img-add" bindtap="getImgs" src="../../imgs/添加.png"></image>
                         </view>                                                             

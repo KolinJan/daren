@@ -91,6 +91,8 @@ animationData: {},
       sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
+        console.log(res);
+        console.log('res~~~~~~~~~~~~~~~~~');
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths[0]
         uploadPic(that,tempFilePaths);
@@ -103,7 +105,8 @@ animationData: {},
     creatActivity(this,e.detail.value);
   },
   preview:function(e){
-    preview();
+    console.log(e);
+    preview(e.currentTarget.dataset.src);
   },
     getImgs:function(e){
     var that = this;
@@ -123,7 +126,7 @@ animationData: {},
 function getAddrList(that){
   var t = that;
   var obj = {
-    url:'https://www.wowyou.cc/api/user/addressList',
+    url:'https://api.wowyou.cc/v1/user/addressList',
     success:function(e){
       if(e.data.code == 0){
         console.log(123);
@@ -147,15 +150,17 @@ function getAddrList(that){
 function uploadPic(that,wxUrl){
   if(wxUrl != undefined){
     wx.uploadFile({
-        url:'https://www.wowyou.cc/api/upload/uploadOne', 
+        url:'https://api.wowyou.cc/v1/upload/uploadOne', 
         filePath:wxUrl,
         name:'image',
         method:'POST',
         success:function(res){
             console.log(JSON.parse(res.data).data+"123123");
             var picUrl = JSON.parse(res.data).data;
+                picUrl = picUrl.replace("\/public/","");
+                console.log(picUrl);
                 that.setData({
-                imgUrl: 'https://www.wowyou.cc/'+picUrl,
+                imgUrl: 'https://wowyou.cc/'+picUrl,
                 upImg:picUrl
               });                          
         },
@@ -172,9 +177,10 @@ function creatActivity(that,uData){
   console.log(uData);console.log("uData");
   uData["type"] = 1;
   uData["ids"] = that.data.ids;
+  uData["rqstd_images"] = that.data.rqstd_images;
   // uData["ids"] = 
   var obj = {
-    url:'https://www.wowyou.cc/api/activity/create',
+    url:'https://api.wowyou.cc/v1/activity/create',
     method:"POST",
     data:uData,
     success:function(e){
@@ -220,10 +226,10 @@ function payPanelShow(that){
     })
 }
 
-function preview(){
+function preview(src){
   wx.previewImage({
     current: '', // 当前显示图片的http链接
-    urls: ['../../imgs/添加.png'] // 需要预览的图片http链接列表
+    urls: [src] // 需要预览的图片http链接列表
   })
 }
 
@@ -232,22 +238,27 @@ function uploadRequirePics(that,wxUrl){
   console.log(wxUrl);
   if(wxUrl != undefined){
     wx.uploadFile({
-        url:'https://www.wowyou.cc/api/upload/uploadOne', 
+        url:'https://api.wowyou.cc/v1/upload/uploadOne', 
         filePath:wxUrl,
         name:'image',
         method:'POST',
         success:function(res){
             console.log(JSON.parse(res.data).data+"123123");
             var picUrl = JSON.parse(res.data).data;
-            var imgs = that.data.imgUrls;
+            var imgs = that.data.rqstd_images;
+            var wxImgs = that.data.wxImgs;
                 if(imgs != undefined){
-                  imgs.push(wxUrl);
+                  imgs.push(picUrl);
+                  wxImgs.push(wxUrl);
                 }else{
                   imgs = new Array();
-                  imgs.push(wxUrl);
+                  imgs.push(picUrl);
+                  wxImgs = new Array();
+                  wxImgs.push(wxUrl);
                 }
                 that.setData({
-                imgUrls: imgs,
+                rqstd_images: imgs,
+                wxImgs:wxImgs
               });                          
         },
         error:function(res){

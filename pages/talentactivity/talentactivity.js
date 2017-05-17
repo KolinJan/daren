@@ -37,28 +37,20 @@ Page({
       console.log(e);console.log("接口读的定位");
       wx.openLocation({
         latitude:parseFloat(e.currentTarget.dataset.lat),
-        longitude:parseFloat(e.currentTarget.dataset.lng),
-        // latitude:22.576140,
-        // longitude:114.062010,        
-        address:"本次活动地址",
-        success:function(){
-          console.log("地图打开成功");
-        },
-        fail:function(e){
-          console.log(e);          
-          console.log("地图打开fail");
-        },
-        complete:function(e){
-          console.log("地图打开complete");
-        },                
+        longitude:parseFloat(e.currentTarget.dataset.lng),  
+        address:"本次活动地址",              
       });
+    },
+    preview:function(e){
+      console.log(this.data)
+      preview(e.currentTarget.dataset.src,this.data.details.rqstd_images);
     }  
 })
 
 function getDetails(that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/activity/activityDetail',
+        url: 'https://api.wowyou.cc/v1/activity/activityDetail',
         data:{
           aid:that.data.actId
         },
@@ -80,7 +72,7 @@ function QualificationAquired(that){
     console.log(that.data);
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/activity/activityJoin',
+        url: 'https://api.wowyou.cc/v1/activity/activityJoin',
         data:{
           aid:that.data.details.id
         },
@@ -116,4 +108,11 @@ function getAskList(){
     "../../imgs/群发.png",    
     "../../imgs/朋友圈.png",
   ]
+}
+
+function preview(img,imgs){
+  wx.previewImage({
+    current: img, // 当前显示图片的http链接
+    urls: imgs // 需要预览的图片http链接列表
+  })
 }

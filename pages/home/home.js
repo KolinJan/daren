@@ -49,6 +49,14 @@ onPullDownRefresh: function() {
         
     },
     onLoad: function (options) {
+        this.mapCtx = wx.createMapContext('myMap')
+            this.mapCtx.getCenterLocation({
+      success: function(res){
+        console.log(res);console.log("!!!!!!!!!!!!!!!");
+      }
+    })
+
+
         getScrollerHeight(this);
         wxLoagin(qcloud);
         // getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
@@ -255,13 +263,14 @@ function getList(that) {
               wx.hideLoading()
         },
     }
-    console.log(obj);console.log('obj');
+    console.log(obj);console.log('obj!!!');
     qcloud.request(obj);
 }
 
 function getLocation(that){
     wx.getLocation({
         success: function(res) {
+            console.log(res);console.log("gps定位回调接口");
             // var latitude = res.latitude
             // var longitude = res.longitude
             // var speed = res.speed
