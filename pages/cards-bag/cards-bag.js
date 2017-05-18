@@ -47,7 +47,7 @@ Page({
 function getCardList(id,that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/voucher/voucherDetail',
+        url: 'https://api.wowyou.cc/api/v1/voucher/voucherDetail',
         data:{aid:id},
         success: function (e) {
             console.log(e); console.log('console.log(e);');
@@ -65,7 +65,7 @@ function getCardList(id,that){
 function useCard(that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/voucher/voucherUse',
+        url: 'https://api.wowyou.cc/api/v1/voucher/voucherUse',
         data:{
           vid:that.data.cardData.voucher_id,
           aid:that.data.cardData.voucher_act_id,
@@ -80,7 +80,7 @@ function useCard(that){
                 icon: 'success',
                 duration: 2000
               })
-              getCardList(that.data.id,that);
+              getCardList(that.data.aid,that);
             }else{
               wx.showToast({
                 title: '已使用或已过期',

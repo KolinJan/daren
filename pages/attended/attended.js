@@ -7,13 +7,13 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    getList(0,this);
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
     // 页面显示
+    getList(0,this);
   },
   onHide:function(){
     // 页面隐藏
@@ -106,7 +106,7 @@ function getList(aType,that){
     console.log('刷新数据');
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/user/myJoin',
+        url: 'https://api.wowyou.cc/api/v1/user/myJoin',
         // data:{status:''},
         data:data,
         success: function (e) {

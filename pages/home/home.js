@@ -49,17 +49,11 @@ onPullDownRefresh: function() {
         
     },
     onLoad: function (options) {
-        this.mapCtx = wx.createMapContext('myMap')
-            this.mapCtx.getCenterLocation({
-      success: function(res){
-        console.log(res);console.log("!!!!!!!!!!!!!!!");
-      }
-    })
 
 
         getScrollerHeight(this);
         wxLoagin(qcloud);
-        // getUserInfo(qcloud, "https://www.wowyou.cc/api/user/userinfo");
+        // getUserInfo(qcloud, "https://www.    you.cc/api/user/userinfo");
         getLocation(this);
     },
     onShow:function(){
@@ -222,7 +216,7 @@ function getList(that) {
     var obj = {
         login:true,
         data,
-        url: 'https://api.wowyou.cc/v1/activity/activityHome',
+        url: 'https://api.wowyou.cc/api/v1/activity/activityHome',
         success: function (e) {
              wx.stopPullDownRefresh();
             console.log(e); console.log('console.log(e);');
@@ -271,14 +265,31 @@ function getLocation(that){
     wx.getLocation({
         success: function(res) {
             console.log(res);console.log("gps定位回调接口");
-            // var latitude = res.latitude
-            // var longitude = res.longitude
-            // var speed = res.speed
-            // var accuracy = res.accuracy
             that.setData({
                 lat:res.latitude,
                 lng:res.longitude            
             });
+            // 逆向解析开始
+            wx.request({
+                url: 'http://localhost:3000/lbs/location',
+
+                data: {
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                },
+
+                success: (res) => {
+                    let info = res.data.data.result.ad_info
+                    this.setData({ address: info })
+                },
+
+                fail: () => {
+                },
+
+                complete: () => {
+                }
+            })            
+            //逆向解析结束
             getList(that);
             console.log(res);console.log("位置信息");
         },

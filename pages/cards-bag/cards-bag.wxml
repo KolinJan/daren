@@ -1,12 +1,13 @@
 <!--pages/cards-bag/cards-bag.wxml-->
 <view class="frame">
+    <image src="../../imgs/卡券.png" class="img-shadow"></image>
     <!--<block wx:for="{{cards}}">-->
     <view class="card card-1">
         <view class="title">{{cardData.voucher_title}}</view>
         <view>积分:{{cardData.voucher_price}}</view>
         <view class="use-now">
             <label bindtap="changeStatus" id="{{index}}" data-carId="{{cardData.cardId}}">{{cardData.voucher_status}}</label>
-            <view class="date">使用时间:{{cardData.voucher_use_time != null?cardData.voucher_use_time:' '}}</view>
+            <view class="date">{{cardData.voucher_use_time != null?'使用时间:'+cardData.voucher_use_time:' '}}</view>
         </view>
     </view>
     <!--</block>   -->

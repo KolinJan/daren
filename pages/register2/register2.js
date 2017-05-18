@@ -39,7 +39,7 @@ Page({
 
     var resUpload = {
       login: true,
-      url: "https://www.wowyou.cc/api/user/reg",
+      url: "https://api.wowyou.cc/api/v1/user/reg",
       method:"POST",      
       data:{
         mobile:that.uploadData.mobile,
@@ -54,10 +54,16 @@ Page({
             icon: 'success',
             duration: 2000
           })
+        setTimeout(function(){
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 500);
         }else{
           wx.showModal({
             title: '错误',
             content: res.data.msg,
+            showCancel:false
           })
         }
       },
@@ -108,7 +114,7 @@ funevent: function (e) {
                 var tempFilePaths = res.tempFilePaths;
                 var picUrl = '';
                 wx.uploadFile({
-                    url:'https://www.wowyou.cc/api/upload/uploadOne', 
+                    url:'https://api.wowyou.cc/api/v1/upload/uploadOne', 
                     filePath:tempFilePaths[0],
                     name:'image',
                     success:function(res){
@@ -146,14 +152,14 @@ funevent: function (e) {
       that.uploadData.t = t;
       var obj = {
         login: true,
-        url: "https://www.wowyou.cc/api/api/send",
+        url: "https://api.wowyou.cc/api/v1/api/send",
         data:{
           mobile:mobile,
           t:t,
         },
         success(response) {
           console.log(response)
-          if(response.data.code != 0){
+          if(response.data.code == 0){
             beginTimer(that);
             wx.showToast({
               title: "发送成功",

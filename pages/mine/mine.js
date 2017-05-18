@@ -24,7 +24,7 @@ Page({
     })    
   },
   onShow:function(){
-    getUserVip("https://www.wowyou.cc/api/user/userinfo",this);    
+    getUserVip("https://api.wowyou.cc/api/v1/user/userinfo",this);    
     //调用应用实例的方法获取全局数据
     getUserInfo(this);
 },
@@ -69,7 +69,7 @@ Page({
 function getUserInfo(that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/user/userinfo',
+        url: 'https://api.wowyou.cc/api/v1/user/userinfo',
         success: function (e) {
             console.log(e); console.log('console.log(e);');
             if(e.data.code == 0 ){

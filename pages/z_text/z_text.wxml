@@ -1,0 +1,2 @@
+<!--pages/z_text/z_text.wxml-->
+<text bindtap="pay">点击调起支付</text>

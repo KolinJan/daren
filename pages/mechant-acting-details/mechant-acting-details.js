@@ -54,7 +54,7 @@ Page({
 function getDetails(aid,that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/activity/detail',
+        url: 'https://api.wowyou.cc/api/v1/activity/detail',
         data:{aid:aid},
         success: function (e) {
             console.log(e); console.log('console.log(e);');
@@ -73,7 +73,7 @@ function preview(userId,that){
   loading();
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/activity/uploadActImgDetail',
+        url: 'https://api.wowyou.cc/api/v1/activity/uploadActImgDetail',
         data:{aid:that.data.details.id,
               uid:userId
         },
@@ -126,7 +126,7 @@ function sureEval(that,userid,status){
             console.log(res.tapIndex)
             var obj = {
                 login:true,
-                url: 'https://www.wowyou.cc/api/comment/commentAdd',
+                url: 'https://api.wowyou.cc/api/v1/comment/commentAdd',
                 data:{id:userid,star:res.tapIndex,aid:that.data.details.id},
                 success: function (e) {
                     console.log(e); console.log('console.log(e);');

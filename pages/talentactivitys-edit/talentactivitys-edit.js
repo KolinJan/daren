@@ -126,7 +126,7 @@ animationData: {},
 function getAddrList(that){
   var t = that;
   var obj = {
-    url:'https://api.wowyou.cc/v1/user/addressList',
+    url:'https://api.wowyou.cc/api/v1/user/addressList',
     success:function(e){
       if(e.data.code == 0){
         console.log(123);
@@ -150,7 +150,7 @@ function getAddrList(that){
 function uploadPic(that,wxUrl){
   if(wxUrl != undefined){
     wx.uploadFile({
-        url:'https://api.wowyou.cc/v1/upload/uploadOne', 
+        url:'https://api.wowyou.cc/api/v1/upload/uploadOne', 
         filePath:wxUrl,
         name:'image',
         method:'POST',
@@ -180,7 +180,7 @@ function creatActivity(that,uData){
   uData["rqstd_images"] = that.data.rqstd_images;
   // uData["ids"] = 
   var obj = {
-    url:'https://api.wowyou.cc/v1/activity/create',
+    url:'https://api.wowyou.cc/api/v1/activity/create',
     method:"POST",
     data:uData,
     success:function(e){
@@ -238,7 +238,7 @@ function uploadRequirePics(that,wxUrl){
   console.log(wxUrl);
   if(wxUrl != undefined){
     wx.uploadFile({
-        url:'https://api.wowyou.cc/v1/upload/uploadOne', 
+        url:'https://api.wowyou.cc/api/v1/upload/uploadOne', 
         filePath:wxUrl,
         name:'image',
         method:'POST',

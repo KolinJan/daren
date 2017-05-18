@@ -2,6 +2,7 @@
 <!--我的-商家-正在进行的活动>
     <!---------------------------------------------list-------------------------------------------------->
     <view class="list-frame">
+        <view class="noAttendLabel {{activityList.length >0?'none':'block'}}">暂无进行中的活动</view>    
         <block wx:for="{{activityList}}">
             <view class="list-frame-item" bindtap="lookForDetails" data-aid="{{item.id}}">
                 <image class="list-adimage" src="{{item.images}}"></image>

@@ -50,7 +50,7 @@ Page({
 function getDetails(that){
     var obj = {
         login:true,
-        url: 'https://api.wowyou.cc/v1/activity/activityDetail',
+        url: 'https://api.wowyou.cc/api/v1/activity/activityDetail',
         data:{
           aid:that.data.actId
         },
@@ -72,7 +72,7 @@ function QualificationAquired(that){
     console.log(that.data);
     var obj = {
         login:true,
-        url: 'https://api.wowyou.cc/v1/activity/activityJoin',
+        url: 'https://api.wowyou.cc/api/v1/activity/activityJoin',
         data:{
           aid:that.data.details.id
         },

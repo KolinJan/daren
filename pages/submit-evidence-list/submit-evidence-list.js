@@ -106,7 +106,7 @@ function getList(aType,that){
     console.log('刷新数据');
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/user/myJoin',
+        url: 'https://api.wowyou.cc/api/v1/user/myJoin',
         data:{status:2},
         success: function (e) {
             console.log(e); console.log('console.log(e);');

@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/home/home",       
+    "pages/z_text/z_text",     
+    "pages/home/home",          
     "pages/talentactivitys-edit/talentactivitys-edit",          
     "pages/register2/register2",            
     "pages/evaluate/evaluate",     

@@ -273,7 +273,7 @@ function checkData(obj){
 function upLoad(obj){
     var resUpload = {
       login: true,
-      url: "https://api.wowyou.cc/v1/user/addressEdit",
+      url: "https://api.wowyou.cc/api/v1/user/addressEdit",
       method:"POST",      
       data:obj,
       success(res) {

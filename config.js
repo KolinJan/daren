@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://api.wowyou.cc/v1';
+var host = 'https://api.wowyou.cc/api/v1';
 // https://qiuqiuo.com/v1/index.php
 
 var config = {

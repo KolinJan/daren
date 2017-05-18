@@ -36,7 +36,7 @@ Page({
 
     var resUpload = {
       login: true,
-      url: "https://www.wowyou.cc/api/activity/uploadActImg",
+      url: "https://api.wowyou.cc/api/v1/activity/uploadActImg",
       method:"POST",      
       data:{
         images:that.uploadData.jpg1,
@@ -99,7 +99,7 @@ funevent: function (e) {
                 var tempFilePaths = res.tempFilePaths;
                 var picUrl = '';
                 wx.uploadFile({
-                    url:'https://www.wowyou.cc/api/upload/uploadOne', 
+                    url:'https://api.wowyou.cc/api/v1/upload/uploadOne', 
                     filePath:tempFilePaths[0],
                     name:'image',
                     success:function(res){
@@ -119,6 +119,12 @@ funevent: function (e) {
             }
         })
     },
+    preview:function(){
+      wx.previewImage({
+        current: '', // 当前显示图片的http链接
+        urls: [this.data.tempFilePaths1] // 需要预览的图片http链接列表
+      })
+    }
 })
 
 function sample() {

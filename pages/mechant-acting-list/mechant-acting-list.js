@@ -28,7 +28,7 @@ Page({
 function getList(that){
     var obj = {
         login:true,
-        url: 'https://www.wowyou.cc/api/activity/activityGoing',
+        url: 'https://api.wowyou.cc/api/v1/activity/activityGoing',
         data:{
           status:1
         },

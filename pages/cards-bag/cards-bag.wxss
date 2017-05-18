@@ -4,10 +4,12 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    position: relative;
 }
 
 .card-1{
-  background-color: #2ecc71;  
+  background-color:rgba(46, 204, 113, 0.75);
+
 }
 
 .use-now{
@@ -51,4 +53,12 @@
 .title{
     font-size: 20px;
     font-weight: bold;
+}
+.img-shadow{
+    height:100px;
+    width:143px;
+    position:absolute;
+    right:90px;
+    top:8px;
+    opacity: 0.8
 }

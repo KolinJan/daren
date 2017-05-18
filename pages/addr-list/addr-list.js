@@ -45,7 +45,7 @@ Page({
 
 function getAddrList(that){
   var obj = {
-    url:'https://api.wowyou.cc/v1/user/addressList',
+    url:'https://api.wowyou.cc/api/v1/user/addressList',
     success:function(e){
       console.log(e);
       if(e.data.code == 0){
@@ -65,7 +65,7 @@ function changeDefault(that){
   var id = that.data.default_id;
   if(id != undefined){
     var obj = {
-      url:'https://api.wowyou.cc/v1/user/setDefault',
+      url:'https://api.wowyou.cc/api/v1/user/addressDel',
       data:{id:id},
       success:function(e){
         if(e.data.code == 0){

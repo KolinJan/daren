@@ -13,7 +13,7 @@
             <image class="add-icon" src="../../imgs/添加.png" bindtap="funevent" data-params="1"></image>
           </view>
           <view class="sample-frame">
-            <image class="add-icon-sample add-icon-sample-frame{{show1}}" src="{{tempFilePaths1}}"></image>
+            <image class="add-icon-sample add-icon-sample-frame{{show1}}" src="{{tempFilePaths1}}" mode="center" bindtap="preview"></image>
           </view>
         </view>
       </view>
