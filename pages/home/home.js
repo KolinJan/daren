@@ -144,7 +144,6 @@ function initSubMenuContent() {
     return [
         ['好吃', '好喝', '好玩', '好赚'],
         ['福田区', '罗湖区', '龙岗区', '盐田区', '大鹏新区', '龙华新区', '光明新区', '南山区', '宝安区', '坪山新区'],
-        ['综合排序', '折扣最高', '价格最低']
     ];
 }
 
@@ -269,26 +268,9 @@ function getLocation(that){
                 lat:res.latitude,
                 lng:res.longitude            
             });
+            getDistrictId(res,that);
             // 逆向解析开始
-            wx.request({
-                url: 'http://localhost:3000/lbs/location',
-
-                data: {
-                    latitude: res.latitude,
-                    longitude: res.longitude
-                },
-
-                success: (res) => {
-                    let info = res.data.data.result.ad_info
-                    this.setData({ address: info })
-                },
-
-                fail: () => {
-                },
-
-                complete: () => {
-                }
-            })            
+            
             //逆向解析结束
             getList(that);
             console.log(res);console.log("位置信息");
@@ -318,4 +300,26 @@ function getScrollerHeight(that){
             });
         }
 })
+}
+
+function getDistrictId(res,that){
+    var obj = {
+        url: 'https://api.wowyou.cc/api/v1/other/getlocation?location=22.543099,114.057868',
+        data:{
+            location:res.latitude+','+res.longitude,
+        },
+        success(res) {
+            console.log(res);console.log("新接口");
+            if (res.data.code == 0) {
+                that.setData({
+                    districts:res.data.data
+                });
+            }
+        },
+        error(res) {
+            console.log(JSON.stringify(res));
+            console.log('注册失败');
+        },
+    }
+    qcloud.request(obj);
 }

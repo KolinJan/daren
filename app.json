@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/z_text/z_text",     
-    "pages/home/home",          
+    "pages/home/home",       
+    "pages/wait-to-pay-list/wait-to-pay-list",          
+    "pages/z_text/z_text",            
     "pages/talentactivitys-edit/talentactivitys-edit",          
     "pages/register2/register2",            
     "pages/evaluate/evaluate",     

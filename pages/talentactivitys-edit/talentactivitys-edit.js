@@ -155,7 +155,7 @@ function uploadPic(that,wxUrl){
         name:'image',
         method:'POST',
         success:function(res){
-            console.log(JSON.parse(res.data).data+"123123");
+            console.log(res);
             var picUrl = JSON.parse(res.data).data;
                 picUrl = picUrl.replace("\/public/","");
                 console.log(picUrl);
@@ -196,7 +196,7 @@ function creatActivity(that,uData){
       }else if(e.data.code == -1){
         toast.showToast({
             context: that,
-            title: "表单数据需填写完整"
+            title: e.data.msg
         })
       }
     },    

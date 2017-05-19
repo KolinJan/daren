@@ -62,6 +62,11 @@ Page({
     wx.navigateTo({
       url: '../account/account/account',
     })    
+  },
+  ntWaitList:function(){
+    wx.navigateTo({
+      url: '../wait-to-pay-list/wait-to-pay-list',
+    })  
   }  
 })
 

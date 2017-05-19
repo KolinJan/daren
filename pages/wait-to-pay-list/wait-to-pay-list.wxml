@@ -1,0 +1,21 @@
+<!--pages/wait-to-pay-list/wait-to-pay-list.wxml-->
+    <view class="list-frame">
+        <view class="noAttendLabel {{activityList.length >0?'none':'block'}}">暂无进行中的活动</view>    
+        <block wx:for="{{activityList}}">
+            <view class="list-frame-item" bindtap="pay" data-oid="{{item.order_id}}">
+                <image class="list-adimage" src="{{item.images}}"></image>
+                <view class="list-frame-item-panel">
+                    <label class="list-frame-label-alone list-frame-titleLable">{{item.title}}</label>
+                    <label class="list-frame-label-alone list-frame-label-price">{{item.shop_price}}! (市价 {{item.market_price}} 元)</label>
+                    <label class="list-frame-detailsLable">等级:{{item.min_level}} ↑     评分: {{item.min_score}} ↑</label>
+                    <label class="list-frame-label-alone list-frame-statusLable">名额 {{item.quota}}</label>
+                </view>
+                <!--<label class="finished">领取人数:{{item.join_quota}}</label>-->
+                <!--<view class="list-require-frame">
+                    <label class="list-frame-requireLabel">商家要求：</label>
+                    <label class="list-frame-requireLabel-details">九图 其他</label>
+                </view>-->
+            </view>
+        </block>                      
+    </view>
+

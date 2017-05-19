@@ -33,6 +33,13 @@
              </view> 
         </view>
         <view class="mine-item">
+            <view bindtap="ntWaitList">
+                <image class="mine-icon" src="../../imgs/过去.png"></image>
+                <view class="mine-dicript-view">等待支付的活动</view>
+                <image class="mine-icon right" src="../../imgs/箭头右.png"></image>
+             </view> 
+        </view>        
+        <view class="mine-item">
             <view bindtap="ntAddrList">
                 <image class="mine-icon" src="../../imgs/商家位置.png"></image>
                 <view class="mine-dicript-view">地址管理</view>

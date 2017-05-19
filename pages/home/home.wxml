@@ -27,16 +27,9 @@
     </dd>
     <dd class="{{subMenuDisplay[1]}}">
         <ul>
-            <li class="" data-index="0" bindtap="tapSubMenu">{{subMenueContent[1][0]}}</li>
-            <li class="" data-index="1" bindtap="tapSubMenu">{{subMenueContent[1][1]}}</li>
-            <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[1][2]}}</li>
-            <li class="" data-index="3" bindtap="tapSubMenu">{{subMenueContent[1][3]}}</li>
-            <li class="" data-index="4" bindtap="tapSubMenu">{{subMenueContent[1][4]}}</li>
-            <li class="" data-index="5" bindtap="tapSubMenu">{{subMenueContent[1][5]}}</li>
-            <li class="" data-index="6" bindtap="tapSubMenu">{{subMenueContent[1][6]}}</li>
-            <li class="" data-index="7" bindtap="tapSubMenu">{{subMenueContent[1][7]}}</li>                
-            <li class="" data-index="8" bindtap="tapSubMenu">{{subMenueContent[1][8]}}</li>
-            <li class="" data-index="9" bindtap="tapSubMenu">{{subMenueContent[1][9]}}</li>                                   
+            <block wx:for="{{districts}}">
+                <li class="" data-index="{{item.id}}" bindtap="tapSubMenu">{{item.name}}</li>
+            </block>                                
         </ul>
     </dd>
     <dd class="{{subMenuDisplay[2]}}">
