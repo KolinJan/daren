@@ -65,7 +65,7 @@ function changeDefault(that){
   var id = that.data.default_id;
   if(id != undefined){
     var obj = {
-      url:'https://api.wowyou.cc/api/v1/user/addressDel',
+      url:'https://api.wowyou.cc/api/v1/user/setDefault',
       data:{id:id},
       success:function(e){
         if(e.data.code == 0){
@@ -92,7 +92,7 @@ function changeDefault(that){
 function delAddr(that,id){
   if(id != undefined){
     var obj = {
-      url:'https://api.wowyou.cc/v1/user/addressDel',
+      url:'https://api.wowyou.cc/api/v1/user/addressDel',
       data:{aid:id},
       success:function(e){
         if(e.data.code == 0){

@@ -23,6 +23,7 @@
             <li class="" data-index="2" bindtap="tapSubMenu">{{subMenueContent[0][1]}}</li>
             <li class="" data-index="3" bindtap="tapSubMenu">{{subMenueContent[0][2]}}</li>
             <li class="" data-index="4" bindtap="tapSubMenu">{{subMenueContent[0][3]}}</li>
+            <li class="" data-index="5" bindtap="tapSubMenu">{{subMenueContent[0][4]}}</li>
         </ul>
     </dd>
     <dd class="{{subMenuDisplay[1]}}">

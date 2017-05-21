@@ -87,6 +87,10 @@ swiper{
     padding: 2px 0;
 }
 .list-frame-titleLable{
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+    width: 90%;
     font-size: 16px!important;
     font-weight: bold;
 }
@@ -108,6 +112,7 @@ swiper{
 
 }
 .list-frame-item-panel{
+    width: 70%;
     position:absolute;
     left:95px;
     top:0;

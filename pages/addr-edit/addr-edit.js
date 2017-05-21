@@ -313,7 +313,7 @@ function getDetails(that){
   var aid = that.data.aid;
     var resUpload = {
       login: true,
-      url: "https://api.wowyou.cc/v1/user/detail",  
+      url: "https://api.wowyou.cc/api/v1/user/detail",  
       data:{id:aid},
       success(res) {
         console.log(res);console.log('res');

@@ -7,7 +7,7 @@ Page({
         inputValue:'',
         checkBoxShow: [false,false,false,false,false,false],
         addrIsShow:0,
-        aType:['美食类','饮品类','游玩类','娱乐类'],
+        aType:['美食类','饮品类','游玩类'],
         up_grade:5,
         up_scrore:60,
         ids:[],
@@ -190,8 +190,8 @@ function creatActivity(that,uData){
             context: that,
             title: "发布成功"
         })
-        wx.switchTab({
-          url:"../home/home"
+        wx.navigateTo({
+          url:"../wait-to-pay-list/wait-to-pay-list"
         })
       }else if(e.data.code == -1){
         toast.showToast({

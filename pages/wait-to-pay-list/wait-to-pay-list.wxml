@@ -1,4 +1,15 @@
 <!--pages/wait-to-pay-list/wait-to-pay-list.wxml-->
+<dl class="menu">
+    <dt data-index="0" bindtap="tapMainMenu">{{titleShow}}</dt>
+    <dd class="{{subMenuDisplay[0]}}">
+        <ul>
+            <li class="" data-index="99" data-titleShow="{{subMenueContent[0][0]}}" bindtap="tapSubMenu">{{subMenueContent[0][0]}}</li>
+            <li class="" data-index="10" data-titleShow="{{subMenueContent[0][1]}}" bindtap="tapSubMenu">{{subMenueContent[0][1]}}</li>
+            <li class="" data-index="5" data-titleShow="{{subMenueContent[0][2]}}" bindtap="tapSubMenu">{{subMenueContent[0][2]}}</li>
+            <li class="" data-index="20" data-titleShow="{{subMenueContent[0][3]}}" bindtap="tapSubMenu">{{subMenueContent[0][3]}}</li>
+        </ul>
+    </dd>       
+</dl>
     <view class="list-frame">
         <view class="noAttendLabel {{activityList.length >0?'none':'block'}}">暂无进行中的活动</view>    
         <block wx:for="{{activityList}}">

@@ -146,7 +146,7 @@ function filtrate() {
 
 function initSubMenuContent() {
     return [
-        ['好吃', '好喝', '好玩', '好赚'],
+        ['好吃', '好喝', '好玩', '好赚','全部'],
         ['福田区', '罗湖区', '龙岗区', '盐田区', '大鹏新区', '龙华新区', '光明新区', '南山区', '宝安区', '坪山新区'],
     ];
 }
@@ -195,26 +195,29 @@ function getUserInfo(qcloud, url) {
     qcloud.request(obj);
 }
 function getList(that) {
+    console.log(that.data.atype);
     wx.showLoading({
         title: '加载中',
     })
-    var atype = that.data.atype;
     var data;
-    if (atype != undefined){
         data={
-            districtid:that.data.districtid,
+            // districtid:that.data.districtid,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
-            atype:that.data.atype
+            // atype:that.data.atype
         }
-    }else{
         data={
-            districtid:that.data.districtid,
+            // districtid:that.data.districtid,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
         }
+    if(that.data.atype != 5 && that.data.atype != undefined){
+        data['atype'] = that.data.atype;
+    }
+    if(that.data.districtid != undefined){
+        data['districtid'] = that.data.districtid;
     }
     var obj = {
         login:true,
