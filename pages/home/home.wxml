@@ -15,7 +15,7 @@
     <!---------------------------------------------filtrate-------------------------------------------------->
 <dl class="menu">
     <dt class="filter-tab active" data-index="0" bindtap="tapMainMenu">{{filtrate[0]}}</dt>
-    <dt class="filter-tab" data-index="1" bindtap="tapMainMenu">{{filtrate[1]}}</dt>
+    <dt class="filter-tab" data-index="1" bindtap="tapMainMenu">{{districtName}}</dt>
     <dt class="filter-tab" data-index="2" bindtap="tapMainMenu" style="display:none;">{{filtrate[2]}}</dt>
     <dd class="{{subMenuDisplay[0]}}">
         <ul>
@@ -28,7 +28,7 @@
     <dd class="{{subMenuDisplay[1]}}">
         <ul>
             <block wx:for="{{districts}}">
-                <li class="" data-index="{{item.id}}" bindtap="tapSubMenu">{{item.name}}</li>
+                <li class="" data-index="{{item.id}}" data-name="{{item.name}}" bindtap="tapSubMenu">{{item.name}}</li>
             </block>                                
         </ul>
     </dd>

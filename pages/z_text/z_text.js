@@ -22,26 +22,6 @@ Page({
   }
 })
 
-// function getList(that){
-//     var obj = {
-//         login:true,
-//         url: 'https://api.wowyou.cc/api/v1/activity/activityGoing',
-//         data:{
-//           status:1
-//         },
-//         success: function (e) {
-//             console.log(e); console.log('console.log(e);');
-//             if(e.data.code == 0 ){
-//                 that.setData({
-//                     activityList:e.data.data.data,
-//                 });
-//             }
-//             console.log(that.data); console.log('that.data');
-//         },
-//     }
-//     qcloud.request(obj);  
-// }
-
 function pay(that){
   var obj = {
     login:true,

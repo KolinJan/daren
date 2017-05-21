@@ -46,7 +46,7 @@ onPullDownRefresh: function() {
         activityList:[],
         lat:'',
         lng:'',
-        
+        districtName:'区域',
     },
     onLoad: function (options) {
 
@@ -100,7 +100,11 @@ onPullDownRefresh: function() {
                 atype:index
             });
           }else{
-          
+            this.setData({
+                filtrate: filtrate,
+                districtid:index,
+                districtName:e.currentTarget.dataset.name
+            });
           }
           getList(this);
         console.log(this.data.filtrateArr+":filtrateArr");
@@ -198,7 +202,7 @@ function getList(that) {
     var data;
     if (atype != undefined){
         data={
-            districtid:105,
+            districtid:that.data.districtid,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
@@ -206,7 +210,7 @@ function getList(that) {
         }
     }else{
         data={
-            districtid:105,
+            districtid:that.data.districtid,
             lat:that.data.lat,
             lng:that.data.lng,
             page:pageIndex,
